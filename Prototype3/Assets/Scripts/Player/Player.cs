@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Transform cameraTransform;
     public float gravity = 15.0f;
     public float rotationSpeed = 240.0f;
+    public float jumpForce = 10.0f;
 
     [Range(0.01f, 25.0f)]
     public float speed = 5.0f;
@@ -40,6 +41,11 @@ public class Player : MonoBehaviour
         // Get Input for axis
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AddForce(Vector3.up * jumpForce);
+        }
 
         // Calculate the forward vector
         Vector3 forwardDirection = Vector3.Scale(cameraTransform.forward, new Vector3(1, 0, 1)).normalized;
@@ -86,10 +92,18 @@ public class Player : MonoBehaviour
 
     private void UpdateForce(float deltaTime)
     {
-        if (force.magnitude > 0.2f)
+        if (force.magnitude > 4.0f)
         {
             characterController.Move(force * deltaTime);
         }
-        force = Vector3.Lerp(force, Vector3.zero, 1.5f * deltaTime);
+        if (characterController.isGrounded)
+        {
+            force = Vector3.Lerp(force, Vector3.zero, 5.0f * deltaTime);
+        }
+        else
+        {
+            force = Vector3.Lerp(force, Vector3.zero, 1.5f * deltaTime);
+        }
+        
     }
 }
