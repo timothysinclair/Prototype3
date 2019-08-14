@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     private Vector3 movementDirection = Vector3.zero;
     private CharacterController characterController;
 
+    private Vector3 force = Vector3.zero;
+
     private void Start()
     {
         cameraOffset = (cameraTransform.position - transform.position) + new Vector3(2.0f, 0.0f, 0.0f);
@@ -57,6 +59,8 @@ public class Player : MonoBehaviour
 
         movementDirection.y -= gravity * Time.deltaTime;
         characterController.Move(movementDirection * Time.deltaTime);
+
+        UpdateForce(Time.deltaTime);
     }
      
     private void LateUpdate()
@@ -74,4 +78,18 @@ public class Player : MonoBehaviour
 
         if (lookAtPlayer || rotateAroundPlayer) cameraTransform.LookAt(transform);
     } 
+
+    public void AddForce(Vector3 newForce)
+    {
+        force += newForce;
+    }
+
+    private void UpdateForce(float deltaTime)
+    {
+        if (force.magnitude > 0.2f)
+        {
+            characterController.Move(force * deltaTime);
+        }
+        force = Vector3.Lerp(force, Vector3.zero, 1.5f * deltaTime);
+    }
 }
