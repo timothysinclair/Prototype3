@@ -90,6 +90,6 @@ public class Player : MonoBehaviour
         {
             characterController.Move(force * deltaTime);
         }
-        force = Vector3.Lerp(force, Vector3.zero, 2 * deltaTime);
+        force = Vector3.Lerp(force, Vector3.zero, 1.5f * deltaTime);
     }
 }
