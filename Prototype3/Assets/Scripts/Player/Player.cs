@@ -29,13 +29,20 @@ public class Player : MonoBehaviour
         cameraOffset = (cameraTransform.position - transform.position) + new Vector3(2.0f, 0.0f, 0.0f);
         characterController = GetComponent<CharacterController>();
 
+        /*
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        */
     }
 
     private void Update()
     {
-        // Get Input for axis
+        Movement();
+        CameraFollow();
+    }
+
+    private void Movement()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -50,7 +57,7 @@ public class Player : MonoBehaviour
         transform.Rotate(0, turnAmount * rotationSpeed * Time.deltaTime, 0);
 
         if (characterController.isGrounded)
-        { 
+        {
             movementDirection = transform.forward * movement.magnitude;
             movementDirection *= speed;
         }
@@ -58,13 +65,13 @@ public class Player : MonoBehaviour
         movementDirection.y -= gravity * Time.deltaTime;
         characterController.Move(movementDirection * Time.deltaTime);
     }
-     
-    private void LateUpdate()
+
+    private void CameraFollow()
     {
         if (rotateAroundPlayer)
         {
             float xAxis = Input.GetAxis("Mouse X");
-            Quaternion turnAngle = Quaternion.AngleAxis(xAxis* cameraRotationSpeed, Vector3.up);
+            Quaternion turnAngle = Quaternion.AngleAxis(xAxis * cameraRotationSpeed, Vector3.up);
 
             cameraOffset = turnAngle * cameraOffset;
         }
@@ -73,5 +80,5 @@ public class Player : MonoBehaviour
         cameraTransform.position = Vector3.Slerp(cameraTransform.position, position, smoothing);
 
         if (lookAtPlayer || rotateAroundPlayer) cameraTransform.LookAt(transform);
-    } 
+    }
 }
