@@ -27,8 +27,15 @@ public class LaunchPad : MonoBehaviour
         else
         {
             launchVector *= playerLaunchForce;
-            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
-            rigidBody.velocity = launchVector;
+
+            var player = other.GetComponent<Player>();
+            player.AddForce(launchVector);
+
+            //var controller = other.GetComponent<CharacterController>();
+            //controller.Move(launchVector);
+
+            //var rigidBody = other.gameObject.GetComponent<Rigidbody>();
+            //rigidBody.velocity = launchVector;
         }
     }
 }
