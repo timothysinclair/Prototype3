@@ -12,9 +12,9 @@ public class LaunchPad : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Vector3 launchVector = Vector3.Normalize(launchDirection.position - this.transform.position);
-        // Vector3 launchVector = Vector3.up * launchForce;
 
         var friend = other.GetComponent<Friend>();
+        var player = other.GetComponent<PlayerController>();
 
         if (friend)
         {
@@ -24,18 +24,12 @@ public class LaunchPad : MonoBehaviour
             var rigidBody = other.gameObject.GetComponent<Rigidbody>();
             rigidBody.velocity = launchVector;
         }
-        else
+        else if (player)
         {
             launchVector *= playerLaunchForce;
 
-            var player = other.GetComponent<Player>();
-            player.AddForce(launchVector);
-
-            //var controller = other.GetComponent<CharacterController>();
-            //controller.Move(launchVector);
-
-            //var rigidBody = other.gameObject.GetComponent<Rigidbody>();
-            //rigidBody.velocity = launchVector;
+            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
+            rigidBody.velocity = launchVector;
         }
     }
 }

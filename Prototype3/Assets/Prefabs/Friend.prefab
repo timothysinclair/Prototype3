@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a897f2ed977a64fbfc6e4d7c613214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
   agent: {fileID: 505519041878653781}
   path:
   - {fileID: 0}
