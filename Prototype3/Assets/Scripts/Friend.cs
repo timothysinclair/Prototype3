@@ -68,7 +68,7 @@ public class Friend : MonoBehaviour
         }
     }
 
-    void MoveToHangi()
+    public void MoveToHangi()
     {
         state = FriendState.Moving;
         agent.isStopped = false;
@@ -84,12 +84,27 @@ public class Friend : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (state == FriendState.AtHangi) { return; }
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (state == FriendState.Moving) { return; }
+
+        var player = other.gameObject.GetComponent<PlayerController>();
+
+        if (player)
         {
-            MoveToHangi();
+            player.SetInTalkingDistance(true, GetComponent<Friend>());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var player = other.gameObject.GetComponent<PlayerController>();
+
+        if (player)
+        {
+            player.SetInTalkingDistance(false, null);
         }
     }
 
@@ -103,7 +118,12 @@ public class Friend : MonoBehaviour
 
     private void NextPoint()
     {
-        if (currentPathPoint >= path.Length - 1) {state = FriendState.AtHangi; return; }
+        if (currentPathPoint >= path.Length - 1)
+        {
+            GameManager.Instance.FriendArrived();
+            state = FriendState.AtHangi;
+            return;
+        }
         agent.SetDestination(path[++currentPathPoint].position);
     }
 
