@@ -21,10 +21,15 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rigidBody;
     public Vector3 inputs = Vector3.zero;
-    private bool isGrounded = true;
+    public bool isGrounded = true;
     private Camera cam;
 
+    private Vector3 lastSafePosition;
+
     private List<bool> groundedFrames;
+
+    private bool inTalkingDistance = false;
+    private Friend talkingFriend;
 
     private void Start()
     {
@@ -45,6 +50,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance, groundLayers, QueryTriggerInteraction.Ignore);
+
+        if (isGrounded) { lastSafePosition = this.transform.position; }
 
         if (groundedFrames.Capacity > 0)
         {
@@ -92,7 +99,12 @@ public class PlayerController : MonoBehaviour
             if (groundedFrames[i]) { lenientJump = true; }
         }
 
-        if ((Input.GetButtonDown("Jump") && isGrounded) || (Input.GetButtonDown("Jump") && lenientJump))
+        if (Input.GetButtonDown("Jump") && inTalkingDistance)
+        {
+            talkingFriend.MoveToHangi();
+        }
+
+        if (!inTalkingDistance && (Input.GetButtonDown("Jump") && isGrounded) || (Input.GetButtonDown("Jump") && lenientJump))
         {
             Jump();
         }
@@ -115,7 +127,8 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        Vector3 force = Vector3.up * jumpForce;
+        rigidBody.AddForce(force, ForceMode.Impulse);
         ResetGroundedFrames();
     }
 
@@ -125,5 +138,19 @@ public class PlayerController : MonoBehaviour
         {
             groundedFrames[i] = false;
         }
+    }
+
+    public void ReturnToSafePosition()
+    {
+        this.transform.position = lastSafePosition;
+        rigidBody.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+    }
+
+    public void SetInTalkingDistance(bool isInTalkingDistance, Friend newFriend)
+    {
+        inTalkingDistance = isInTalkingDistance;
+        talkingFriend = newFriend;
+
+        GameManager.Instance.InTalkRange(inTalkingDistance);
     }
 }
