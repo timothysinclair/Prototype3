@@ -11,13 +11,15 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { return instance; } }
 
-
     // Testing UI
     public TextMeshProUGUI numFriends;
     public TextMeshProUGUI actionText;
     public GameObject pauseOverlay;
     public GameObject pauseButton;
     public TextMeshProUGUI pauseButtonText;
+
+    public Camera hangiCamera;
+    public Camera mainCamera;
 
     private int friendCount = 0;
     private int arrivedFriends = 0;
@@ -49,6 +51,33 @@ public class GameManager : MonoBehaviour
     public void FriendArrived()
     {
         arrivedFriends++;
+
+        var hangi = FindObjectOfType<Hangi>();
+        hangi.canActivate = true;
+    }
+
+    public void UpdateActionText(ActionState newState)
+    {
+        switch (newState)
+        {
+            case ActionState.eat:
+                {
+                    actionText.text = "Eat";
+                    break;
+                }
+
+            case ActionState.talk:
+                {
+                    actionText.text = "Talk";
+                    break;
+                }
+
+            case ActionState.jump:
+                {
+                    actionText.text = "Jump";
+                    break;
+                }
+        }
     }
 
     public void InTalkRange(bool inRange)
@@ -84,5 +113,19 @@ public class GameManager : MonoBehaviour
         }
 
         isPaused = !isPaused;
+    }
+
+    public void StartHangi()
+    {
+        var hangi = FindObjectOfType<Hangi>();
+
+        if (hangi) { hangi.ActivateFood(arrivedFriends); }
+
+        mainCamera.enabled = false;
+        hangiCamera.gameObject.SetActive(true);
+        hangiCamera.enabled = true;
+
+        player.DisableInputs(true);
+
     }
 }
