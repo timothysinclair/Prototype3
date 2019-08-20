@@ -1426,7 +1426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427723647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.58, y: 1.37, z: 74.52}
+  m_LocalPosition: {x: 30.36, y: 1.37, z: 72.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1260854830}
@@ -2389,7 +2389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755623673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.35, y: 2.01, z: 75.59}
+  m_LocalPosition: {x: 34.22, y: 2.01, z: 76.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 532773032}
@@ -3737,7 +3737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400827772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.87, y: 1.51, z: 66.42}
+  m_LocalPosition: {x: 35.6, y: 1.51, z: 66.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1496388391}
@@ -4516,7 +4516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934651518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.79, y: 0.98, z: 71.35}
+  m_LocalPosition: {x: 39.06, y: 0.98, z: 71.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 78002050}
@@ -4669,7 +4669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021241093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.06, y: 0, z: 66.39}
+  m_LocalPosition: {x: 32.23, y: 0, z: 66.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2020322511}
@@ -5421,6 +5421,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7264245796936312254, guid: c98f2b7cbad0afd4ca420049595eaa1c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1677773326}
+    - target: {fileID: 7264245797296676001, guid: c98f2b7cbad0afd4ca420049595eaa1c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 647795334}
     - target: {fileID: 7264245797314831106, guid: c98f2b7cbad0afd4ca420049595eaa1c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5536,16 +5546,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -178.41016
       objectReference: {fileID: 0}
-    - target: {fileID: 7264245796936312254, guid: c98f2b7cbad0afd4ca420049595eaa1c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1677773326}
-    - target: {fileID: 7264245797296676001, guid: c98f2b7cbad0afd4ca420049595eaa1c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 647795334}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c98f2b7cbad0afd4ca420049595eaa1c, type: 3}
 --- !u!1001 &7734927002812149720
