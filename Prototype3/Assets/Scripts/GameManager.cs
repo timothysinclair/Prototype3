@@ -13,10 +13,17 @@ public class GameManager : MonoBehaviour
 
     // Testing UI
     public TextMeshProUGUI numFriends;
-    public TextMeshProUGUI actionText;
     public GameObject pauseOverlay;
-    public GameObject pauseButton;
-    public TextMeshProUGUI pauseButtonText;
+    public GameObject pauseButtonObject;
+
+    public Button actionButton;
+    public Button pauseButton;
+
+    public Sprite jumpSprite;
+    public Sprite talkSprite;
+    public Sprite eatSprite;
+    public Sprite pauseSprite;
+    public Sprite playSprite;
 
     public Camera hangiCamera;
     public Camera mainCamera;
@@ -62,33 +69,21 @@ public class GameManager : MonoBehaviour
         {
             case ActionState.eat:
                 {
-                    actionText.text = "Eat";
+                    actionButton.GetComponent<Image>().sprite = eatSprite;
                     break;
                 }
 
             case ActionState.talk:
                 {
-                    actionText.text = "Talk";
+                    actionButton.GetComponent<Image>().sprite = talkSprite;
                     break;
                 }
 
             case ActionState.jump:
                 {
-                    actionText.text = "Jump";
+                    actionButton.GetComponent<Image>().sprite = jumpSprite;
                     break;
                 }
-        }
-    }
-
-    public void InTalkRange(bool inRange)
-    {
-        if (inRange)
-        {
-            actionText.text = "Talk";
-        }
-        else
-        {
-            actionText.text = "Jump";
         }
     }
 
@@ -98,7 +93,7 @@ public class GameManager : MonoBehaviour
         {
             pauseOverlay.SetActive(false);
             Time.timeScale = 1.0f;
-            pauseButtonText.text = "Pause";
+            pauseButton.GetComponent<Image>().sprite = pauseSprite;
 
             player.DisableInputs(false);
         }
@@ -106,8 +101,9 @@ public class GameManager : MonoBehaviour
         {
             pauseOverlay.SetActive(true);
             Time.timeScale = 0.0f;
-            pauseButtonText.text = "Play";
-            pauseButton.transform.SetAsLastSibling();
+            pauseButton.GetComponent<Image>().sprite = playSprite;
+
+            pauseButtonObject.transform.SetAsLastSibling();
 
             player.DisableInputs(true);
         }
