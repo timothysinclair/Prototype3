@@ -33,7 +33,7 @@ public class Friend : MonoBehaviour
     {
         if (launched)
         {
-            if (rigidBody.velocity.magnitude < 1.0f)
+            if ((rigidBody.velocity.magnitude < 1.0f) && !(rigidBody.velocity.y > 0.0f))
             {
                 launched = false;
                 rigidBody.isKinematic = true;
@@ -94,17 +94,20 @@ public class Friend : MonoBehaviour
 
         if (player)
         {
-            player.SetInTalkingDistance(true, GetComponent<Friend>());
+            player.SetActionState(ActionState.talk);
+            player.SetFriend(GetComponent<Friend>());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (state == FriendState.AtHangi) { return; }
         var player = other.gameObject.GetComponent<PlayerController>();
 
         if (player)
         {
-            player.SetInTalkingDistance(false, null);
+            player.SetActionState(ActionState.jump);
+            player.SetFriend(null);
         }
     }
 

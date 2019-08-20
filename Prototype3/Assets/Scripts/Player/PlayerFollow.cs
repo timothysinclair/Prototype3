@@ -10,6 +10,7 @@ public class PlayerFollow : MonoBehaviour
     public float cameraRotationSpeed = 5.0f;
 
     private Vector3 cameraOffset;
+    private PlayerController player;
 
     [Range(0.01f, 1.0f)]
     public float smoothFactor = 0.5f;
@@ -18,10 +19,13 @@ public class PlayerFollow : MonoBehaviour
     void Start()
     {   
         cameraOffset = transform.position - playerTransform.position;
+        player = GameObject.FindObjectOfType<PlayerController>();
     }
 
     private void LateUpdate()
     {
+        if (player.AreInputsDisabled()) { return; }
+
         Vector3 newPos = playerTransform.position + cameraOffset;
 
         this.transform.position = Vector3.Slerp(this.transform.position, newPos, smoothFactor);

@@ -48,8 +48,8 @@ public class Player : MonoBehaviour
         // float turnAmount = Mathf.Atan2(movement.x, movement.z);
         // transform.Rotate(0, turnAmount * rotationSpeed * Time.deltaTime, 0);
     }
-     
-    private void LateUpdate()
+
+    private void CameraFollow()
     {
         //if (rotateAroundPlayer)
         //{
@@ -63,7 +63,5 @@ public class Player : MonoBehaviour
         //cameraTransform.position = Vector3.Slerp(cameraTransform.position, position, smoothing);
 
         //if (lookAtPlayer || rotateAroundPlayer) cameraTransform.LookAt(this.transform);
-
-        
     } 
 }
