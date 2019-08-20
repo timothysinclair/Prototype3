@@ -27,17 +27,27 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastSafePosition;
 
     private List<bool> groundedFrames;
+    private bool lenientJump = false;
+    private bool externalAction = false;
+
+    private bool inputsDisabled = false;
 
     private bool inTalkingDistance = false;
     private Friend talkingFriend;
+
+    bool cursorActive = false;
+    
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         cam = Camera.main;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //cursorActive = false;
+
+        ToggleCursor();
 
         groundedFrames = new List<bool>(extraJumpFrames);
 
@@ -49,6 +59,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            ToggleCursor();
+        }
+
+        if (inputsDisabled) { return; }
+
         isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance, groundLayers, QueryTriggerInteraction.Ignore);
 
         if (isGrounded) { lastSafePosition = this.transform.position; }
@@ -92,23 +109,49 @@ public class PlayerController : MonoBehaviour
         }
 
         // Check if player jumped within lenient jump frames
-        bool lenientJump = false;
+        lenientJump = false;
 
         for (int i = 0; i < groundedFrames.Capacity; i++)
         {
             if (groundedFrames[i]) { lenientJump = true; }
         }
 
-        if (Input.GetButtonDown("Jump") && inTalkingDistance)
+        if (Input.GetButtonDown("Jump") || externalAction)
+        {
+            TryAction();
+        }
+
+        
+
+        externalAction = false;
+    }
+
+    public void Action()
+    {
+        externalAction = true;
+    }
+
+    private void TryAction()
+    {
+        if (inTalkingDistance)
         {
             talkingFriend.MoveToHangi();
         }
 
-        if (!inTalkingDistance && (Input.GetButtonDown("Jump") && isGrounded) || (Input.GetButtonDown("Jump") && lenientJump))
+        if (!inTalkingDistance && (isGrounded || lenientJump))
         {
             Jump();
         }
+    }
 
+    public void DisableInputs(bool disabled)
+    {
+        inputsDisabled = disabled;
+    }
+
+    public bool AreInputsDisabled()
+    {
+        return inputsDisabled;
     }
 
     private void FixedUpdate()
@@ -152,5 +195,21 @@ public class PlayerController : MonoBehaviour
         talkingFriend = newFriend;
 
         GameManager.Instance.InTalkRange(inTalkingDistance);
+    }
+
+    public void ToggleCursor()
+    {
+        if (cursorActive)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            cursorActive = false;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            cursorActive = true;
+        }
     }
 }

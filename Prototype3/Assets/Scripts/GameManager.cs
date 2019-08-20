@@ -15,9 +15,14 @@ public class GameManager : MonoBehaviour
     // Testing UI
     public TextMeshProUGUI numFriends;
     public TextMeshProUGUI actionText;
+    public GameObject pauseOverlay;
+    public GameObject pauseButton;
+    public TextMeshProUGUI pauseButtonText;
 
     private int friendCount = 0;
     private int arrivedFriends = 0;
+    private bool isPaused = false;
+    private PlayerController player;
 
     private void Awake()
     {
@@ -28,7 +33,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         friendCount = FindObjectsOfType(typeof(Friend)).Length;
-        
+        player = FindObjectOfType<PlayerController>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P)) { TogglePause(); }
     }
 
     private void FixedUpdate()
@@ -51,5 +61,28 @@ public class GameManager : MonoBehaviour
         {
             actionText.text = "Jump";
         }
+    }
+
+    public void TogglePause()
+    {
+        if (isPaused)
+        {
+            pauseOverlay.SetActive(false);
+            Time.timeScale = 1.0f;
+            pauseButtonText.text = "Pause";
+
+            player.DisableInputs(false);
+        }
+        else
+        {
+            pauseOverlay.SetActive(true);
+            Time.timeScale = 0.0f;
+            pauseButtonText.text = "Play";
+            pauseButton.transform.SetAsLastSibling();
+
+            player.DisableInputs(true);
+        }
+
+        isPaused = !isPaused;
     }
 }
