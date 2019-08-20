@@ -33,7 +33,7 @@ public class Friend : MonoBehaviour
     {
         if (launched)
         {
-            if (rigidBody.velocity.magnitude < 1.0f)
+            if ((rigidBody.velocity.magnitude < 1.0f) && !(rigidBody.velocity.y > 0.0f))
             {
                 launched = false;
                 rigidBody.isKinematic = true;
