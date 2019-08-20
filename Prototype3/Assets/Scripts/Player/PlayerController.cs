@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ActionState
+{
+    jump,
+    talk,
+    eat
+}
+
 public class PlayerController : MonoBehaviour
 {
     public float moveForce = 10.0f;
@@ -35,17 +42,14 @@ public class PlayerController : MonoBehaviour
     private bool inTalkingDistance = false;
     private Friend talkingFriend;
 
-    bool cursorActive = false;
+    private bool cursorActive = false;
+    private ActionState playerActionState = ActionState.jump;
     
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         cam = Camera.main;
-
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //cursorActive = false;
 
         ToggleCursor();
 
@@ -133,14 +137,28 @@ public class PlayerController : MonoBehaviour
 
     private void TryAction()
     {
-        if (inTalkingDistance)
+        switch (playerActionState)
         {
-            talkingFriend.MoveToHangi();
-        }
+            case ActionState.eat:
+                {
+                    GameManager.Instance.StartHangi();
+                    break;
+                }
 
-        if (!inTalkingDistance && (isGrounded || lenientJump))
-        {
-            Jump();
+            case ActionState.talk:
+                {
+                    talkingFriend.MoveToHangi();
+                    break;
+                }
+
+            case ActionState.jump:
+                {
+                    if (isGrounded || lenientJump)
+                    {
+                        Jump();
+                    }
+                    break;
+                }
         }
     }
 
@@ -189,12 +207,15 @@ public class PlayerController : MonoBehaviour
         rigidBody.velocity = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
-    public void SetInTalkingDistance(bool isInTalkingDistance, Friend newFriend)
+    public void SetActionState(ActionState newState)
     {
-        inTalkingDistance = isInTalkingDistance;
-        talkingFriend = newFriend;
+        playerActionState = newState;
+        GameManager.Instance.UpdateActionText(newState);
+    }
 
-        GameManager.Instance.InTalkRange(inTalkingDistance);
+    public void SetFriend(Friend newFriend)
+    {
+        talkingFriend = newFriend;
     }
 
     public void ToggleCursor()
