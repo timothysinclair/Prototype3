@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         if (instance != null && instance != this) { Destroy(this.gameObject); }
         else { instance = this; }
+        Random.InitState((int)System.DateTime.Now.Ticks);
     }
 
     private void Start()
