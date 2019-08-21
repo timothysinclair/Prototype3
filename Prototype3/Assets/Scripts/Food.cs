@@ -4,7 +4,6 @@ using UnityEngine;
 
 public enum FoodType
 {
-    None,
     FishPlatter,
     FruitPlatter,
     GreenBananas,
@@ -23,7 +22,17 @@ public class Food : MonoBehaviour
         if (player)
         {
             player.CollectFood(type);
-            Destroy(this.gameObject);
+            GetComponent<Animator>().SetTrigger("Collected");
         }
+    }
+
+    public void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
+
+    public void PlayCollectSound()
+    {
+
     }
 }

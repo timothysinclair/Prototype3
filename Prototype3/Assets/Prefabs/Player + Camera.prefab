@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodsCollected: 
+  foodPrefabs:
+  - {fileID: 7856226355725394186, guid: 3ef48528c0d825647b8c6b195edb4f08, type: 3}
+  - {fileID: 3041366619516288426, guid: 2644b4fb80def6749b18c1dc95d52aa2, type: 3}
+  - {fileID: 4525920441404138007, guid: e5306562dcd2143409a8e85ca0e41e69, type: 3}
+  - {fileID: 2623382296407784999, guid: df62d3e5a035d05459948fb1ff1cdcc6, type: 3}
+  - {fileID: 2110920484617167015, guid: 681b5bd363d529e4cb40664dee0cffd5, type: 3}
+  foodsHolding: []
 --- !u!1 &570580745101936393
 GameObject:
   m_ObjectHideFlags: 0
