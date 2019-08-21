@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
 
     private bool cursorActive = false;
     private ActionState playerActionState = ActionState.jump;
-    
 
+    public Animator playerAnimator;
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -179,6 +179,9 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded) { airModifier *= airControl; }
 
         rigidBody.AddForce(inputs.normalized * moveForce * airModifier * Time.fixedDeltaTime);
+
+        if (rigidBody.velocity.magnitude > 1.0f) { playerAnimator.SetBool("Run", true); }
+        else { playerAnimator.SetBool("Run", false); }
     }
 
     private void OnDrawGizmosSelected()
