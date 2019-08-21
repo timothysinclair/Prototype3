@@ -89,12 +89,13 @@ public class Friend : MonoBehaviour
                     PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
                     MoveToHangi();
                 }
+                else
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
+                    state = FriendState.WaitingForFood;
+                }
             }
-            else
-            {
-                PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
-                state = FriendState.WaitingForFood;
-            }
+         
         }
         else if (state == FriendState.WaitingForFood)
         {
