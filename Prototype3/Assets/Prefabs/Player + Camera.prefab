@@ -302,11 +302,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: player_animation_run
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 172f64a02f6153b4c9cca20333b12c68,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: cd15656b6350ed34dbc85f03293a048d, type: 2}
     - target: {fileID: -4216859302048453862, guid: 172f64a02f6153b4c9cca20333b12c68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -362,16 +357,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7051400871502922916, guid: 172f64a02f6153b4c9cca20333b12c68,
+    - target: {fileID: -6057140222963153312, guid: 172f64a02f6153b4c9cca20333b12c68,
         type: 3}
-      propertyPath: m_Materials.Array.data[2]
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 2100000, guid: c5a6afa168ad22046b3464fe97ecbc66, type: 2}
-    - target: {fileID: 7051400871502922916, guid: 172f64a02f6153b4c9cca20333b12c68,
-        type: 3}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: c5a6afa168ad22046b3464fe97ecbc66, type: 2}
+      objectReference: {fileID: 9100000, guid: cd15656b6350ed34dbc85f03293a048d, type: 2}
     - target: {fileID: 7051400871502922916, guid: 172f64a02f6153b4c9cca20333b12c68,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -380,6 +370,16 @@ PrefabInstance:
     - target: {fileID: 7051400871502922916, guid: 172f64a02f6153b4c9cca20333b12c68,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c5a6afa168ad22046b3464fe97ecbc66, type: 2}
+    - target: {fileID: 7051400871502922916, guid: 172f64a02f6153b4c9cca20333b12c68,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c5a6afa168ad22046b3464fe97ecbc66, type: 2}
+    - target: {fileID: 7051400871502922916, guid: 172f64a02f6153b4c9cca20333b12c68,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: c5a6afa168ad22046b3464fe97ecbc66, type: 2}
     - target: {fileID: 7051400871502922916, guid: 172f64a02f6153b4c9cca20333b12c68,
@@ -472,6 +472,11 @@ PrefabInstance:
       propertyPath: movingDrag
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 570580744984955642, guid: 87cb20bde485b1d46b812070a7c1d484,
+        type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f0081ba2975f0547a97ff5e92c58c8e, type: 3}
     - target: {fileID: 570580744984955642, guid: 87cb20bde485b1d46b812070a7c1d484,
         type: 3}
       propertyPath: playerAnimator
