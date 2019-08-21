@@ -19,6 +19,8 @@ public class LaunchPad : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger) { return; }
+
         Vector3 launchVector = Vector3.Normalize(launchDirection.position - this.transform.position);
 
         var friend = other.GetComponent<Friend>();
@@ -29,6 +31,7 @@ public class LaunchPad : MonoBehaviour
             launchVector *= aiLaunchForce;
 
             friend.Launch();
+            friend.friendAnimator.speed = 0.0f;
             var rigidBody = other.gameObject.GetComponent<Rigidbody>();
             rigidBody.velocity = launchVector;
 
