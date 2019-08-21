@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             rigidBody.drag = normalDrag;
+            rigidBody.velocity = new Vector3(0.0f, 0.0f, 0.0f);
         }
 
         if (inputs != Vector3.zero)
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
 
             case ActionState.talk:
                 {
-                    talkingFriend.MoveToHangi();
+                    talkingFriend.Talk();
                     break;
                 }
 

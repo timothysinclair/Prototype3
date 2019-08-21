@@ -3,7 +3,8 @@ using UnityEngine.AI;
 
 public enum FriendState
 {
-    WaitingForFriend,
+    WaitingToTalk,
+    WaitingForFood,
     Moving,
     AtHangi
 }
@@ -20,6 +21,8 @@ public class Friend : MonoBehaviour
 
     private int currentPathPoint = 0;
     private Rigidbody rigidBody;
+    public int friendIndex;
+    public FoodType foodType;
 
     private void Start()
     {
@@ -45,9 +48,15 @@ public class Friend : MonoBehaviour
 
         switch(state)
         {
-            case FriendState.WaitingForFriend:
+            case FriendState.WaitingToTalk:
                 {
                     
+                    break;
+                }
+
+            case FriendState.WaitingForFood:
+                {
+
                     break;
                 }
 
@@ -65,6 +74,29 @@ public class Friend : MonoBehaviour
                 }
 
             default: break;
+        }
+    }
+
+    public void Talk()
+    {
+        if (state == FriendState.WaitingToTalk)
+        {
+            PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
+            state = FriendState.WaitingForFood;
+        }
+        else if (state == FriendState.WaitingForFood)
+        {
+            var playerInv = FindObjectOfType<PlayerInventory>();
+            if (playerInv)
+            {
+                if (playerInv.QueryFood(foodType))
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
+                    MoveToHangi();
+                }
+                
+            }
+            
         }
     }
 

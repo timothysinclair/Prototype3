@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
         if (hangi) { hangi.ActivateFood(arrivedFriends); }
 
         mainCamera.enabled = false;
+        mainCamera.gameObject.SetActive(false);
         hangiCamera.gameObject.SetActive(true);
         hangiCamera.enabled = true;
 
