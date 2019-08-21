@@ -4690,7 +4690,7 @@ PrefabInstance:
     - target: {fileID: 2406220977718730089, guid: f83bc5b949b1cd0479075654a5fcb81f,
         type: 3}
       propertyPath: movingDrag
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 570580745738458033, guid: f83bc5b949b1cd0479075654a5fcb81f,
         type: 3}
@@ -4751,6 +4751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523194153075845722, guid: f83bc5b949b1cd0479075654a5fcb81f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f83bc5b949b1cd0479075654a5fcb81f, type: 3}
@@ -4841,6 +4846,21 @@ PrefabInstance:
       propertyPath: food.Array.data[2]
       value: 
       objectReference: {fileID: 46563832}
+    - target: {fileID: 706520214635170373, guid: 0f6e29acd8aed0e45930c92e7cd24b72,
+        type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104384022911668813, guid: 0f6e29acd8aed0e45930c92e7cd24b72,
+        type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691958978834473059, guid: 0f6e29acd8aed0e45930c92e7cd24b72,
+        type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6e29acd8aed0e45930c92e7cd24b72, type: 3}
 --- !u!1001 &4751387254429485480
@@ -5509,6 +5529,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 383244107}
+    - target: {fileID: 7264245797314831105, guid: c98f2b7cbad0afd4ca420049595eaa1c,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7264245796936312253, guid: c98f2b7cbad0afd4ca420049595eaa1c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
