@@ -81,8 +81,20 @@ public class Friend : MonoBehaviour
     {
         if (state == FriendState.WaitingToTalk)
         {
-            PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
-            state = FriendState.WaitingForFood;
+            var playerInv = FindObjectOfType<PlayerInventory>();
+            if (playerInv)
+            {
+                if (playerInv.QueryFood(foodType))
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
+                    MoveToHangi();
+                }
+            }
+            else
+            {
+                PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
+                state = FriendState.WaitingForFood;
+            }
         }
         else if (state == FriendState.WaitingForFood)
         {
@@ -93,6 +105,10 @@ public class Friend : MonoBehaviour
                 {
                     PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
                     MoveToHangi();
+                }
+                else
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
                 }
                 
             }
