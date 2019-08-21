@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     private AudioSource audioSource;
 
+    public Material happyMaterial;
+
     private bool cursorActive = false;
     private ActionState playerActionState = ActionState.jump;
     private bool doJump = false;
@@ -264,6 +266,9 @@ public class PlayerController : MonoBehaviour
 
     public void MakeHappy()
     {
-
+        var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
+        var mats = renderer.materials;
+        mats[2] = happyMaterial;
+        renderer.materials = mats;
     }
 }
