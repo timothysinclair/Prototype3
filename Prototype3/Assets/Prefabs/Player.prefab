@@ -114,7 +114,7 @@ MonoBehaviour:
     m_Bits: 512
   groundChecker: {fileID: 570580745958590575}
   movingDrag: 4
-  normalDrag: 20
+  normalDrag: 5000
   airDrag: 0
   extraJumpFrames: 2
   airControl: 0.1
