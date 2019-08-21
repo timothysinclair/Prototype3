@@ -6,9 +6,7 @@ public enum FoodType
 {
     FishPlatter,
     FruitPlatter,
-    GreenBananas,
-    PaniPopo,
-    RawFish
+    GreenBananas
 }
 
 public class Food : MonoBehaviour

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class FriendData
 {
-    public static string[] greetingMessages = { "I'm friend 1 and I lost my Fish Platter!", "I'm friend 2 and I lost my Fruit Platter!", "I'm friend 3 and I lost my Green Bananas!" };
+    public static Color highlightColor;
+    
+    public static string[] greetingMessages = { "Hey Toa! Could you help find some coconuts for my <color=#eaf03a>fruit platter?</color>", "... I forgot where I put the <color=#eaf03a>fish</color> I just cut up haha, have you seen it?", "Ah! Perfect timing! I think the wind swept my <color=#eaf03a>green bananas</color> away, I haven't been able to find them..." };
 
-    public static string[] leavingMessages = { "I'm friend 1 and thanks for finding my food! I'll see you at the hangi!", "I'm friend 2 and thanks for finding my food! I'll see you at the hangi!" ,
-                                 "I'm friend 3 and thanks for finding my food! I'll see you at the hangi!" };
+    public static string[] leavingMessages = { "What a relief! See you where the hangi is!", "I knew I could count on you Toa! Meet you at the feast!" ,
+                                 "Thanks a bunch! I thought they might've been blown off the islands. I'll be waiting for you where the hangi is!" };
+
 }

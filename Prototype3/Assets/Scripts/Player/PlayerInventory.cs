@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     public bool[] foodsCollected;
-    private int numFoods = 5;
+    private int numFoods = 3;
 
     private float heightOffset = 1.0f;
 
@@ -54,12 +54,12 @@ public class PlayerInventory : MonoBehaviour
 
     private void LateUpdate()
     {
-        for (int i = 0; i < foodsHolding.Count; i++)
-        {
-            // foodsHolding[i].transform.position = oldPosition + new Vector3(0.0f, heightOffset * i, 0.0f);
-        }
+        //for (int i = 0; i < foodsHolding.Count; i++)
+        //{
+        //    // foodsHolding[i].transform.position = oldPosition + new Vector3(0.0f, heightOffset * i, 0.0f);
+        //}
 
-        oldPosition = this.transform.localPosition;
+        //oldPosition = this.transform.localPosition;
     }
 
 }
