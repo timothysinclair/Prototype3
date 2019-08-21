@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
         if (inputsDisabled) { return; }
 
         isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance, groundLayers, QueryTriggerInteraction.Ignore);
+        playerAnimator.SetBool("Grounded", isGrounded);
 
         if (isGrounded) { lastSafePosition = this.transform.position; }
 
@@ -207,6 +208,8 @@ public class PlayerController : MonoBehaviour
         Vector3 force = Vector3.up * jumpForce;
         rigidBody.AddForce(force, ForceMode.Impulse);
         PlayJumpSound();
+        playerAnimator.SetTrigger("Jump");
+        isGrounded = false;
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         ResetGroundedFrames();
     }
@@ -259,5 +262,8 @@ public class PlayerController : MonoBehaviour
         audioSource.PlayOneShot(jumpSound, 0.5f);
     }
 
-    
+    public void MakeHappy()
+    {
+
+    }
 }

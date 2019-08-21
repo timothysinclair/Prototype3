@@ -44,6 +44,8 @@ public class LaunchPad : MonoBehaviour
             var rigidBody = other.gameObject.GetComponent<Rigidbody>();
             rigidBody.velocity = launchVector;
 
+            player.playerAnimator.SetTrigger("Jump");
+            player.isGrounded = false;
             PlayLaunchSound();
         }
     }
