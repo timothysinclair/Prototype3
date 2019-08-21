@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     public Camera hangiCamera;
     public Camera mainCamera;
+    public GameObject hangiController;
 
     private int friendCount = 0;
     private int arrivedFriends = 0;
@@ -120,7 +121,7 @@ public class GameManager : MonoBehaviour
 
         mainCamera.enabled = false;
         mainCamera.gameObject.SetActive(false);
-        hangiCamera.gameObject.SetActive(true);
+        hangiController.SetActive(true);
         hangiCamera.enabled = true;
 
         player.DisableInputs(true);

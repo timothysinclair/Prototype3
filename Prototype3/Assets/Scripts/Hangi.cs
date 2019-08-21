@@ -33,6 +33,10 @@ public class Hangi : MonoBehaviour
 
     public void ActivateFood(int numFood)
     {
+        var player = FindObjectOfType<PlayerController>();
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        player.MakeHappy();
+
         for (int i = 0; i < numFood; i++)
         {
             if (i > food.Length - 1) { return; }

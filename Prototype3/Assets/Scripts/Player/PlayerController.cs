@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     private AudioSource audioSource;
 
+    public Material happyMaterial;
+
     private bool cursorActive = false;
     private ActionState playerActionState = ActionState.jump;
     private bool doJump = false;
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (inputsDisabled) { return; }
 
         isGrounded = Physics.CheckSphere(groundChecker.position, groundDistance, groundLayers, QueryTriggerInteraction.Ignore);
+        playerAnimator.SetBool("Grounded", isGrounded);
 
         if (isGrounded) { lastSafePosition = this.transform.position; }
 
@@ -207,6 +210,8 @@ public class PlayerController : MonoBehaviour
         Vector3 force = Vector3.up * jumpForce;
         rigidBody.AddForce(force, ForceMode.Impulse);
         PlayJumpSound();
+        playerAnimator.SetTrigger("Jump");
+        isGrounded = false;
         //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         ResetGroundedFrames();
     }
@@ -259,5 +264,11 @@ public class PlayerController : MonoBehaviour
         audioSource.PlayOneShot(jumpSound, 0.5f);
     }
 
-    
+    public void MakeHappy()
+    {
+        var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
+        var mats = renderer.materials;
+        mats[2] = happyMaterial;
+        renderer.materials = mats;
+    }
 }
