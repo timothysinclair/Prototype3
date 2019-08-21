@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b47130a352104024c9081bb284364e9d, type: 2}
+    - target: {fileID: 462148865, guid: 48ec2d9ca4299d44390ce40647252b31, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48ec2d9ca4299d44390ce40647252b31, type: 3}
 --- !u!4 &6542185893778940953 stripped
