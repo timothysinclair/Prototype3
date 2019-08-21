@@ -166,6 +166,8 @@ MonoBehaviour:
   path:
   - {fileID: 0}
   launched: 0
+  questFood: {fileID: 0}
+  talkingSound: {fileID: 8300000, guid: ee6c95be8bb76084681e7b9e28aa6ef1, type: 3}
   arriveRadius: 5
   friendIndex: 0
   foodType: 1

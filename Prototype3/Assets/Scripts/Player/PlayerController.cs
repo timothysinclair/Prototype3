@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private bool cursorActive = false;
     private ActionState playerActionState = ActionState.jump;
+    private bool doJump = false;
 
     public Animator playerAnimator;
     private void Start()
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             ToggleCursor();
@@ -126,8 +128,6 @@ public class PlayerController : MonoBehaviour
             TryAction();
         }
 
-        
-
         externalAction = false;
     }
 
@@ -156,7 +156,8 @@ public class PlayerController : MonoBehaviour
                 {
                     if (isGrounded || lenientJump)
                     {
-                        Jump();
+                        doJump = true;
+                        
                     }
                     break;
                 }
@@ -180,8 +181,15 @@ public class PlayerController : MonoBehaviour
 
         rigidBody.AddForce(inputs.normalized * moveForce * airModifier * Time.fixedDeltaTime);
 
+        if (doJump)
+        {
+            Jump();
+        }
+
         if (rigidBody.velocity.magnitude > 1.0f) { playerAnimator.SetBool("Run", true); }
         else { playerAnimator.SetBool("Run", false); }
+
+        doJump = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -194,6 +202,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 force = Vector3.up * jumpForce;
         rigidBody.AddForce(force, ForceMode.Impulse);
+        //rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         ResetGroundedFrames();
     }
 
