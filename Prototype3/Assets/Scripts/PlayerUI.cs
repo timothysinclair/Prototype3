@@ -9,6 +9,9 @@ public class PlayerUI : MonoBehaviour
     public static PlayerUI Instance { get { return instance; } }
 
     public GameObject textBoxPrefab;
+    public GameObject notebook;
+
+    private bool notebookActive = false;
 
     private void Awake()
     {
@@ -20,5 +23,25 @@ public class PlayerUI : MonoBehaviour
     {
         var textBox = Instantiate(textBoxPrefab, this.transform);
         textBox.GetComponent<TempTextbox>().SetText(newText);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            if (notebookActive)
+            {
+                notebook.SetActive(false);
+            }
+            else
+            {
+                notebook.SetActive(true);
+            }
+
+            var player = FindObjectOfType<PlayerController>();
+            player.ToggleCursor();
+
+            notebookActive = !notebookActive;
+        }
     }
 }

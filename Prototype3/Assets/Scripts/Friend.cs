@@ -16,6 +16,9 @@ public class Friend : MonoBehaviour
     public Transform[] path;
 
     public bool launched = false;
+    public GameObject questFood;
+    public AudioClip talkingSound;
+    private AudioSource audioSource;
 
     public float arriveRadius = 1.0f;
 
@@ -24,12 +27,15 @@ public class Friend : MonoBehaviour
     public int friendIndex;
     public FoodType foodType;
 
+    public Animator friendAnimator;
+
     private void Start()
     {
         agent.isStopped = true;
         agent.SetDestination(path[currentPathPoint].position);
 
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -43,6 +49,7 @@ public class Friend : MonoBehaviour
                 agent.enabled = true;
                 agent.isStopped = false;
                 agent.SetDestination(path[currentPathPoint].position);
+                if (friendAnimator) { friendAnimator.speed = 1.0f; }
             }
         }
 
@@ -86,13 +93,17 @@ public class Friend : MonoBehaviour
             {
                 if (playerInv.QueryFood(foodType))
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
                     MoveToHangi();
                 }
                 else
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
                     state = FriendState.WaitingForFood;
+
+                    questFood.SetActive(true);
                 }
             }
          
@@ -104,11 +115,13 @@ public class Friend : MonoBehaviour
             {
                 if (playerInv.QueryFood(foodType))
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
                     MoveToHangi();
                 }
                 else
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
                 }
                 
@@ -121,6 +134,7 @@ public class Friend : MonoBehaviour
     {
         state = FriendState.Moving;
         agent.isStopped = false;
+        if (friendAnimator) { friendAnimator.SetBool("Running", true); }
     }
 
     private void OnDrawGizmosSelected()
@@ -170,10 +184,12 @@ public class Friend : MonoBehaviour
 
     private void NextPoint()
     {
+        if (state == FriendState.AtHangi) { return; }
         if (currentPathPoint >= path.Length - 1)
         {
             GameManager.Instance.FriendArrived();
             state = FriendState.AtHangi;
+            if (friendAnimator) { friendAnimator.SetBool("Running", false); }
             return;
         }
         agent.SetDestination(path[++currentPathPoint].position);
@@ -184,5 +200,29 @@ public class Friend : MonoBehaviour
         agent.enabled = false;
         launched = true;
         rigidBody.isKinematic = false;
+    }
+
+    public void PlayTalkingSound()
+    {
+        switch (friendIndex)
+        {
+            case 0:
+                {
+                    audioSource.PlayOneShot(talkingSound);
+                    break;
+                }
+
+            case 1:
+                {
+                    audioSource.PlayOneShot(talkingSound);
+                    break;
+                }
+
+            case 2:
+                {
+                    audioSource.PlayOneShot(talkingSound);
+                    break;
+                }
+        }
     }
 }

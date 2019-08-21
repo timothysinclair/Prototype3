@@ -15,6 +15,9 @@ public class PlayerInventory : MonoBehaviour
     public Transform foodHoldingTransform;
 
     private Vector3 oldPosition;
+    public AudioClip foodPickup;
+    private AudioSource audioSource;
+
 
     private void Awake()
     {
@@ -26,6 +29,7 @@ public class PlayerInventory : MonoBehaviour
         }
 
         foodsHolding = new List<GameObject>();
+        audioSource = GetComponent<AudioSource>();
 
         oldPosition = this.transform.position;
     }
@@ -37,7 +41,12 @@ public class PlayerInventory : MonoBehaviour
 
     public void CollectFood(FoodType foodType)
     {
-        foodsCollected[(int)foodType] = true;
+        if (!foodsCollected[(int)foodType])
+        {
+            foodsCollected[(int)foodType] = true;
+            audioSource.PlayOneShot(foodPickup);
+        }
+        
 
         // foodsHolding.Add(Instantiate(foodPrefabs[(int)foodType]));
         // foodsHolding[foodsHolding.Count - 1].transform.localPosition = Vector3.zero;
