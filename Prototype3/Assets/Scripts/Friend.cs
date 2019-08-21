@@ -16,6 +16,9 @@ public class Friend : MonoBehaviour
     public Transform[] path;
 
     public bool launched = false;
+    public GameObject questFood;
+    public AudioClip talkingSound;
+    private AudioSource audioSource;
 
     public float arriveRadius = 1.0f;
 
@@ -30,6 +33,7 @@ public class Friend : MonoBehaviour
         agent.SetDestination(path[currentPathPoint].position);
 
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -86,13 +90,17 @@ public class Friend : MonoBehaviour
             {
                 if (playerInv.QueryFood(foodType))
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
                     MoveToHangi();
                 }
                 else
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
                     state = FriendState.WaitingForFood;
+
+                    questFood.SetActive(true);
                 }
             }
          
@@ -104,11 +112,13 @@ public class Friend : MonoBehaviour
             {
                 if (playerInv.QueryFood(foodType))
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
                     MoveToHangi();
                 }
                 else
                 {
+                    PlayTalkingSound();
                     PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
                 }
                 
@@ -184,5 +194,29 @@ public class Friend : MonoBehaviour
         agent.enabled = false;
         launched = true;
         rigidBody.isKinematic = false;
+    }
+
+    public void PlayTalkingSound()
+    {
+        switch (friendIndex)
+        {
+            case 0:
+                {
+                    audioSource.PlayOneShot(talkingSound);
+                    break;
+                }
+
+            case 1:
+                {
+                    audioSource.PlayOneShot(talkingSound);
+                    break;
+                }
+
+            case 2:
+                {
+                    audioSource.PlayOneShot(talkingSound);
+                    break;
+                }
+        }
     }
 }
