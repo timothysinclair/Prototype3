@@ -666,7 +666,6 @@ GameObject:
   - component: {fileID: 7264245797314831105}
   - component: {fileID: 7264245797314831104}
   - component: {fileID: 7264245797314831111}
-  - component: {fileID: 1521136073}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -758,20 +757,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1521136073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264245797314831110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64b2847192199c64697d84a5610c3549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBoxPrefab: {fileID: 3830328908776682874, guid: 608ffe2999d199b4aa04e547ce28cb9e,
-    type: 3}
 --- !u!1 &7264245798435466512
 GameObject:
   m_ObjectHideFlags: 0
