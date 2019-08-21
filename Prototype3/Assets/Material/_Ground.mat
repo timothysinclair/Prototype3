@@ -61,7 +61,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Texture1:
         m_Texture: {fileID: 2800000, guid: 04eef2b4539d4d249842c39759694379, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Scale: {x: 10, y: 3}
         m_Offset: {x: 0, y: 0}
     - _Texture1Bump:
         m_Texture: {fileID: 2800000, guid: 1d6a2967ec425f24fb38edc0dc96f373, type: 3}

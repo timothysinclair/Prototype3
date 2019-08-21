@@ -3,7 +3,8 @@ using UnityEngine.AI;
 
 public enum FriendState
 {
-    WaitingForFriend,
+    WaitingToTalk,
+    WaitingForFood,
     Moving,
     AtHangi
 }
@@ -20,6 +21,8 @@ public class Friend : MonoBehaviour
 
     private int currentPathPoint = 0;
     private Rigidbody rigidBody;
+    public int friendIndex;
+    public FoodType foodType;
 
     private void Start()
     {
@@ -33,7 +36,7 @@ public class Friend : MonoBehaviour
     {
         if (launched)
         {
-            if (rigidBody.velocity.magnitude < 1.0f)
+            if ((rigidBody.velocity.magnitude < 1.0f) && !(rigidBody.velocity.y > 0.0f))
             {
                 launched = false;
                 rigidBody.isKinematic = true;
@@ -45,9 +48,15 @@ public class Friend : MonoBehaviour
 
         switch(state)
         {
-            case FriendState.WaitingForFriend:
+            case FriendState.WaitingToTalk:
                 {
                     
+                    break;
+                }
+
+            case FriendState.WaitingForFood:
+                {
+
                     break;
                 }
 
@@ -65,6 +74,46 @@ public class Friend : MonoBehaviour
                 }
 
             default: break;
+        }
+    }
+
+    public void Talk()
+    {
+        if (state == FriendState.WaitingToTalk)
+        {
+            var playerInv = FindObjectOfType<PlayerInventory>();
+            if (playerInv)
+            {
+                if (playerInv.QueryFood(foodType))
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
+                    MoveToHangi();
+                }
+                else
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
+                    state = FriendState.WaitingForFood;
+                }
+            }
+         
+        }
+        else if (state == FriendState.WaitingForFood)
+        {
+            var playerInv = FindObjectOfType<PlayerInventory>();
+            if (playerInv)
+            {
+                if (playerInv.QueryFood(foodType))
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.leavingMessages[friendIndex]);
+                    MoveToHangi();
+                }
+                else
+                {
+                    PlayerUI.Instance.CreateTempTextbox(FriendData.greetingMessages[friendIndex]);
+                }
+                
+            }
+            
         }
     }
 
@@ -94,17 +143,20 @@ public class Friend : MonoBehaviour
 
         if (player)
         {
-            player.SetInTalkingDistance(true, GetComponent<Friend>());
+            player.SetActionState(ActionState.talk);
+            player.SetFriend(GetComponent<Friend>());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (state == FriendState.AtHangi) { return; }
         var player = other.gameObject.GetComponent<PlayerController>();
 
         if (player)
         {
-            player.SetInTalkingDistance(false, null);
+            player.SetActionState(ActionState.jump);
+            player.SetFriend(null);
         }
     }
 

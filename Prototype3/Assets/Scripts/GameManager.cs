@@ -11,13 +11,22 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { return instance; } }
 
-
     // Testing UI
     public TextMeshProUGUI numFriends;
-    public TextMeshProUGUI actionText;
     public GameObject pauseOverlay;
-    public GameObject pauseButton;
-    public TextMeshProUGUI pauseButtonText;
+    public GameObject pauseButtonObject;
+
+    public Button actionButton;
+    public Button pauseButton;
+
+    public Sprite jumpSprite;
+    public Sprite talkSprite;
+    public Sprite eatSprite;
+    public Sprite pauseSprite;
+    public Sprite playSprite;
+
+    public Camera hangiCamera;
+    public Camera mainCamera;
 
     private int friendCount = 0;
     private int arrivedFriends = 0;
@@ -49,17 +58,32 @@ public class GameManager : MonoBehaviour
     public void FriendArrived()
     {
         arrivedFriends++;
+
+        var hangi = FindObjectOfType<Hangi>();
+        hangi.canActivate = true;
     }
 
-    public void InTalkRange(bool inRange)
+    public void UpdateActionText(ActionState newState)
     {
-        if (inRange)
+        switch (newState)
         {
-            actionText.text = "Talk";
-        }
-        else
-        {
-            actionText.text = "Jump";
+            case ActionState.eat:
+                {
+                    actionButton.GetComponent<Image>().sprite = eatSprite;
+                    break;
+                }
+
+            case ActionState.talk:
+                {
+                    actionButton.GetComponent<Image>().sprite = talkSprite;
+                    break;
+                }
+
+            case ActionState.jump:
+                {
+                    actionButton.GetComponent<Image>().sprite = jumpSprite;
+                    break;
+                }
         }
     }
 
@@ -69,7 +93,7 @@ public class GameManager : MonoBehaviour
         {
             pauseOverlay.SetActive(false);
             Time.timeScale = 1.0f;
-            pauseButtonText.text = "Pause";
+            pauseButton.GetComponent<Image>().sprite = pauseSprite;
 
             player.DisableInputs(false);
         }
@@ -77,12 +101,28 @@ public class GameManager : MonoBehaviour
         {
             pauseOverlay.SetActive(true);
             Time.timeScale = 0.0f;
-            pauseButtonText.text = "Play";
-            pauseButton.transform.SetAsLastSibling();
+            pauseButton.GetComponent<Image>().sprite = playSprite;
+
+            pauseButtonObject.transform.SetAsLastSibling();
 
             player.DisableInputs(true);
         }
 
         isPaused = !isPaused;
+    }
+
+    public void StartHangi()
+    {
+        var hangi = FindObjectOfType<Hangi>();
+
+        if (hangi) { hangi.ActivateFood(arrivedFriends); }
+
+        mainCamera.enabled = false;
+        mainCamera.gameObject.SetActive(false);
+        hangiCamera.gameObject.SetActive(true);
+        hangiCamera.enabled = true;
+
+        player.DisableInputs(true);
+
     }
 }
