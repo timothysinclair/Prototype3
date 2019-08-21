@@ -6,7 +6,8 @@ public enum FoodType
 {
     FishPlatter,
     FruitPlatter,
-    GreenBananas
+    GreenBananas,
+    Hangi
 }
 
 public class Food : MonoBehaviour
@@ -15,6 +16,8 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (type == FoodType.Hangi) { return; }
+
         var player = other.gameObject.GetComponent<PlayerInventory>();
 
         if (player)
