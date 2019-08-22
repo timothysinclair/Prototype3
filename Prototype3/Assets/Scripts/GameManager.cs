@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
 
     // Testing UI
-    public TextMeshProUGUI numFriends;
     public GameObject pauseOverlay;
     public GameObject pauseButtonObject;
 
@@ -54,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        numFriends.text = "" + arrivedFriends + "/" + friendCount;
+        
     }
 
     public void FriendArrived()
