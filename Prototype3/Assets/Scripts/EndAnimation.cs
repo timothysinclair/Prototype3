@@ -7,6 +7,8 @@ public class EndAnimation : MonoBehaviour
 {
     public void ReturnToMenu()
     {
+        var player = FindObjectOfType<PlayerController>();
+        player.ToggleCursor();
         SceneManager.LoadSceneAsync("MainMenu");
     }
 }
