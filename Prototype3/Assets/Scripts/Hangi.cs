@@ -37,6 +37,9 @@ public class Hangi : MonoBehaviour
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         player.MakeHappy();
 
+        player.transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
+
+
         for (int i = 0; i < numFood; i++)
         {
             if (i > food.Length - 1) { return; }
