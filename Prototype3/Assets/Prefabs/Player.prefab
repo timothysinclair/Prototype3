@@ -41,7 +41,9 @@ GameObject:
   - component: {fileID: 2406220977718730085}
   - component: {fileID: 2406220977718730090}
   - component: {fileID: 570580744984955643}
-  - component: {fileID: 570580744984955642}
+  - component: {fileID: 6040920211055348933}
+  - component: {fileID: 8942960692180111419}
+  - component: {fileID: 3357501436687904819}
   - component: {fileID: 1829953005970750422}
   m_Layer: 8
   m_Name: Player
@@ -96,7 +98,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &570580744984955642
+--- !u!114 &6040920211055348933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,24 +107,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 2406220977718730095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bf7519c53e28e24eaeb46066816cfce, type: 3}
+  m_Script: {fileID: 11500000, guid: b3ad4aca06b05174cb5b881a9e76b6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 3000
   jumpForce: 10
-  groundDistance: 0.2
   groundLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   groundChecker: {fileID: 570580745958590575}
-  movingDrag: 4
-  normalDrag: 50
-  airDrag: 0
+  groundCheckRadius: 0.2
+  cam: {fileID: 0}
+  playerAnimator: {fileID: 0}
   extraJumpFrames: 2
   airControl: 0.1
-  inputs: {x: 0, y: 0, z: 0}
-  isGrounded: 1
-  playerAnimator: {fileID: 0}
+--- !u!114 &8942960692180111419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406220977718730095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f32f4ed540f2154692f0dc8bdf1e2ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 6040920211055348933}
+  playerInput: {fileID: 3357501436687904819}
+--- !u!114 &3357501436687904819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406220977718730095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a0159a58f26e841ad332665a93ab09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 6040920211055348933}
 --- !u!114 &1829953005970750422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +169,7 @@ MonoBehaviour:
   - {fileID: 2110920484617167015, guid: 681b5bd363d529e4cb40664dee0cffd5, type: 3}
   foodsHolding: []
   foodHoldingTransform: {fileID: 2406220977718730085}
+  foodPickup: {fileID: 0}
 --- !u!1001 &2406220978081366722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +181,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: toa
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 72f9f51306d5ac446b7678ecc677bd59,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 72f9f51306d5ac446b7678ecc677bd59,
         type: 3}
