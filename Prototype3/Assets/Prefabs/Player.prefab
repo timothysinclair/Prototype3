@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 2406220977718730085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2107349209151566870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8734608019598541425}
+  m_Layer: 8
+  m_Name: Crystal Hold Desired Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8734608019598541425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107349209151566870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.552, z: 0.208}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2406220977718730085}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2406220977718730095
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,9 +73,10 @@ GameObject:
   - component: {fileID: 570580744984955643}
   - component: {fileID: 570580744984955642}
   - component: {fileID: 1829953005970750422}
+  - component: {fileID: 6794890881853109131}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,6 +94,7 @@ Transform:
   m_Children:
   - {fileID: 570580745958590575}
   - {fileID: 7214249787891886552}
+  - {fileID: 8734608019598541425}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,6 +154,8 @@ MonoBehaviour:
   airControl: 0.1
   inputs: {x: 0, y: 0, z: 0}
   isGrounded: 1
+  jumpSound: {fileID: 0}
+  happyMaterial: {fileID: 0}
   playerAnimator: {fileID: 0}
 --- !u!114 &1829953005970750422
 MonoBehaviour:
@@ -144,6 +178,23 @@ MonoBehaviour:
   - {fileID: 2110920484617167015, guid: 681b5bd363d529e4cb40664dee0cffd5, type: 3}
   foodsHolding: []
   foodHoldingTransform: {fileID: 2406220977718730085}
+  foodPickup: {fileID: 0}
+--- !u!114 &6794890881853109131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406220977718730095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7de5f976217ae48836402123205395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {fileID: 8734608019598541425}
+  allowedTypes: 0000000003000000020000000400000001000000
+  initialPrefab: {fileID: 0}
+  held: {fileID: 0}
 --- !u!1001 &2406220978081366722
 PrefabInstance:
   m_ObjectHideFlags: 0
