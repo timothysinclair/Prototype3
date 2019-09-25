@@ -7,9 +7,16 @@ using Cinemachine;
 
 public class PlayerControllerRigidbody : MonoBehaviour
 {
-    [Header("Movement forces")]
+    [Header("Movement variables")]
     [SerializeField] private float moveForce = 10.0f;
     [SerializeField] private float jumpForce = 20.0f;
+    [SerializeField] private float movingDrag = 0.5f;
+    [SerializeField] private float stationaryDrag = 0.9f;
+    [SerializeField] private float airDrag = 0.0f;
+
+    // Affects how much drag affects the player
+    [SerializeField] private float dragCoefficient = 10.0f;
+    [SerializeField] private float maxSpeed = 20.0f;
 
     [Header("Ground checking")]
     // Determines which layers count as the 'ground'
@@ -33,7 +40,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     // Private variables
     private Rigidbody rigidBody;
-    private bool isGrounded = true;
+    public bool isGrounded = true;
     
     // Keeps track of whether or not the player was grounded in previous frames
     private List<bool> groundedFrames;
@@ -41,13 +48,15 @@ public class PlayerControllerRigidbody : MonoBehaviour
     // True if the player jumped after they went off an edge, but within the number of extra jump frames
     private bool lenientJump = false;
 
+    // Current drag value, changes based on the state of the player
+    private float currentDrag;
+
     // Stores the inputs of the player
-    private Vector2 moveInputs;
+    private Vector3 moveInputs;
     private bool jumpInput = false;
 
     // Stores the calculated move direction of the player
-    private Vector2 finalMoveDirection;
-    private bool finalJump = false;
+    private Vector3 finalMoveDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -91,7 +100,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     }
 
     // Called by player to move the player
-    public void Move(Vector2 inputs, bool doJump)
+    public void Move(Vector3 inputs, bool doJump)
     {
         moveInputs = inputs;
 
@@ -105,6 +114,10 @@ public class PlayerControllerRigidbody : MonoBehaviour
             {
                 jumpInput = false;
             }
+        }
+        else
+        {
+            jumpInput = false;
         }
     }
 
@@ -121,11 +134,11 @@ public class PlayerControllerRigidbody : MonoBehaviour
         camRight.Normalize();
 
         // Update final move direction
-        finalMoveDirection = Vector2.zero;
-        finalMoveDirection = moveInputs.x * camRight + moveInputs.y * camForward;
+        finalMoveDirection = Vector3.zero;
+        finalMoveDirection = moveInputs.x * camRight + moveInputs.z * camForward;
 
         // Normalize move direction
-        if (finalMoveDirection != Vector2.zero)
+        if (finalMoveDirection != Vector3.zero)
         {
             transform.forward = finalMoveDirection.normalized;
         }
@@ -133,10 +146,17 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateDrag();
+
+        ApplyDrag();
+
         float airModifier = 1.0f;
         if (!isGrounded) { airModifier *= airControl; }
 
         rigidBody.AddForce(finalMoveDirection.normalized * moveForce * airModifier * Time.fixedDeltaTime);
+
+        // Clamp to max speed
+        CapSpeed();
 
         if (jumpInput)
         {
@@ -146,6 +166,52 @@ public class PlayerControllerRigidbody : MonoBehaviour
         // Update player run animation based on speed
         if (rigidBody.velocity.magnitude > 1.0f) { playerAnimator.SetBool("Run", true); }
         else { playerAnimator.SetBool("Run", false); }
+    }
+
+    private void UpdateDrag()
+    {
+        if (!isGrounded)
+        {
+            currentDrag = airDrag;
+            Debug.Log("AIR DRAG" + System.DateTime.Now.Ticks);
+        }
+        else if (moveInputs == Vector3.zero)
+        {
+            currentDrag = stationaryDrag;
+            Debug.Log("STATIONARY DRAG" + System.DateTime.Now.Ticks);
+        }
+        else
+        {
+            Debug.Log("MOVING DRAG" + System.DateTime.Now.Ticks);
+            currentDrag = movingDrag;
+        }
+    }
+
+    private void ApplyDrag()
+    {
+        var currentVelocity = rigidBody.velocity;
+        currentVelocity.y = 0.0f;
+
+        // Apply 'drag'
+        rigidBody.AddForce(-finalMoveDirection.normalized * rigidBody.velocity.magnitude * currentDrag * dragCoefficient * Time.fixedDeltaTime);
+    }
+
+    private void CapSpeed()
+    {
+        var currentVelocity = rigidBody.velocity;
+
+        if (currentVelocity.magnitude > maxSpeed)
+        {
+            Vector3 newVelocity;
+            newVelocity.y = currentVelocity.y;
+
+            currentVelocity.y = 0.0f;
+            currentVelocity = currentVelocity.normalized * maxSpeed;
+            newVelocity.x = currentVelocity.x;
+            newVelocity.z = currentVelocity.z;
+
+            rigidBody.velocity = newVelocity;
+        }
     }
 
     private void Jump()

@@ -19,8 +19,7 @@ public class PlayerFollowCamera : MonoBehaviour
         cameraOffset = this.transform.position - player.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LateUpdate()
     {
         if (player.GetInputsDisabled()) { return; }
 

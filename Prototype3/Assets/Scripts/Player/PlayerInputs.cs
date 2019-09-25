@@ -13,7 +13,7 @@ public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private PlayerControllerRigidbody playerController;
 
-    public Vector2 moveInputs = Vector3.zero;
+    private Vector3 moveInputs = Vector3.zero;
     private bool jumpInput = false;
     private ActionState actionState = ActionState.jump;
     private bool inputsDisabled = false;
@@ -31,7 +31,7 @@ public class PlayerInputs : MonoBehaviour
         if (inputsDisabled) { return; }
 
         moveInputs.x = Input.GetAxisRaw("Horizontal");
-        moveInputs.y = Input.GetAxisRaw("Vertical");
+        moveInputs.z = Input.GetAxisRaw("Vertical");
         jumpInput = false;
 
         switch (actionState)
