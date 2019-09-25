@@ -13,7 +13,7 @@ public enum PortalState
 public class Portal : MonoBehaviour
 {
     public PortalState portalState;
-    public Transform location;
+    public Vector3 location;
 
     public PortalState Next()
     {
