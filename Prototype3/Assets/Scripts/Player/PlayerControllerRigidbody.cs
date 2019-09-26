@@ -28,7 +28,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
 
     [Header("References")]
-    [SerializeField] private CinemachineVirtualCamera cam;
+    [SerializeField] private CinemachineFreeLook cam;
     [SerializeField] private Animator playerAnimator;
 
     [Header("Other settings")]
@@ -124,14 +124,18 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private void UpdateMoveInputs()
     {
         // Find camera forward direction
-        var camForward = cam.transform.forward;
+        //var camForward = cam.transform.forward;
+        //camForward.y = 0.0f;
+        //camForward.Normalize();
+        var camForward = this.transform.position - cam.transform.position;
         camForward.y = 0.0f;
         camForward.Normalize();
 
-        // Find camera right direction
-        var camRight = cam.transform.right;
-        camRight.y = 0.0f;
-        camRight.Normalize();
+        //// Find camera right direction
+        //var camRight = cam.transform.right;
+        //camRight.y = 0.0f;
+        //camRight.Normalize();
+        Vector3 camRight = new Vector3(camForward.z, 0.0f, -camForward.x);
 
         // Update final move direction
         finalMoveDirection = Vector3.zero;
@@ -146,14 +150,14 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateDrag();
-
-        ApplyDrag();
-
         float airModifier = 1.0f;
         if (!isGrounded) { airModifier *= airControl; }
 
-        rigidBody.AddForce(finalMoveDirection.normalized * moveForce * airModifier * Time.fixedDeltaTime);
+        rigidBody.AddForce(finalMoveDirection.normalized * moveForce * airModifier * Time.fixedDeltaTime, ForceMode.Impulse);
+
+        UpdateDrag();
+
+        ApplyDrag();
 
         // Clamp to max speed
         CapSpeed();
@@ -164,7 +168,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         }
 
         // Update player run animation based on speed
-        if (rigidBody.velocity.magnitude > 1.0f) { playerAnimator.SetBool("Run", true); }
+        if (rigidBody.velocity.magnitude > 3.0f) { playerAnimator.SetBool("Run", true); }
         else { playerAnimator.SetBool("Run", false); }
     }
 
@@ -193,7 +197,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
         currentVelocity.y = 0.0f;
 
         // Apply 'drag'
-        rigidBody.AddForce(-finalMoveDirection.normalized * rigidBody.velocity.magnitude * currentDrag * dragCoefficient * Time.fixedDeltaTime);
+        // rigidBody.velocity -= currentVelocity * currentDrag * Time.fixedDeltaTime;
+
+        rigidBody.AddForce(-rigidBody.velocity * currentDrag * dragCoefficient * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
     private void CapSpeed()
