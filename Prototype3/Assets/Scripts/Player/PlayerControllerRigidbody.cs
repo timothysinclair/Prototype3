@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-
-
 public class PlayerControllerRigidbody : MonoBehaviour
 {
     [Header("Movement variables")]
@@ -124,17 +122,11 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private void UpdateMoveInputs()
     {
         // Find camera forward direction
-        //var camForward = cam.transform.forward;
-        //camForward.y = 0.0f;
-        //camForward.Normalize();
         var camForward = this.transform.position - cam.transform.position;
         camForward.y = 0.0f;
         camForward.Normalize();
 
         //// Find camera right direction
-        //var camRight = cam.transform.right;
-        //camRight.y = 0.0f;
-        //camRight.Normalize();
         Vector3 camRight = new Vector3(camForward.z, 0.0f, -camForward.x);
 
         // Update final move direction
@@ -177,16 +169,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
         if (!isGrounded)
         {
             currentDrag = airDrag;
-            Debug.Log("AIR DRAG" + System.DateTime.Now.Ticks);
         }
         else if (moveInputs == Vector3.zero)
         {
             currentDrag = stationaryDrag;
-            Debug.Log("STATIONARY DRAG" + System.DateTime.Now.Ticks);
         }
         else
         {
-            Debug.Log("MOVING DRAG" + System.DateTime.Now.Ticks);
             currentDrag = movingDrag;
         }
     }
