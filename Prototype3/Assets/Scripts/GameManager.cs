@@ -68,11 +68,11 @@ public class GameManager : MonoBehaviour
     {
         switch (newState)
         {
-            case ActionState.eat:
-                {
-                    actionButton.GetComponent<Image>().sprite = eatSprite;
-                    break;
-                }
+            //case ActionState.eat:
+            //    {
+            //        actionButton.GetComponent<Image>().sprite = eatSprite;
+            //        break;
+            //    }
 
             case ActionState.talk:
                 {

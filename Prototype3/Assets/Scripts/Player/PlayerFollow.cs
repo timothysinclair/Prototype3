@@ -33,7 +33,9 @@ public class PlayerFollow : MonoBehaviour
         if (rotateAroundPlayer)
         {
             float xAxis = Input.GetAxis("Mouse X");
-            Quaternion turnAngle = Quaternion.AngleAxis(xAxis * cameraRotationSpeed, Vector3.up);
+            float yAxis = Input.GetAxis("Mouse Y");
+
+            Quaternion turnAngle = Quaternion.AngleAxis(xAxis * cameraRotationSpeed, Vector3.up) * Quaternion.AngleAxis(yAxis * cameraRotationSpeed, this.transform.right);
 
             cameraOffset = turnAngle * cameraOffset;
         }
