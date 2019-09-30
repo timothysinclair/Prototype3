@@ -22,18 +22,29 @@ public class TotemEnemy : MonoBehaviour
     [Header("Vision settings")]
 
     [SerializeField] private float visionRadius = 5.0f;
-    [SerializeField] [Range(0.1f, 179.0f)] private float visionAngle = 90.0f;
+    [SerializeField] [Range(0.1f, 360.0f)] private float visionAngle = 90.0f;
     [SerializeField] private Vector3 headOffset;
 
     [Tooltip("The maximum difference in height between the player and the totem to still detect them")]
     [SerializeField] private float maxHeightDiff = 1.0f;
 
+    [Tooltip("The amount of time that the player has to spend in the totem's vision before being teleported")]
+    [SerializeField] private float detectionTime = 2.0f;
+
+    [Tooltip("The position that the player will be teleported to after being detected")]
+    [SerializeField] private Transform teleportDestination;
+
     private Player playerRef;
-    public int currentTurn = 0;
+    private int currentTurn = 0;
     private bool isTurning = false;
     private float turnTimer = 0.0f;
     private float turnDirection = 1.0f;
     private bool playerDetected = false;
+
+    // Stores teleport position on startup
+    private Vector3 teleportPosition;
+
+    private float detectionTimer = 0.0f;
 
     // Temporary (for testing)
     [Header("Temporary")]
@@ -47,12 +58,24 @@ public class TotemEnemy : MonoBehaviour
         Debug.Assert(playerRef, "Totem Enemy couldn't find player object to create a reference. Is there a player in the scene? Do they have the player tag?", this);
 
         turnTimer = waitTime;
+        teleportPosition = teleportDestination.position;
     }
 
     private void Update()
     {
         CheckTurnState();
+
+        bool wasPlayerDetected = playerDetected;
         SearchForPlayer();
+        if (wasPlayerDetected && !playerDetected)
+        {
+            OnDetectionEnd();
+        }
+
+        if (playerDetected)
+        {
+            OnDetectionUpdate();
+        }
 
         if (playerDetected) { totemFace.material = hostileMat; }
         else { totemFace.material = peacefulMat; }
@@ -101,13 +124,18 @@ public class TotemEnemy : MonoBehaviour
         forwardVec.y = 0.0f;
         Vector3.Normalize(forwardVec);
         Vector3.Normalize(toPlayer);
-        float angleDiff = Mathf.Abs(Vector3.SignedAngle(forwardVec, toPlayer, Vector3.up));
+        float angleDiff = Vector3.Angle(forwardVec, toPlayer); // UnsignedAngle(forwardVec, toPlayer, Vector3.up));
 
         // Player is detected
         if (angleDiff < (visionAngle / 2.0f))
         {
+            if (!playerDetected)
+            {
+                OnDetectionStart();
+            }
+
             playerDetected = true;
-        }
+        }     
     }
 
     private void Turn()
@@ -122,6 +150,38 @@ public class TotemEnemy : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0.0f, 360.0f / turnPositions) * turnDirection, turnTime, RotateMode.LocalAxisAdd)
             .SetEase(Ease.InOutSine)
             .SetLoops(1);
+    }
+
+    private void OnDetectionStart()
+    {
+        Debug.Log("Detection Start");
+    }
+
+    private void OnDetectionEnd()
+    {
+        detectionTimer = 0.0f;
+        Debug.Log("Detection End");
+    }
+
+    private void OnDetectionUpdate()
+    {
+        Debug.Log("Detection Update");
+
+        detectionTimer += Time.deltaTime;
+
+        if (detectionTimer >= detectionTime)
+        {
+            TeleportPlayer();
+            playerDetected = false;
+            OnDetectionEnd();
+        }
+    }
+
+    private void TeleportPlayer()
+    {
+        Debug.Log("Teleported Player");
+        playerRef.GetComponentInParent<Transform>().position = teleportPosition;
+        // playerRef.transform.position = teleportPosition;
     }
 
     private void OnDrawGizmos()
