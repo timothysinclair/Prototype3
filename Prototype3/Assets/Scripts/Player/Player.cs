@@ -22,9 +22,9 @@ public class Player : MonoBehaviour
         playerInput.SetInputsDisabled(disabled);
     }
 
-    public bool IsCamoflauged()
+    public bool IsCamouflaged()
     {
-        return playerController.IsCamoflauged();
+        return playerController.IsCamouflaged();
     }
 
     public void TeleportPlayer(Vector3 newPosition)

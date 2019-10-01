@@ -12,8 +12,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private float stationaryDrag = 0.9f;
     [SerializeField] private float airDrag = 0.0f;
 
-    [Tooltip("How much of normal move force should be applied while moving when camoflauged")]
-    [SerializeField] [Range(0.01f, 1.0f)] private float camoflaugedSpeedModifier = 0.5f;
+    [Tooltip("How much of normal move force should be applied while moving when camouflaged")]
+    [SerializeField] [Range(0.01f, 1.0f)] private float camouflagedSpeedModifier = 0.5f;
 
     // Affects how much drag affects the player
     [SerializeField] private float dragCoefficient = 10.0f;
@@ -56,14 +56,14 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private Vector3 moveInputs;
     private bool jumpInput = false;
 
-    private bool isCamoflauged = false;
+    private bool isCamouflaged = false;
     private float moveSpeedModifier = 1.0f;
 
     // Stores the calculated move direction of the player
     private Vector3 finalMoveDirection;
 
     [Header("FOR TESTING")]
-    public Material camoflaugeMaterial;
+    public Material camouflageMaterial;
     private Material normalMaterial;
 
     // Start is called before the first frame update
@@ -108,23 +108,23 @@ public class PlayerControllerRigidbody : MonoBehaviour
     }
 
     // Called by player to move the player
-    public void Move(Vector3 inputs, bool doJump, bool doCamoflauge)
+    public void Move(Vector3 inputs, bool doJump, bool doCamouflage)
     {
         moveInputs = inputs;
 
-        if (doCamoflauge && !isCamoflauged && isGrounded)
+        if (doCamouflage && !isCamouflaged && isGrounded)
         {
-            isCamoflauged = true;
-            OnStartCamoflauge();
+            isCamouflaged = true;
+            OnStartCamouflage();
         }
-        else if (!doCamoflauge && isCamoflauged)
+        else if (!doCamouflage && isCamouflaged)
         {
-            isCamoflauged = false;
-            OnEndCamoflauge();
+            isCamouflaged = false;
+            OnEndCamouflage();
         }
 
         
-        if (doJump && !isCamoflauged)
+        if (doJump && !isCamouflaged)
         {
             if (isGrounded || lenientJump)
             {
@@ -256,18 +256,18 @@ public class PlayerControllerRigidbody : MonoBehaviour
         }
     }
 
-    private void OnStartCamoflauge()
+    private void OnStartCamouflage()
     {
         var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
         var mats = renderer.materials;
         normalMaterial = mats[2];
-        mats[2] = camoflaugeMaterial;
+        mats[2] = camouflageMaterial;
         renderer.materials = mats;
-        moveSpeedModifier = camoflaugedSpeedModifier;
+        moveSpeedModifier = camouflagedSpeedModifier;
         
     }
 
-    private void OnEndCamoflauge()
+    private void OnEndCamouflage()
     {
         var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
         var mats = renderer.materials;
@@ -276,7 +276,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         moveSpeedModifier = 1.0f;
     }
 
-    public bool IsCamoflauged() { return isCamoflauged; }
+    public bool IsCamouflaged() { return isCamouflaged; }
 
     private void OnDrawGizmosSelected()
     {

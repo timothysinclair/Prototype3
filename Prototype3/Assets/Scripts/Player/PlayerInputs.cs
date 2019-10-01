@@ -34,7 +34,7 @@ public class PlayerInputs : MonoBehaviour
         moveInputs.z = Input.GetAxisRaw("Vertical");
         jumpInput = false;
 
-        bool camoflaugeInput = Input.GetButton("Crouch");
+        bool camouflageInput = Input.GetButton("Camouflage");
 
         switch (actionState)
         {
@@ -52,7 +52,7 @@ public class PlayerInputs : MonoBehaviour
             }
         }
 
-        playerController.Move(moveInputs, jumpInput, camoflaugeInput);
+        playerController.Move(moveInputs, jumpInput, camouflageInput);
     }
 
     public void ToggleCursorLock()

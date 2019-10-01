@@ -118,7 +118,7 @@ public class TotemEnemy : MonoBehaviour
     {
         playerDetected = false;
 
-        if (playerRef.IsCamoflauged()) { return; }
+        if (playerRef.IsCamouflaged()) { return; }
 
         Vector3 headPos = this.transform.position + headOffset;
         Vector3 toPlayer = playerRef.transform.position - headPos;
