@@ -96,6 +96,12 @@ public class TotemEnemy : MonoBehaviour
             if (isTurning)
             {
                 turnTimer = waitTime;
+
+                var lookSeq = DOTween.Sequence();
+                
+                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, 360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine));
+                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, -360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine));
+
             }
             // Start turning
             else
