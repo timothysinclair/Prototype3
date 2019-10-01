@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Polybrush Material Test
+  m_Shader: {fileID: -6465566751694194690, guid: e1c4f1b23880ec64db0124bd6f0465cf,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_1D877444:
+        m_Texture: {fileID: 2800000, guid: 04eef2b4539d4d249842c39759694379, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_22DC55EB:
+        m_Texture: {fileID: 2800000, guid: 2f6d9fd32b8d1304e9aa50297997cdc8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6602847C:
+        m_Texture: {fileID: 2800000, guid: 1d6a2967ec425f24fb38edc0dc96f373, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6A4A28BA:
+        m_Texture: {fileID: 2800000, guid: 5d12ead8f84bde64e932fda47e8b52c0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7E929C98:
+        m_Texture: {fileID: 2800000, guid: 66d2065210d3e0d4cbfd7b19fcaf484c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_B77F94E0:
+        m_Texture: {fileID: 2800000, guid: dda9d3f8d29e277429a91436db344e96, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_BA6A156C:
+        m_Texture: {fileID: 2800000, guid: e0d1cddd2cad7a740aab501a899fd305, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D89BD572:
+        m_Texture: {fileID: 2800000, guid: 48662fe9d23b4244cba8b0c90d40e0af, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_662A5C6F: 0.5
+    - Vector1_760E6129: 0
+    m_Colors:
+    - Vector2_284CBF73: {r: 7, g: 7, b: 0, a: 0}
+    - Vector2_359E1ED6: {r: 12, g: 12, b: 0, a: 0}
+    - Vector2_866BD11B: {r: 7, g: 7, b: 0, a: 0}
+    - Vector2_882576D1: {r: 12, g: 12, b: 0, a: 0}
+    - Vector2_8F7B282B: {r: 12, g: 12, b: 0, a: 0}
+    - Vector2_90081CC6: {r: 12, g: 12, b: 0, a: 0}
+    - Vector2_C1020B47: {r: 20, g: 20, b: 0, a: 0}
+    - Vector2_DB91D003: {r: 10, g: 3, b: 0, a: 0}
