@@ -13,7 +13,15 @@ public enum PortalState
 public class Portal : MonoBehaviour
 {
     public PortalState portalState;
-    public Vector3 location;
+    public Portal targetPortal;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0.3f, 0.0f, 0.5f, 0.70f);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(Vector3.zero, Vector3.one);
+    }
+
 
     public PortalState Next()
     {
@@ -25,6 +33,9 @@ public class Portal : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Player player = collision.transform.GetComponent<Player>();
-        //if(player != null) player.Teleport(location);
+        if(targetPortal != null)
+        {
+            //if(player != null) player.Teleport(targetPortal.transform);
+        }
     }
 }
