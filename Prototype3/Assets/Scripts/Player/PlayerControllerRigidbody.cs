@@ -240,7 +240,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     public void TeleportPlayer(Vector3 newPosition)
     {
-
         Vector3 positionChange = newPosition - this.transform.position;
         Vector3 relativeCamPos = cam.transform.position - this.transform.position;
 
