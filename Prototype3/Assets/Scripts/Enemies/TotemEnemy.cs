@@ -34,6 +34,9 @@ public class TotemEnemy : MonoBehaviour
     [Tooltip("The position that the player will be teleported to after being detected")]
     [SerializeField] private Transform teleportDestination;
 
+    [Tooltip("The layers that are counted as 'walls' - objects in these layers will block the totem's vision")]
+    [SerializeField] private LayerMask wallLayers;
+
     private Player playerRef;
     private int currentTurn = 0;
     private bool isTurning = false;
@@ -109,7 +112,10 @@ public class TotemEnemy : MonoBehaviour
     {
         playerDetected = false;
 
-        Vector3 toPlayer = playerRef.transform.position - (this.transform.position + headOffset);
+        if (playerRef.IsCamoflauged()) { return; }
+
+        Vector3 headPos = this.transform.position + headOffset;
+        Vector3 toPlayer = playerRef.transform.position - headPos;
         float heightDiff = Mathf.Abs(toPlayer.y);
         toPlayer.y = 0.0f;
 
@@ -124,17 +130,22 @@ public class TotemEnemy : MonoBehaviour
         forwardVec.y = 0.0f;
         Vector3.Normalize(forwardVec);
         Vector3.Normalize(toPlayer);
-        float angleDiff = Vector3.Angle(forwardVec, toPlayer); // UnsignedAngle(forwardVec, toPlayer, Vector3.up));
+        float angleDiff = Vector3.Angle(forwardVec, toPlayer); 
 
         // Player is detected
         if (angleDiff < (visionAngle / 2.0f))
         {
-            if (!playerDetected)
+            toPlayer = playerRef.transform.position - headPos;
+            // Raycast to check for walls
+            if (!Physics.Raycast(headPos, toPlayer, toPlayer.magnitude, wallLayers))
             {
-                OnDetectionStart();
-            }
+                if (!playerDetected)
+                {
+                    OnDetectionStart();
+                }
 
-            playerDetected = true;
+                playerDetected = true;
+            }
         }     
     }
 
@@ -154,19 +165,15 @@ public class TotemEnemy : MonoBehaviour
 
     private void OnDetectionStart()
     {
-        Debug.Log("Detection Start");
     }
 
     private void OnDetectionEnd()
     {
         detectionTimer = 0.0f;
-        Debug.Log("Detection End");
     }
 
     private void OnDetectionUpdate()
     {
-        Debug.Log("Detection Update");
-
         detectionTimer += Time.deltaTime;
 
         if (detectionTimer >= detectionTime)

@@ -12,6 +12,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private float stationaryDrag = 0.9f;
     [SerializeField] private float airDrag = 0.0f;
 
+    [Tooltip("How much of normal move force should be applied while moving when camoflauged")]
+    [SerializeField] [Range(0.01f, 1.0f)] private float camoflaugedSpeedModifier = 0.5f;
+
     // Affects how much drag affects the player
     [SerializeField] private float dragCoefficient = 10.0f;
     [SerializeField] private float maxSpeed = 20.0f;
@@ -53,8 +56,15 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private Vector3 moveInputs;
     private bool jumpInput = false;
 
+    private bool isCamoflauged = false;
+    private float moveSpeedModifier = 1.0f;
+
     // Stores the calculated move direction of the player
     private Vector3 finalMoveDirection;
+
+    [Header("FOR TESTING")]
+    public Material camoflaugeMaterial;
+    private Material normalMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -98,11 +108,23 @@ public class PlayerControllerRigidbody : MonoBehaviour
     }
 
     // Called by player to move the player
-    public void Move(Vector3 inputs, bool doJump)
+    public void Move(Vector3 inputs, bool doJump, bool doCamoflauge)
     {
         moveInputs = inputs;
 
-        if (doJump)
+        if (doCamoflauge && !isCamoflauged && isGrounded)
+        {
+            isCamoflauged = true;
+            OnStartCamoflauge();
+        }
+        else if (!doCamoflauge && isCamoflauged)
+        {
+            isCamoflauged = false;
+            OnEndCamoflauge();
+        }
+
+        
+        if (doJump && !isCamoflauged)
         {
             if (isGrounded || lenientJump)
             {
@@ -145,7 +167,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         float airModifier = 1.0f;
         if (!isGrounded) { airModifier *= airControl; }
 
-        rigidBody.AddForce(finalMoveDirection.normalized * moveForce * airModifier * Time.fixedDeltaTime, ForceMode.Impulse);
+        rigidBody.AddForce(finalMoveDirection.normalized * moveForce * moveSpeedModifier * airModifier * Time.fixedDeltaTime, ForceMode.Impulse);
 
         UpdateDrag();
 
@@ -186,8 +208,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
         currentVelocity.y = 0.0f;
 
         // Apply 'drag'
-        // rigidBody.velocity -= currentVelocity * currentDrag * Time.fixedDeltaTime;
-
         rigidBody.AddForce(-rigidBody.velocity * currentDrag * dragCoefficient * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
@@ -195,13 +215,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         var currentVelocity = rigidBody.velocity;
 
-        if (currentVelocity.magnitude > maxSpeed)
+        if (currentVelocity.magnitude > (maxSpeed * moveSpeedModifier))
         {
             Vector3 newVelocity;
             newVelocity.y = currentVelocity.y;
 
             currentVelocity.y = 0.0f;
-            currentVelocity = currentVelocity.normalized * maxSpeed;
+            currentVelocity = currentVelocity.normalized * maxSpeed * moveSpeedModifier;
             newVelocity.x = currentVelocity.x;
             newVelocity.z = currentVelocity.z;
 
@@ -225,6 +245,28 @@ public class PlayerControllerRigidbody : MonoBehaviour
             groundedFrames[i] = false;
         }
     }
+
+    private void OnStartCamoflauge()
+    {
+        var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
+        var mats = renderer.materials;
+        normalMaterial = mats[2];
+        mats[2] = camoflaugeMaterial;
+        renderer.materials = mats;
+        moveSpeedModifier = camoflaugedSpeedModifier;
+        
+    }
+
+    private void OnEndCamoflauge()
+    {
+        var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
+        var mats = renderer.materials;
+        mats[2] = normalMaterial;
+        renderer.materials = mats;
+        moveSpeedModifier = 1.0f;
+    }
+
+    public bool IsCamoflauged() { return isCamoflauged; }
 
     private void OnDrawGizmosSelected()
     {
