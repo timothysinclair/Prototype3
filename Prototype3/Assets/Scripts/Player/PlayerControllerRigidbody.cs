@@ -238,6 +238,17 @@ public class PlayerControllerRigidbody : MonoBehaviour
         ResetGroundedFrames();
     }
 
+    public void TeleportPlayer(Vector3 newPosition)
+    {
+
+        Vector3 positionChange = newPosition - this.transform.position;
+        Vector3 relativeCamPos = cam.transform.position - this.transform.position;
+
+        this.transform.position = newPosition;
+
+        cam.OnTargetObjectWarped(this.transform, positionChange);
+    }
+
     private void ResetGroundedFrames()
     {
         for (int i = 0; i < groundedFrames.Capacity; i++)

@@ -26,4 +26,9 @@ public class Player : MonoBehaviour
     {
         return playerController.IsCamoflauged();
     }
+
+    public void TeleportPlayer(Vector3 newPosition)
+    {
+        playerController.TeleportPlayer(newPosition);
+    }
 }

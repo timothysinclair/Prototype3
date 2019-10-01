@@ -193,7 +193,8 @@ public class TotemEnemy : MonoBehaviour
     private void TeleportPlayer()
     {
         Debug.Log("Teleported Player");
-        playerRef.GetComponentInParent<Transform>().position = teleportPosition;
+        playerRef.TeleportPlayer(teleportPosition);
+        // playerRef.GetComponentInParent<Transform>().position = teleportPosition;
         // playerRef.transform.position = teleportPosition;
     }
 
