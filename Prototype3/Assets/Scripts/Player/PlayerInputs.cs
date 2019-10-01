@@ -34,6 +34,8 @@ public class PlayerInputs : MonoBehaviour
         moveInputs.z = Input.GetAxisRaw("Vertical");
         jumpInput = false;
 
+        bool camoflaugeInput = Input.GetButton("Crouch");
+
         switch (actionState)
         {
             default:
@@ -50,7 +52,7 @@ public class PlayerInputs : MonoBehaviour
             }
         }
 
-        playerController.Move(moveInputs, jumpInput);
+        playerController.Move(moveInputs, jumpInput, camoflaugeInput);
     }
 
     public void ToggleCursorLock()

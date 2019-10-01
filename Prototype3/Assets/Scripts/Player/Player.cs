@@ -21,4 +21,9 @@ public class Player : MonoBehaviour
     {
         playerInput.SetInputsDisabled(disabled);
     }
+
+    public bool IsCamoflauged()
+    {
+        return playerController.IsCamoflauged();
+    }
 }
