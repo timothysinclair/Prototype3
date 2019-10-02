@@ -37,6 +37,6 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Player player = other.transform.GetComponent<Player>();
-        //if(player != null) player.Teleport(location);
+        if (player != null) player.TeleportPlayer(location.position);
     }
 }
