@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerControllerRigidbody))]
+[RequireComponent(typeof(PlayerInputs))]
+[RequireComponent(typeof(CrystalHolder))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerControllerRigidbody playerController;
     [SerializeField] private PlayerInputs playerInput;
+    [SerializeField] private CrystalHolder playerCrystalHolder;
 
     private void Start()
     {
@@ -30,5 +34,16 @@ public class Player : MonoBehaviour
     public void TeleportPlayer(Vector3 newPosition)
     {
         playerController.TeleportPlayer(newPosition);
+    }
+
+    public void ReturnCrystal()
+    {
+        playerCrystalHolder.ReturnHeldToOriginal();
+    }
+
+    public CrystalType HeldCrystalType()
+    {
+        if (!playerCrystalHolder.held) return CrystalType.None;
+        return playerCrystalHolder.held.type;
     }
 }

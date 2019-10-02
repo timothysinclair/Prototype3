@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(true);
         author.text = dialogue.header;
 
-        foreach (string sentence in dialogue.sentenses)
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
