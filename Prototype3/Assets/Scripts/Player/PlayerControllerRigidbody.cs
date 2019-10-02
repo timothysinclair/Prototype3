@@ -244,6 +244,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         Vector3 relativeCamPos = cam.transform.position - this.transform.position;
 
         this.transform.position = newPosition;
+        rigidBody.velocity = Vector3.zero;
 
         cam.OnTargetObjectWarped(this.transform, positionChange);
     }
