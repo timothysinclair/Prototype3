@@ -94,7 +94,6 @@ public class TotemEnemy : MonoBehaviour
     private void CheckTurnState()
     {
         if (!doTurn) { return; }
-        if (playerDetected) { return; }
 
         turnTimer -= Time.deltaTime;
 
