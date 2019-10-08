@@ -5,13 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(CrystalHolder))]
 public class CrystalPedestal : MonoBehaviour
 {
+
+    private CrystalHolder myHolder;
+
+    private void Awake()
+    {
+        myHolder = GetComponent<CrystalHolder>();
+    }
+
+    private void Start()
+    {
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            var thisHolder = GetComponent<CrystalHolder>();
             var playerHolder = other.GetComponent<CrystalHolder>();
-            thisHolder.Swap(playerHolder);
+            myHolder.Swap(playerHolder);
         }
     }
 }

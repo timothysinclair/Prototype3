@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ActionState
-{
-    jump,
-    talk,
-    eat
-}
-
 public class PlayerController : MonoBehaviour
 {
     public float moveForce = 10.0f;
@@ -147,12 +140,6 @@ public class PlayerController : MonoBehaviour
     {
         switch (playerActionState)
         {
-            case ActionState.eat:
-                {
-                    GameManager.Instance.StartHangi();
-                    break;
-                }
-
             case ActionState.talk:
                 {
                     talkingFriend.Talk();

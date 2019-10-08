@@ -13,10 +13,10 @@ public class Hangi : MonoBehaviour
 
         var player = other.gameObject.GetComponent<PlayerController>();
 
-        if (player)
-        {
-            player.SetActionState(ActionState.eat);
-        }
+        //if (player)
+        //{
+        //    player.SetActionState(ActionState.eat);
+        //}
     }
 
     private void OnTriggerExit(Collider other)

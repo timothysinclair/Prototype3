@@ -13,7 +13,23 @@ public enum PortalState
 public class Portal : MonoBehaviour
 {
     public PortalState portalState;
-    public Vector3 location;
+    public Transform location;
+    public bool debug;
+
+    private void OnDrawGizmos()
+    {
+        //Target Location
+        if (debug)
+        {
+            Gizmos.DrawIcon(location.position, "", true);
+
+            //Portal
+            Gizmos.color = new Color(0.3f, 0.0f, 0.4f, 0.30f);
+            Gizmos.matrix = transform.localToWorldMatrix;
+            Gizmos.DrawCube(Vector3.zero, Vector3.one);
+        }
+    }
+
 
     public PortalState Next()
     {
@@ -22,9 +38,12 @@ public class Portal : MonoBehaviour
         return (portalStates.Length == j) ? portalStates[0] : portalStates[j];
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Player player = collision.transform.GetComponent<Player>();
-        //if(player != null) player.Teleport(location);
+        Player player = other.transform.GetComponent<Player>();
+        if(portalState == PortalState.UNLOCKED && player != null)
+        {
+            player.TeleportPlayer(location.position);
+        }
     }
 }
