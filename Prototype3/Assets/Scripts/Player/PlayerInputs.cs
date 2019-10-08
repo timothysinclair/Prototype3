@@ -18,11 +18,11 @@ public class PlayerInputs : MonoBehaviour
     private ActionState actionState = ActionState.jump;
     private bool inputsDisabled = false;
     private bool cursorLock = false;
+    private Player playerRef;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        playerRef = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -34,7 +34,8 @@ public class PlayerInputs : MonoBehaviour
         moveInputs.z = Input.GetAxisRaw("Vertical");
         jumpInput = false;
 
-        bool camouflageInput = Input.GetButton("Camouflage");
+        // bool camouflageInput = Input.GetButton("Camouflage");
+        bool camouflageInput = (playerRef.HeldCrystalType() == CrystalType.Purple);
 
         switch (actionState)
         {
