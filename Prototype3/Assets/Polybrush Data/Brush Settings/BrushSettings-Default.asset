@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brushRadiusMin: 0.001
   brushRadiusMax: 5
-  _radius: 1
-  _falloff: 0.5
+  _radius: 2.24
+  _falloff: 0.426
   _strength: 1
   _curve:
     serializedVersion: 2
@@ -31,7 +31,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: 0.21934128
       inSlope: -3
       outSlope: -3
       tangentMode: 0
