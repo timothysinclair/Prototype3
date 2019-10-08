@@ -48,6 +48,10 @@ public class TotemEnemy : MonoBehaviour
     private Vector3 teleportPosition;
 
     private float detectionTimer = 0.0f;
+    private string tweenName = "Totem";
+
+    // Transform to return to after looking at the player
+    private Vector3 oldForward;
 
     // Temporary (for testing)
     [Header("Temporary")]
@@ -62,6 +66,7 @@ public class TotemEnemy : MonoBehaviour
 
         turnTimer = waitTime;
         teleportPosition = teleportDestination.position;
+        tweenName += GetInstanceID();
     }
 
     private void Update()
@@ -69,7 +74,9 @@ public class TotemEnemy : MonoBehaviour
         CheckTurnState();
 
         bool wasPlayerDetected = playerDetected;
+
         SearchForPlayer();
+
         if (wasPlayerDetected && !playerDetected)
         {
             OnDetectionEnd();
@@ -87,6 +94,7 @@ public class TotemEnemy : MonoBehaviour
     private void CheckTurnState()
     {
         if (!doTurn) { return; }
+        if (playerDetected) { return; }
 
         turnTimer -= Time.deltaTime;
 
@@ -97,10 +105,10 @@ public class TotemEnemy : MonoBehaviour
             {
                 turnTimer = waitTime;
 
-                var lookSeq = DOTween.Sequence();
+                var lookSeq = DOTween.Sequence().SetId(tweenName);
                 
-                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, 360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine));
-                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, -360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine));
+                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, 360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
+                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, -360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
 
             }
             // Start turning
@@ -142,6 +150,7 @@ public class TotemEnemy : MonoBehaviour
         if (angleDiff < (visionAngle / 2.0f))
         {
             toPlayer = playerRef.transform.position - headPos;
+
             // Raycast to check for walls
             if (!Physics.Raycast(headPos, toPlayer, toPlayer.magnitude, wallLayers))
             {
@@ -151,6 +160,10 @@ public class TotemEnemy : MonoBehaviour
                 }
 
                 playerDetected = true;
+            }
+            else
+            {
+                Debug.Log("Wall blocked totem detection");
             }
         }     
     }
@@ -166,7 +179,8 @@ public class TotemEnemy : MonoBehaviour
 
         transform.DOLocalRotate(new Vector3(0.0f, 360.0f / turnPositions) * turnDirection, turnTime, RotateMode.LocalAxisAdd)
             .SetEase(Ease.InOutSine)
-            .SetLoops(1);
+            .SetLoops(1)
+            .SetId(tweenName);
     }
 
     private void OnDetectionStart()
@@ -192,10 +206,7 @@ public class TotemEnemy : MonoBehaviour
 
     private void TeleportPlayer()
     {
-        Debug.Log("Teleported Player");
         playerRef.TeleportPlayer(teleportPosition);
-        // playerRef.GetComponentInParent<Transform>().position = teleportPosition;
-        // playerRef.transform.position = teleportPosition;
     }
 
     private void OnDrawGizmos()
@@ -220,5 +231,9 @@ public class TotemEnemy : MonoBehaviour
         Gizmos.DrawLine(headPos, rightBound);
         
         UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
+        Gizmos.color = Color.magenta;
+
+        Gizmos.DrawLine(headPos - new Vector3(0.0f, maxHeightDiff), headPos + new Vector3(0.0f, maxHeightDiff, 0.0f));
+
     }
 }

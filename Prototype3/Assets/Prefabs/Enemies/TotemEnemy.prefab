@@ -54,8 +54,8 @@ MonoBehaviour:
   visionRadius: 15
   visionAngle: 90
   headOffset: {x: 0, y: 0.38, z: 0}
-  maxHeightDiff: 1
-  detectionTime: 3
+  maxHeightDiff: 6.91
+  detectionTime: 1
   teleportDestination: {fileID: 6082017218659213767}
   wallLayers:
     serializedVersion: 2
@@ -274,7 +274,7 @@ SphereCollider:
   m_GameObject: {fileID: 6082017219152400933}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
