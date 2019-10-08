@@ -56,7 +56,7 @@ MonoBehaviour:
   visionAngle: 90
   headOffset: {x: 0, y: 0.38, z: 0}
   maxHeightDiff: 4.3
-  detectionTime: 1
+  detectionTime: 0.3
   teleportDestination: {fileID: 6082017218659213767}
   wallLayers:
     serializedVersion: 2
