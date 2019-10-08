@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public Level[] gameLevels;
 
+    private int currentLevelIndex = 0;
+
     private void Awake()
     {
         if (instance != null && instance != this) { Destroy(this.gameObject); }
@@ -20,4 +22,8 @@ public class GameManager : MonoBehaviour
         Random.InitState((int)System.DateTime.Now.Ticks);
     }
 
+    public Level GetCurrentLevel()
+    {
+        return gameLevels[currentLevelIndex];
+    }
 }
