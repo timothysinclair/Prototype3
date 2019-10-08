@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerControllerRigidbody playerController;
     [SerializeField] private PlayerInputs playerInput;
     [SerializeField] private CrystalHolder playerCrystalHolder;
+    [SerializeField] private Transform rootTransform;
 
     private void Start()
     {
@@ -45,5 +46,10 @@ public class Player : MonoBehaviour
     {
         if (!playerCrystalHolder.held) return CrystalType.None;
         return playerCrystalHolder.held.type;
+    }
+
+    public Transform GetRootTransform()
+    {
+        return rootTransform;
     }
 }
