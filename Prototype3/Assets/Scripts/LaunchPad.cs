@@ -5,55 +5,55 @@ using UnityEngine.AI;
 
 public class LaunchPad : MonoBehaviour
 {
-    public float aiLaunchForce = 100.0f;
-    public Transform launchDirection;
-    public float playerLaunchForce = 100.0f;
+    //public float aiLaunchForce = 100.0f;
+    //public Transform launchDirection;
+    //public float playerLaunchForce = 100.0f;
 
-    private AudioSource audioSource;
-    public AudioClip launchSound;
+    //private AudioSource audioSource;
+    //public AudioClip launchSound;
 
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    //private void Awake()
+    //{
+    //    audioSource = GetComponent<AudioSource>();
+    //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.isTrigger) { return; }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.isTrigger) { return; }
 
-        Vector3 launchVector = Vector3.Normalize(launchDirection.position - this.transform.position);
+    //    Vector3 launchVector = Vector3.Normalize(launchDirection.position - this.transform.position);
 
-        var friend = other.GetComponent<Friend>();
-        var player = other.GetComponent<PlayerController>();
+    //    var friend = other.GetComponent<Friend>();
+    //    var player = other.GetComponent<PlayerController>();
 
-        if (friend)
-        {
-            launchVector *= aiLaunchForce;
+    //    if (friend)
+    //    {
+    //        launchVector *= aiLaunchForce;
 
-            friend.Launch();
-            friend.friendAnimator.speed = 0.0f;
-            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
-            rigidBody.velocity = launchVector;
+    //        friend.Launch();
+    //        friend.friendAnimator.speed = 0.0f;
+    //        var rigidBody = other.gameObject.GetComponent<Rigidbody>();
+    //        rigidBody.velocity = launchVector;
 
-            PlayLaunchSound();
-        }
-        else if (player)
-        {
-            launchVector *= playerLaunchForce;
+    //        PlayLaunchSound();
+    //    }
+    //    else if (player)
+    //    {
+    //        launchVector *= playerLaunchForce;
 
-            var rigidBody = other.gameObject.GetComponent<Rigidbody>();
-            rigidBody.velocity = launchVector;
+    //        var rigidBody = other.gameObject.GetComponent<Rigidbody>();
+    //        rigidBody.velocity = launchVector;
 
-            player.playerAnimator.SetTrigger("Jump");
-            player.isGrounded = false;
-            PlayLaunchSound();
-        }
-    }
+    //        player.playerAnimator.SetTrigger("Jump");
+    //        player.isGrounded = false;
+    //        PlayLaunchSound();
+    //    }
+    //}
 
-    public void PlayLaunchSound()
-    {
-        var newPitch = Random.Range(0.875f, 1.125f);
-        audioSource.pitch = newPitch;
-        audioSource.PlayOneShot(launchSound, 0.3f);
-    }
+    //public void PlayLaunchSound()
+    //{
+    //    var newPitch = Random.Range(0.875f, 1.125f);
+    //    audioSource.pitch = newPitch;
+    //    audioSource.PlayOneShot(launchSound, 0.3f);
+    //}
 }
