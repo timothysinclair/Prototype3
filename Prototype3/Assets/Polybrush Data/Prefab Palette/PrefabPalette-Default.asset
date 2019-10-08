@@ -53,8 +53,8 @@ MonoBehaviour:
       m_Strength: 100
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 360, y: 360, z: 360}
-      m_ScaleRangeMin: {x: 3, y: 3, z: 3}
-      m_ScaleRangeMax: {x: 4, y: 4, z: 4}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 2, y: 2, z: 2}
       m_UniformScale: {x: 1, y: 1}
       m_UniformBool: 0
       m_XRotationBool: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
       m_RotationRangeMax: {x: 0, y: 360, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 2}
+      m_UniformScale: {x: 0.6, y: 1}
       m_UniformBool: 1
       m_XRotationBool: 1
       m_YRotationBool: 1

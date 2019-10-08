@@ -14,16 +14,20 @@ public class Portal : MonoBehaviour
 {
     public PortalState portalState;
     public Transform location;
+    public bool debug;
 
     private void OnDrawGizmos()
     {
         //Target Location
-        Gizmos.DrawIcon(location.position, "", true);
+        if (debug)
+        {
+            Gizmos.DrawIcon(location.position, "", true);
 
-        //Portal
-        Gizmos.color = new Color(0.3f, 0.0f, 0.4f, 0.30f);
-        Gizmos.matrix = transform.localToWorldMatrix;
-        Gizmos.DrawCube(Vector3.zero, Vector3.one);
+            //Portal
+            Gizmos.color = new Color(0.3f, 0.0f, 0.4f, 0.30f);
+            Gizmos.matrix = transform.localToWorldMatrix;
+            Gizmos.DrawCube(Vector3.zero, Vector3.one);
+        }
     }
 
 
@@ -37,6 +41,9 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Player player = other.transform.GetComponent<Player>();
-        if (player != null) player.TeleportPlayer(location.position);
+        if(portalState == PortalState.UNLOCKED && player != null)
+        {
+            player.TeleportPlayer(location.position);
+        }
     }
 }
