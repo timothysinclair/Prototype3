@@ -104,10 +104,10 @@ public class TotemEnemy : MonoBehaviour
             {
                 turnTimer = waitTime;
 
-                //var lookSeq = DOTween.Sequence().SetId(tweenName);
+                var lookSeq = DOTween.Sequence().SetId(tweenName);
                 
-                //lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, 360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
-                //lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, -360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
+                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, 360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
+                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, -360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
 
             }
             // Start turning
