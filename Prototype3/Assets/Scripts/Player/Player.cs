@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerControllerRigidbody playerController;
     [SerializeField] private PlayerInputs playerInput;
     [SerializeField] private CrystalHolder playerCrystalHolder;
+    [SerializeField] private Transform rootTransform;
 
     private void Start()
     {
@@ -50,5 +51,10 @@ public class Player : MonoBehaviour
     public PlayerInputs GetInputs()
     {
         return playerInput;
+    }
+    
+    public Transform GetRootTransform()
+    {
+        return rootTransform;
     }
 }
