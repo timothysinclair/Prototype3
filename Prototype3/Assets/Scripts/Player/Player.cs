@@ -46,4 +46,9 @@ public class Player : MonoBehaviour
         if (!playerCrystalHolder.held) return CrystalType.None;
         return playerCrystalHolder.held.type;
     }
+
+    public PlayerInputs GetInputs()
+    {
+        return playerInput;
+    }
 }

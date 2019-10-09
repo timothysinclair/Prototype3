@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 using TMPro;
 
-public class DialogueManager : MonoBehaviour
+public class NPCManager : MonoBehaviour
 {
-    private static DialogueManager instance;
+    private static NPCManager instance;
 
-    public static DialogueManager Instance { get { return instance; } }
+    public static NPCManager Instance { get { return instance; } }
 
     public GameObject dialogueBox;
     public Image avatar;
@@ -27,7 +27,6 @@ public class DialogueManager : MonoBehaviour
 
     public void Load(NPC npc)
     {
-        Debug.Log("Started Conversation.");
         sentences.Clear();
 
         this.npc = npc;
@@ -42,7 +41,7 @@ public class DialogueManager : MonoBehaviour
 
     public void Next()
     {
-        if(!dialogueBox.activeSelf) dialogueBox.SetActive(true);
+        if (!dialogueBox.activeSelf) dialogueBox.SetActive(true);
 
         if (sentences.Count <= 0)
         {
@@ -58,8 +57,6 @@ public class DialogueManager : MonoBehaviour
     public void Cancel()
     {
         npc.Refresh();
-        sentences.Clear();
-        Debug.Log("Finished Conversation.");
         dialogueBox.SetActive(false);
     }
 }

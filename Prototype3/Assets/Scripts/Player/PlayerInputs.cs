@@ -40,6 +40,7 @@ public class PlayerInputs : MonoBehaviour
         switch (actionState)
         {
             default:
+                break;
             case ActionState.jump:
             {
                 jumpInput = Input.GetButtonDown("Jump");
@@ -48,12 +49,17 @@ public class PlayerInputs : MonoBehaviour
 
             case ActionState.talk:
             {
-
+                if (Input.GetButtonDown("Jump")) NPCManager.Instance.Next();
                 break;
             }
         }
 
         playerController.Move(moveInputs, jumpInput, camouflageInput);
+    }
+
+    public void SetActionState(ActionState actionState)
+    {
+        this.actionState = actionState;
     }
 
     public void ToggleCursorLock()
