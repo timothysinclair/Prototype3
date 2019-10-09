@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 0cd3453460e78184eae366c3dd0a671f,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -875,8 +875,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745413501}
-  m_LocalRotation: {x: 0.17699808, y: 0, z: 0, w: 0.9842112}
-  m_LocalPosition: {x: 165.4, y: 5.0280643, z: -149.61}
+  m_LocalRotation: {x: 0.17386277, y: -0.000000016944327, z: 0.0000000029915492, w: 0.9847699}
+  m_LocalPosition: {x: 0.33, y: 5, z: -21.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1272,7 +1272,7 @@ PrefabInstance:
     - target: {fileID: 3503856150222070735, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 165.4
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150222070735, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -1282,7 +1282,7 @@ PrefabInstance:
     - target: {fileID: 3503856150222070735, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -144.2
+      value: -15.65
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150222070735, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -1327,17 +1327,17 @@ PrefabInstance:
     - target: {fileID: 3503856149251675129, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.15911394
+      value: 0.155969
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149251675129, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000015322058
+      value: 0.0000000042501807
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149251675129, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000043737728
+      value: 0.000000040576257
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149251675129, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -1347,22 +1347,22 @@ PrefabInstance:
     - target: {fileID: 3503856149251675129, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9872603
+      value: 0.987762
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1769981
+      value: 0.17386276
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000005372921
+      value: -0.000000013737552
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000029876528
+      value: 0.000000031319257
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -1372,7 +1372,7 @@ PrefabInstance:
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98421127
+      value: 0.98476994
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149474939095, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -1387,7 +1387,7 @@ PrefabInstance:
     - target: {fileID: 3503856149474939095, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.4400024
+      value: -5.4400005
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -1402,7 +1402,7 @@ PrefabInstance:
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.000015258789
+      value: -0.000011444092
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -1713,6 +1713,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mines Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 1219883858984506655, guid: 325713fbc24201945816f9b28ce1d820,
+        type: 3}
+      propertyPath: portalState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1219883858984506641, guid: 325713fbc24201945816f9b28ce1d820,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1782,11 +1787,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -989
-      objectReference: {fileID: 0}
-    - target: {fileID: 1219883858984506655, guid: 325713fbc24201945816f9b28ce1d820,
-        type: 3}
-      propertyPath: portalState
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325713fbc24201945816f9b28ce1d820, type: 3}
@@ -2338,6 +2338,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jumping Pools Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 1219883858984506655, guid: 325713fbc24201945816f9b28ce1d820,
+        type: 3}
+      propertyPath: portalState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1219883858984506641, guid: 325713fbc24201945816f9b28ce1d820,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2407,11 +2412,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -1210
-      objectReference: {fileID: 0}
-    - target: {fileID: 1219883858984506655, guid: 325713fbc24201945816f9b28ce1d820,
-        type: 3}
-      propertyPath: portalState
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325713fbc24201945816f9b28ce1d820, type: 3}
@@ -2614,6 +2614,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 1219883858984506655, guid: 325713fbc24201945816f9b28ce1d820,
+        type: 3}
+      propertyPath: portalState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1219883858984506641, guid: 325713fbc24201945816f9b28ce1d820,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2683,11 +2688,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 262
-      objectReference: {fileID: 0}
-    - target: {fileID: 1219883858984506655, guid: 325713fbc24201945816f9b28ce1d820,
-        type: 3}
-      propertyPath: portalState
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325713fbc24201945816f9b28ce1d820, type: 3}
