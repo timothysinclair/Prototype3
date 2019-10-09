@@ -74,6 +74,8 @@ public class PlayerInputs : MonoBehaviour
 
     public void SetInputsDisabled(bool disabled)
     {
+        jumpInput = false;
+        moveInputs = Vector3.zero;
         inputsDisabled = disabled;
     }
 

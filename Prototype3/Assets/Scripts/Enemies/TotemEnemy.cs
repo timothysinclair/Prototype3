@@ -38,16 +38,17 @@ public class TotemEnemy : MonoBehaviour
     [SerializeField] private LayerMask wallLayers;
 
     private Player playerRef;
+    private PlayerControllerRigidbody playerRigidbody;
     private int currentTurn = 0;
     private bool isTurning = false;
     private float turnTimer = 0.0f;
     private float turnDirection = 1.0f;
-    private bool playerDetected = false;
+    public bool playerDetected = false;
 
     // Stores teleport position on startup
     private Vector3 teleportPosition;
 
-    private float detectionTimer = 0.0f;
+    public float detectionTimer = 0.0f;
     private string tweenName = "Totem";
 
     // Transform to return to after looking at the player
@@ -63,6 +64,7 @@ public class TotemEnemy : MonoBehaviour
     {
         playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Debug.Assert(playerRef, "Totem Enemy couldn't find player object to create a reference. Is there a player in the scene? Do they have the player tag?", this);
+        playerRigidbody = playerRef.GetComponent<PlayerControllerRigidbody>();
 
         turnTimer = waitTime;
         teleportPosition = teleportDestination.position;
@@ -195,6 +197,8 @@ public class TotemEnemy : MonoBehaviour
     {
         detectionTimer += Time.deltaTime;
 
+        playerRigidbody.SetRespawnTimer((detectionTimer / detectionTime), teleportPosition);
+
         if (detectionTimer >= detectionTime)
         {
             TeleportPlayer();
@@ -212,11 +216,11 @@ public class TotemEnemy : MonoBehaviour
     {
         Vector3 headPos = this.transform.position + headOffset;
 
-        //if (Application.isEditor)
-        //{
-        //    UnityEditor.Handles.color = Color.red;
-        //}
-        
+        if (Application.isEditor)
+        {
+            UnityEditor.Handles.color = Color.red;
+        }
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(headPos, 0.65f);
 
@@ -233,11 +237,11 @@ public class TotemEnemy : MonoBehaviour
         Gizmos.DrawLine(headPos, leftBound);
         Gizmos.DrawLine(headPos, rightBound);
 
-        //if (Application.isEditor)
-        //{
-        //    UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
-        //}
-            
+        if (Application.isEditor)
+        {
+            UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
+        }
+
         Gizmos.color = Color.magenta;
 
         Gizmos.DrawLine(headPos - new Vector3(0.0f, maxHeightDiff), headPos + new Vector3(0.0f, maxHeightDiff, 0.0f));

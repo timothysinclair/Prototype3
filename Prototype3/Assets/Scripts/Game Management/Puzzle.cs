@@ -20,6 +20,6 @@ public class Puzzle : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        playerRef.TeleportPlayer(playerFallRespawnPos);
+        playerRef.StartTeleportPlayer(playerFallRespawnPos);
     }
 }

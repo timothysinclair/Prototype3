@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
         return playerController.IsCamouflaged();
     }
 
+    public void StartTeleportPlayer(Vector3 newPosition)
+    {
+        playerController.StartTeleportPlayer(newPosition);
+    }
+
     public void TeleportPlayer(Vector3 newPosition)
     {
         playerController.TeleportPlayer(newPosition);
