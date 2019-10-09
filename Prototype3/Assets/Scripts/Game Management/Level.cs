@@ -19,11 +19,16 @@ public class Level : MonoBehaviour
     private Player playerRef;
     private Transform oldPlayerRootTransform;
 
+    private Rigidbody rigidBody;
+    private int currentPuzzleIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         endPosition = endTransform.position;
         playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        DOTween.defaultUpdateType = UpdateType.Fixed;
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -35,11 +40,16 @@ public class Level : MonoBehaviour
     public void MoveToEndPosition()
     {
         playerRef.GetRootTransform().SetParent(this.transform);
-        transform.DOMove(endPosition, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform);
+        rigidBody.transform.DOMove(endPosition, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform);
     }
 
     private void ResetPlayerParentTransform()
     {
         playerRef.GetRootTransform().SetParent(null);
+    }
+
+    public Puzzle GetCurrentPuzzle()
+    {
+        return levelPuzzles[currentPuzzleIndex];
     }
 }

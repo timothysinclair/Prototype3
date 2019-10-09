@@ -46,7 +46,7 @@ public class Portal : MonoBehaviour
         Player player = other.transform.GetComponent<Player>();
         if(portalState == PortalState.UNLOCKED && player != null)
         {
-            player.TeleportPlayer(location.position);
+            player.StartTeleportPlayer(location.position);
         }
     }
 }
