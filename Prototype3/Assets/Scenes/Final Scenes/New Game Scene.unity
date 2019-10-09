@@ -1380,6 +1380,11 @@ PrefabInstance:
       propertyPath: airControl
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7166804220096760500, guid: d9f394c5f3110a245a2325d6789213f3,
+        type: 3}
+      propertyPath: canCamouflage
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9f394c5f3110a245a2325d6789213f3, type: 3}
 --- !u!1 &1101661261

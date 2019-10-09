@@ -56,6 +56,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private Vector3 moveInputs;
     private bool jumpInput = false;
 
+    public bool canCamouflage = false;
     private bool isCamouflaged = false;
     private float moveSpeedModifier = 1.0f;
 
@@ -112,7 +113,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         moveInputs = inputs;
 
-        if (doCamouflage && !isCamouflaged && isGrounded)
+        if (canCamouflage && doCamouflage && !isCamouflaged && isGrounded)
         {
             isCamouflaged = true;
             OnStartCamouflage();
@@ -255,6 +256,11 @@ public class PlayerControllerRigidbody : MonoBehaviour
         {
             groundedFrames[i] = false;
         }
+    }
+
+    public void UnlockCamouflage()
+    {
+        canCamouflage = true;
     }
 
     private void OnStartCamouflage()

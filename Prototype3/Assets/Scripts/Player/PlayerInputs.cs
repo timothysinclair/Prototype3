@@ -34,8 +34,8 @@ public class PlayerInputs : MonoBehaviour
         moveInputs.z = Input.GetAxisRaw("Vertical");
         jumpInput = false;
 
-        // bool camouflageInput = Input.GetButton("Camouflage");
-        bool camouflageInput = (playerRef.HeldCrystalType() == CrystalType.Purple);
+        bool camouflageInput = Input.GetButton("Camouflage");
+        // bool camouflageInput = (playerRef.HeldCrystalType() == CrystalType.Purple);
 
         switch (actionState)
         {

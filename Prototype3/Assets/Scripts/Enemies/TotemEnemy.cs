@@ -212,7 +212,11 @@ public class TotemEnemy : MonoBehaviour
     {
         Vector3 headPos = this.transform.position + headOffset;
 
-        UnityEditor.Handles.color = Color.red;
+        //if (Application.isEditor)
+        //{
+        //    UnityEditor.Handles.color = Color.red;
+        //}
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(headPos, 0.65f);
 
@@ -228,8 +232,12 @@ public class TotemEnemy : MonoBehaviour
 
         Gizmos.DrawLine(headPos, leftBound);
         Gizmos.DrawLine(headPos, rightBound);
-        
-        UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
+
+        //if (Application.isEditor)
+        //{
+        //    UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
+        //}
+            
         Gizmos.color = Color.magenta;
 
         Gizmos.DrawLine(headPos - new Vector3(0.0f, maxHeightDiff), headPos + new Vector3(0.0f, maxHeightDiff, 0.0f));
