@@ -53,6 +53,11 @@ public class Player : MonoBehaviour
         return playerCrystalHolder.held.type;
     }
 
+    public PlayerInputs GetInputs()
+    {
+        return playerInput;
+    }
+    
     public Transform GetRootTransform()
     {
         return rootTransform;
