@@ -7056,6 +7056,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1693112094230687288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8728284389312426066}
+  m_Layer: 0
+  m_Name: Final Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8728284389312426066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693112094230687288}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7203661371678554208}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3290603648111868356
 GameObject:
   m_ObjectHideFlags: 0
@@ -7362,6 +7392,7 @@ Transform:
   m_Children:
   - {fileID: 2123484895}
   - {fileID: 1501485939}
+  - {fileID: 8728284389312426066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7909,11 +7940,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 418108673}
     m_Modifications:
-    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
-        type: 3}
-      propertyPath: m_Name
-      value: TotemEnemyRadial (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 1918865152256493410, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7969,6 +7995,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
+        type: 3}
+      propertyPath: m_Name
+      value: TotemEnemyRadial (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 1918865151732233836, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7999,11 +8030,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 418108673}
     m_Modifications:
-    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
-        type: 3}
-      propertyPath: m_Name
-      value: TotemEnemyRadial (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 1918865152256493410, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8058,6 +8084,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
+        type: 3}
+      propertyPath: m_Name
+      value: TotemEnemyRadial (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1918865151732233836, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
@@ -8179,16 +8210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 418108673}
     m_Modifications:
-    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
-        type: 3}
-      propertyPath: m_Name
-      value: TotemEnemyRadial
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1918865152256493410, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8242,6 +8263,16 @@ PrefabInstance:
     - target: {fileID: 1918865152256493410, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
+        type: 3}
+      propertyPath: m_Name
+      value: TotemEnemyRadial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1918865151732233836, guid: d1df177bb0f335642900dff298fabdb9,
@@ -8524,6 +8555,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6082017218105839816, guid: 813bbe79ae6ae524686c4dcde9528868,
+        type: 3}
+      propertyPath: visionRadius
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8538,11 +8574,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -15.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082017218105839816, guid: 813bbe79ae6ae524686c4dcde9528868,
-        type: 3}
-      propertyPath: visionRadius
-      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813bbe79ae6ae524686c4dcde9528868, type: 3}
@@ -8559,16 +8590,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 418108673}
     m_Modifications:
-    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
-        type: 3}
-      propertyPath: m_Name
-      value: TotemEnemyRadial (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1918865152256493410, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8622,6 +8643,16 @@ PrefabInstance:
     - target: {fileID: 1918865152256493410, guid: d1df177bb0f335642900dff298fabdb9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
+        type: 3}
+      propertyPath: m_Name
+      value: TotemEnemyRadial (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918865152256493409, guid: d1df177bb0f335642900dff298fabdb9,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1918865151732233836, guid: d1df177bb0f335642900dff298fabdb9,
@@ -8938,7 +8969,7 @@ PrefabInstance:
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.35
+      value: 20.61
       objectReference: {fileID: 0}
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
@@ -8948,7 +8979,7 @@ PrefabInstance:
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.31
+      value: 19.51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813bbe79ae6ae524686c4dcde9528868, type: 3}
@@ -9116,6 +9147,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6082017218105839816, guid: 813bbe79ae6ae524686c4dcde9528868,
+        type: 3}
+      propertyPath: clockwise
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9130,11 +9166,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 6082017218105839816, guid: 813bbe79ae6ae524686c4dcde9528868,
-        type: 3}
-      propertyPath: clockwise
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813bbe79ae6ae524686c4dcde9528868, type: 3}
@@ -9549,7 +9580,7 @@ PrefabInstance:
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.14
+      value: -17.08
       objectReference: {fileID: 0}
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
@@ -9559,7 +9590,7 @@ PrefabInstance:
     - target: {fileID: 6082017218659213767, guid: 813bbe79ae6ae524686c4dcde9528868,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.46
+      value: 2.36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813bbe79ae6ae524686c4dcde9528868, type: 3}

@@ -355,6 +355,9 @@ Transform:
   - {fileID: 8456412123514706593}
   - {fileID: 6176807688355506467}
   - {fileID: 4874197146676645322}
+  - {fileID: 3645575182037298506}
+  - {fileID: 1486369924446866490}
+  - {fileID: 7417761172325084482}
   m_Father: {fileID: 4187094138676829661}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -856,6 +859,98 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1286097514371249747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486369924446866490}
+  - component: {fileID: 8028834116435966791}
+  - component: {fileID: 1129912258551633893}
+  - component: {fileID: 6955414514886913586}
+  m_Layer: 8
+  m_Name: Cube (54)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486369924446866490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286097514371249747}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 19.75, y: 4.09, z: 42.5}
+  m_LocalScale: {x: 9.144008, y: 8, z: 1}
+  m_Children: []
+  m_Father: {fileID: 473952356390832248}
+  m_RootOrder: 53
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &8028834116435966791
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286097514371249747}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1129912258551633893
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286097514371249747}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &6955414514886913586
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286097514371249747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1299817832932516002
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,6 +1037,98 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299817832932516002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1480755086685135959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7417761172325084482}
+  - component: {fileID: 5221285004935525513}
+  - component: {fileID: 660961464833109417}
+  - component: {fileID: 3229382532967030370}
+  m_Layer: 8
+  m_Name: Cube (55)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7417761172325084482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480755086685135959}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 11.29, y: 4.09, z: 42.69}
+  m_LocalScale: {x: 9.144008, y: 8, z: 1}
+  m_Children: []
+  m_Father: {fileID: 473952356390832248}
+  m_RootOrder: 54
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &5221285004935525513
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480755086685135959}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &660961464833109417
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480755086685135959}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &3229382532967030370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480755086685135959}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -2906,6 +3093,98 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5050381698602065829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3645575182037298506}
+  - component: {fileID: 7876765385034443801}
+  - component: {fileID: 968553352937126077}
+  - component: {fileID: 119963666015302809}
+  m_Layer: 8
+  m_Name: Cube (53)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3645575182037298506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050381698602065829}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.08, y: 4.09, z: 46.6}
+  m_LocalScale: {x: 9.144, y: 8, z: 1}
+  m_Children: []
+  m_Father: {fileID: 473952356390832248}
+  m_RootOrder: 52
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7876765385034443801
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050381698602065829}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &968553352937126077
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050381698602065829}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &119963666015302809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050381698602065829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5084773085612291030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,9 +3395,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 9044709269322665860}
-  - {fileID: 6348752596354564941}
+  m_Children: []
   m_Father: {fileID: 4187094138676829661}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6646,11 +6923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6705,6 +6977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -6858,12 +7135,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d0a4d05b95dad5c43a11b9eeb36ece6e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5de45bdd3f7b74da009f85132da148, type: 3}
---- !u!4 &2937682913616405827 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-    type: 3}
-  m_PrefabInstance: {fileID: 419344785352429582}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2937682913616405839 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3248626778856437057, guid: df5de45bdd3f7b74da009f85132da148,
@@ -6876,6 +7147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb0c2c88937644ba7481d95f9c25bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2937682913616405827 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
+    type: 3}
+  m_PrefabInstance: {fileID: 419344785352429582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &604588185894920498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6883,11 +7160,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9139892351853101781}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6942,6 +7214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (5)
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -7095,12 +7372,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d0a4d05b95dad5c43a11b9eeb36ece6e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5de45bdd3f7b74da009f85132da148, type: 3}
---- !u!4 &2693548520801202379 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-    type: 3}
-  m_PrefabInstance: {fileID: 609139114694755718}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2693548520801202375 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3248626778856437057, guid: df5de45bdd3f7b74da009f85132da148,
@@ -7113,140 +7384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb0c2c88937644ba7481d95f9c25bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &947148510796701626
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7296972841485189687}
-    m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 14.314228
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.20000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 46.418953
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: pickedUpEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: droppedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: pickedUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 9044709269322665864}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: pickedUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPowered
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: pickedUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: pickedUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: pickedUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: droppedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 9044709269322665864}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: droppedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPowerLoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: droppedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: droppedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: droppedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f693e2e6ee1d6b043b50fa6186123474, type: 3}
---- !u!4 &6348752596354564941 stripped
+--- !u!4 &2693548520801202379 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
+  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
     type: 3}
-  m_PrefabInstance: {fileID: 947148510796701626}
+  m_PrefabInstance: {fileID: 609139114694755718}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &968264332687526765
 PrefabInstance:
@@ -7255,11 +7397,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9139892351853101781}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7315,6 +7452,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue
+      objectReference: {fileID: 0}
     - target: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: initialPrefab
@@ -7336,11 +7478,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6421739336616418441}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7396,6 +7533,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue
+      objectReference: {fileID: 0}
     - target: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: initialPrefab
@@ -7417,11 +7559,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7476,6 +7613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue
       objectReference: {fileID: 0}
     - target: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
@@ -7552,11 +7694,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7612,8 +7749,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f693e2e6ee1d6b043b50fa6186123474, type: 3}
+--- !u!4 &5249753530213011095 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
+    type: 3}
+  m_PrefabInstance: {fileID: 2154234999328297568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7713135284092770829 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
@@ -7626,12 +7774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7de5f976217ae48836402123205395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &5249753530213011095 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-    type: 3}
-  m_PrefabInstance: {fileID: 2154234999328297568}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2392870976628301861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7639,11 +7781,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 48625773306414904}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7698,6 +7835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -7822,11 +7964,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 5483035382987149851, guid: 6b8530cb21071844ea07790074531681,
-        type: 3}
-      propertyPath: m_Name
-      value: AndGate
-      objectReference: {fileID: 0}
     - target: {fileID: 5483035382987149847, guid: 6b8530cb21071844ea07790074531681,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7881,6 +8018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483035382987149851, guid: 6b8530cb21071844ea07790074531681,
+        type: 3}
+      propertyPath: m_Name
+      value: AndGate
       objectReference: {fileID: 0}
     - target: {fileID: 5483035382987149844, guid: 6b8530cb21071844ea07790074531681,
         type: 3}
@@ -8022,11 +8164,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6421739336616418441}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8081,6 +8218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue
       objectReference: {fileID: 0}
     - target: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
@@ -8204,6 +8346,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d0a4d05b95dad5c43a11b9eeb36ece6e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5de45bdd3f7b74da009f85132da148, type: 3}
+--- !u!4 &829239048238581518 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
+    type: 3}
+  m_PrefabInstance: {fileID: 2780827989534569027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &829239048238581506 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3248626778856437057, guid: df5de45bdd3f7b74da009f85132da148,
@@ -8216,12 +8364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb0c2c88937644ba7481d95f9c25bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &829239048238581518 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-    type: 3}
-  m_PrefabInstance: {fileID: 2780827989534569027}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2958279554527424245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8229,11 +8371,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6421739336616418441}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8288,6 +8425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -8387,6 +8529,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d0a4d05b95dad5c43a11b9eeb36ece6e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5de45bdd3f7b74da009f85132da148, type: 3}
+--- !u!4 &220290753932341126 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
+    type: 3}
+  m_PrefabInstance: {fileID: 3322479574826064587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &220290753932341130 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3248626778856437057, guid: df5de45bdd3f7b74da009f85132da148,
@@ -8399,12 +8547,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb0c2c88937644ba7481d95f9c25bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &220290753932341126 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-    type: 3}
-  m_PrefabInstance: {fileID: 3322479574826064587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3358044835418788204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8514,11 +8656,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 48625773306414904}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8573,6 +8710,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -8649,11 +8791,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8709,8 +8846,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56670669d9eb41442ba275b9adbe1b2e, type: 3}
+--- !u!4 &778305190678489715 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4495660987948399185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2962604236378570473 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
@@ -8723,12 +8871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7de5f976217ae48836402123205395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &778305190678489715 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
-    type: 3}
-  m_PrefabInstance: {fileID: 4495660987948399185}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4643882049501784581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8736,11 +8878,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 5483035382987149851, guid: 6b8530cb21071844ea07790074531681,
-        type: 3}
-      propertyPath: m_Name
-      value: AndGate
-      objectReference: {fileID: 0}
     - target: {fileID: 5483035382987149847, guid: 6b8530cb21071844ea07790074531681,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8795,6 +8932,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483035382987149851, guid: 6b8530cb21071844ea07790074531681,
+        type: 3}
+      propertyPath: m_Name
+      value: AndGate
       objectReference: {fileID: 0}
     - target: {fileID: 5483035382987149844, guid: 6b8530cb21071844ea07790074531681,
         type: 3}
@@ -8896,11 +9038,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 48625773306414904}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8956,6 +9093,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: initialPrefab
@@ -8964,12 +9106,6 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f693e2e6ee1d6b043b50fa6186123474, type: 3}
---- !u!4 &1549566612359667939 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-    type: 3}
-  m_PrefabInstance: {fileID: 4665329866598431764}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3914043923572618361 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
@@ -8982,6 +9118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7de5f976217ae48836402123205395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1549566612359667939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
+    type: 3}
+  m_PrefabInstance: {fileID: 4665329866598431764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5105810150622866785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8989,11 +9131,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6421739336616418441}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9048,6 +9185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -9124,11 +9266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9183,6 +9320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -9251,108 +9393,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
     type: 3}
   m_PrefabInstance: {fileID: 5792966558575406446}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &5805197091049716425
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7296972841485189687}
-    m_Modifications:
-    - target: {fileID: 3248626778856437062, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_Name
-      value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 38.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 8.448803
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8.893336
-      objectReference: {fileID: 0}
-    - target: {fileID: 3248626778856437059, guid: df5de45bdd3f7b74da009f85132da148,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d0a4d05b95dad5c43a11b9eeb36ece6e, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: df5de45bdd3f7b74da009f85132da148, type: 3}
---- !u!114 &9044709269322665864 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3248626778856437057, guid: df5de45bdd3f7b74da009f85132da148,
-    type: 3}
-  m_PrefabInstance: {fileID: 5805197091049716425}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35cb0c2c88937644ba7481d95f9c25bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &9044709269322665860 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-    type: 3}
-  m_PrefabInstance: {fileID: 5805197091049716425}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5842063475024776403
 PrefabInstance:
@@ -9463,11 +9503,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9523,6 +9558,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue
+      objectReference: {fileID: 0}
     - target: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: initialPrefab
@@ -9544,11 +9584,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9139892351853101781}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9603,6 +9638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue
       objectReference: {fileID: 0}
     - target: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
@@ -9679,11 +9719,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9139892351853101781}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9738,6 +9773,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -9814,11 +9854,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9139892351853101781}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9874,6 +9909,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red
+      objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: initialPrefab
@@ -9895,11 +9935,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9954,6 +9989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56670669d9eb41442ba275b9adbe1b2e, type: 3}
@@ -10288,11 +10328,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10347,6 +10382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
@@ -10483,11 +10523,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 48625773306414904}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10543,8 +10578,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f693e2e6ee1d6b043b50fa6186123474, type: 3}
+--- !u!4 &4091703738142965597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
+    type: 3}
+  m_PrefabInstance: {fileID: 7923829054413235114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1952581430508039111 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
@@ -10557,12 +10603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7de5f976217ae48836402123205395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &4091703738142965597 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-    type: 3}
-  m_PrefabInstance: {fileID: 7923829054413235114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7960930857791574255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10570,11 +10610,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Blue (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 3796204271473856546, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10629,6 +10664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3796204271473856547, guid: 56670669d9eb41442ba275b9adbe1b2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Blue (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1692934555731199160, guid: 56670669d9eb41442ba275b9adbe1b2e,
         type: 3}
@@ -10705,11 +10745,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10765,6 +10800,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red
+      objectReference: {fileID: 0}
     - target: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: initialPrefab
@@ -10773,12 +10813,6 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f693e2e6ee1d6b043b50fa6186123474, type: 3}
---- !u!4 &4296506874452927280 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-    type: 3}
-  m_PrefabInstance: {fileID: 7971367393468628935}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1760927884196247466 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
@@ -10791,6 +10825,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7de5f976217ae48836402123205395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &4296506874452927280 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
+    type: 3}
+  m_PrefabInstance: {fileID: 7971367393468628935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8396753727913710464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10977,12 +11017,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d0a4d05b95dad5c43a11b9eeb36ece6e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df5de45bdd3f7b74da009f85132da148, type: 3}
---- !u!4 &6535500354224835661 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
-    type: 3}
-  m_PrefabInstance: {fileID: 8622055887811246336}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6535500354224835649 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3248626778856437057, guid: df5de45bdd3f7b74da009f85132da148,
@@ -10995,6 +11029,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35cb0c2c88937644ba7481d95f9c25bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6535500354224835661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3248626778856437069, guid: df5de45bdd3f7b74da009f85132da148,
+    type: 3}
+  m_PrefabInstance: {fileID: 8622055887811246336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8891782690854214865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11002,11 +11042,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438017475363888828}
     m_Modifications:
-    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
-        type: 3}
-      propertyPath: m_Name
-      value: Crystal Pedestal Red (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11062,14 +11097,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142837684996824310, guid: f693e2e6ee1d6b043b50fa6186123474,
+        type: 3}
+      propertyPath: m_Name
+      value: Crystal Pedestal Red (5)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f693e2e6ee1d6b043b50fa6186123474, type: 3}
---- !u!4 &3340064997308579878 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
-    type: 3}
-  m_PrefabInstance: {fileID: 8891782690854214865}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &975622791818237116 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8570331389278079085, guid: f693e2e6ee1d6b043b50fa6186123474,
@@ -11082,6 +11116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7de5f976217ae48836402123205395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &3340064997308579878 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6142837684996824311, guid: f693e2e6ee1d6b043b50fa6186123474,
+    type: 3}
+  m_PrefabInstance: {fileID: 8891782690854214865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9119350365430963743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11089,11 +11129,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 48625773306414904}
     m_Modifications:
-    - target: {fileID: 5483035382987149851, guid: 6b8530cb21071844ea07790074531681,
-        type: 3}
-      propertyPath: m_Name
-      value: AndGate
-      objectReference: {fileID: 0}
     - target: {fileID: 5483035382987149847, guid: 6b8530cb21071844ea07790074531681,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11148,6 +11183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5483035382987149851, guid: 6b8530cb21071844ea07790074531681,
+        type: 3}
+      propertyPath: m_Name
+      value: AndGate
       objectReference: {fileID: 0}
     - target: {fileID: 5483035382987149844, guid: 6b8530cb21071844ea07790074531681,
         type: 3}
