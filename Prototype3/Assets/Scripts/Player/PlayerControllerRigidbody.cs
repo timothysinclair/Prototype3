@@ -105,6 +105,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
         teleportArriveSound = AudioManager.Instance.GetAudioClip("TeleportArrive");
         respawnSound = AudioManager.Instance.GetAudioClip("TotemTeleport");
 
+        respawnMaterial = new Material(respawnMaterial);
+        teleportMaterial = new Material(teleportMaterial);
+
         groundedFrames = new List<bool>(extraJumpFrames);
 
         for (int i = 0; i < extraJumpFrames; i++)
