@@ -29,6 +29,7 @@ public class NPCController : MonoBehaviour
     {
         agent.isStopped = true;
         normalMaterial = meshRenderer.material;
+        teleportMaterial = new Material(teleportMaterial);
     }
 
     private void Update()
