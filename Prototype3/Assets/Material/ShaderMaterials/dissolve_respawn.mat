@@ -10,7 +10,7 @@ Material:
   m_Name: dissolve_respawn
   m_Shader: {fileID: -6465566751694194690, guid: 6c28abba68363384da54fe2852e1e9df,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -35,6 +35,6 @@ Material:
     m_Floats:
     - Vector1_3DB3183E: 0.47
     - Vector1_42D4BC18: 0
-    - _TimeScale: -0.0264261
+    - _TimeScale: -0.015433777
     m_Colors:
     - Color_314CD3BC: {r: 0, g: 3.890196, b: 16, a: 0}

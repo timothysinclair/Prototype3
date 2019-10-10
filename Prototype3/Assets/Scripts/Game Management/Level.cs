@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.AI;
 
 public class Level : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Level : MonoBehaviour
     {
         playerRef.GetRootTransform().SetParent(this.transform);
         rigidBody.transform.DOMove(endPosition, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform);
+        
     }
 
     private void ResetPlayerParentTransform()

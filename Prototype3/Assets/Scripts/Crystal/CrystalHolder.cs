@@ -39,16 +39,6 @@ public class CrystalHolder : MonoBehaviour
                 Debug.LogError("initial prefab's crystal type is not allowed for this holder", this);
             }
         }
-
-        //onPickedUp = delegate (CrystalType type)
-        //{
-        //    // Debug.Log("Picked up " + type);
-        //};
-
-        //if (pickedUpEvent == null)
-        //{
-        //    pickedUpEvent = new UnityEvent();
-        //}
     }
 
     private void PickItUp(CrystalPickup pickup)
@@ -60,6 +50,7 @@ public class CrystalHolder : MonoBehaviour
             droppedEvent.Invoke();
             return;
         }
+
         held = pickup;
         pickup.OnPickedUp(this);
         onPickedUp?.Invoke(pickup.type);
