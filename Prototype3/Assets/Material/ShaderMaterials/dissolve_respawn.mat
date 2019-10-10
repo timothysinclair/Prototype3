@@ -35,6 +35,6 @@ Material:
     m_Floats:
     - Vector1_3DB3183E: 0.47
     - Vector1_42D4BC18: 0
-    - _TimeScale: -0.031964544
+    - _TimeScale: -0.0264261
     m_Colors:
     - Color_314CD3BC: {r: 0, g: 3.890196, b: 16, a: 0}
