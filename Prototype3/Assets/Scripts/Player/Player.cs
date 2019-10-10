@@ -37,9 +37,9 @@ public class Player : MonoBehaviour
         playerController.StartTeleportPlayer(newPosition);
     }
 
-    public void TeleportPlayer(Vector3 newPosition)
+    public void TeleportPlayer(Vector3 newPosition, bool respawned)
     {
-        playerController.TeleportPlayer(newPosition);
+        playerController.TeleportPlayer(newPosition, respawned);
     }
 
     public void ReturnCrystal()
