@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+[RequireComponent(typeof(AudioSource))]
 public class TotemEnemy : MonoBehaviour
 {
     [Header("Turn settings")]
@@ -54,6 +55,10 @@ public class TotemEnemy : MonoBehaviour
     // Transform to return to after looking at the player
     private Vector3 oldForward;
 
+    // Audio
+    private AudioSource audioSource;
+    private AudioClip detectingSound;
+
     // Temporary (for testing)
     [Header("Temporary")]
     public MeshRenderer totemFace;
@@ -65,6 +70,9 @@ public class TotemEnemy : MonoBehaviour
         playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Debug.Assert(playerRef, "Totem Enemy couldn't find player object to create a reference. Is there a player in the scene? Do they have the player tag?", this);
         playerRigidbody = playerRef.GetComponent<PlayerControllerRigidbody>();
+
+        audioSource = GetComponent<AudioSource>();
+        detectingSound = AudioManager.Instance.GetAudioClip("TotemDetect");
 
         turnTimer = waitTime;
         teleportPosition = teleportDestination.position;
@@ -186,10 +194,13 @@ public class TotemEnemy : MonoBehaviour
 
     private void OnDetectionStart()
     {
+        audioSource.volume = 1.0f;
+        audioSource.PlayOneShot(detectingSound);
     }
 
     private void OnDetectionEnd()
     {
+        audioSource.volume = 0.0f;
         detectionTimer = 0.0f;
     }
 
@@ -209,7 +220,7 @@ public class TotemEnemy : MonoBehaviour
 
     private void TeleportPlayer()
     {
-        playerRef.TeleportPlayer(teleportPosition);
+        playerRef.TeleportPlayer(teleportPosition, true);
     }
 
     private void OnDrawGizmos()
