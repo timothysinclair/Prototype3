@@ -9,6 +9,8 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private UnityEvent onLevelBegin;
     [SerializeField] private UnityEvent onLevelEnd;
+    [SerializeField] private UnityEvent onMoveEnd;
+    [SerializeField] private UnityEvent onTwoSecondsAfterMoveEnd;
 
     [SerializeField] private Puzzle[] levelPuzzles;
 
@@ -41,8 +43,13 @@ public class Level : MonoBehaviour
     public void MoveToEndPosition()
     {
         playerRef.GetRootTransform().SetParent(this.transform);
-        rigidBody.transform.DOMove(endPosition, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform);
-        
+        rigidBody.transform.DOMove(endPosition, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform).OnComplete(MoveEnd);
+    }
+
+    private void MoveEnd()
+    {
+        onMoveEnd.Invoke();
+        rigidBody.transform.DOMove(this.transform.position, 2.0f).OnComplete(onTwoSecondsAfterMoveEnd.Invoke);
     }
 
     private void ResetPlayerParentTransform()

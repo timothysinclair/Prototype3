@@ -27,7 +27,8 @@ public class NPCController : MonoBehaviour
 
     private void Start()
     {
-        agent.isStopped = true;
+        agent.enabled = false;
+        // agent.isStopped = true;
         normalMaterial = meshRenderer.material;
         teleportMaterial = new Material(teleportMaterial);
     }
@@ -39,6 +40,7 @@ public class NPCController : MonoBehaviour
 
     public void SendTo(Transform destination)
     {
+        agent.enabled = true;
         agent.SetDestination(destination.position);
         agent.isStopped = false;
     }
@@ -63,7 +65,10 @@ public class NPCController : MonoBehaviour
 
     private void Teleport()
     {
-        agent.Warp(teleportDestination);
+        agent.enabled = true;
+        agent.transform.position = teleportDestination;
+        agent.enabled = false;
+        agent.enabled = true;
     }
 
     private void UpdateMaterials()
@@ -80,6 +85,7 @@ public class NPCController : MonoBehaviour
             else if (teleportTimer >= teleportTime)
             {
                 isTeleporting = false;
+                agent.SetDestination(agent.destination);
             }
 
 
