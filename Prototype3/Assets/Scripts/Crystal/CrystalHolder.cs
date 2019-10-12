@@ -11,10 +11,15 @@ public class CrystalHolder : MonoBehaviour
     public CrystalPickup initialPrefab;
 
     public CrystalPickup held;
+    public bool isPedestal = true;
 
     public event Action<CrystalType> onPickedUp;
     public UnityEvent pickedUpEvent;
     public UnityEvent droppedEvent;
+
+    private AudioSource audioSource;
+    private AudioClip pickupCrystal;
+    private AudioClip placeCrystal;
 
     public CrystalType heldType { get { return held?.type ?? CrystalType.None; } }
 
@@ -39,16 +44,16 @@ public class CrystalHolder : MonoBehaviour
                 Debug.LogError("initial prefab's crystal type is not allowed for this holder", this);
             }
         }
+    }
 
-        //onPickedUp = delegate (CrystalType type)
-        //{
-        //    // Debug.Log("Picked up " + type);
-        //};
-
-        //if (pickedUpEvent == null)
-        //{
-        //    pickedUpEvent = new UnityEvent();
-        //}
+    private void Start()
+    {
+        if (!isPedestal)
+        {
+            audioSource = GetComponent<AudioSource>();
+            pickupCrystal = AudioManager.Instance.GetAudioClip("PickupCrystal");
+            placeCrystal = AudioManager.Instance.GetAudioClip("PlaceCrystal");
+        }
     }
 
     private void PickItUp(CrystalPickup pickup)
@@ -58,12 +63,18 @@ public class CrystalHolder : MonoBehaviour
             held = null;
             onPickedUp?.Invoke(CrystalType.None);
             droppedEvent.Invoke();
+
+            if (!isPedestal) { audioSource.PlayOneShot(placeCrystal); }
+
             return;
         }
+
         held = pickup;
         pickup.OnPickedUp(this);
         onPickedUp?.Invoke(pickup.type);
         pickedUpEvent.Invoke();
+
+        if (!isPedestal) { audioSource.PlayOneShot(pickupCrystal); }
     }
 
     public void Swap(CrystalHolder other)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+[RequireComponent(typeof(AudioSource))]
 public class TotemEnemy : MonoBehaviour
 {
     [Header("Turn settings")]
@@ -54,6 +55,13 @@ public class TotemEnemy : MonoBehaviour
     // Transform to return to after looking at the player
     private Vector3 oldForward;
 
+    // Audio
+    [Header("Audio")]
+    [SerializeField] private AudioSource detectionAudioSource;
+    [SerializeField] private AudioSource turningAudioSource;
+    private AudioClip detectingSound;
+    private AudioClip turningSound;
+
     // Temporary (for testing)
     [Header("Temporary")]
     public MeshRenderer totemFace;
@@ -65,6 +73,9 @@ public class TotemEnemy : MonoBehaviour
         playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Debug.Assert(playerRef, "Totem Enemy couldn't find player object to create a reference. Is there a player in the scene? Do they have the player tag?", this);
         playerRigidbody = playerRef.GetComponent<PlayerControllerRigidbody>();
+
+        detectingSound = AudioManager.Instance.GetAudioClip("TotemDetect");
+        turningSound = AudioManager.Instance.GetAudioClip("TotemTurn");
 
         turnTimer = waitTime;
         teleportPosition = teleportDestination.position;
@@ -105,6 +116,7 @@ public class TotemEnemy : MonoBehaviour
             if (isTurning)
             {
                 turnTimer = waitTime;
+                
 
                 //var lookSeq = DOTween.Sequence().SetId(tweenName);
                 
@@ -173,6 +185,8 @@ public class TotemEnemy : MonoBehaviour
     {
         if (!doTurn) { return; }
 
+        turningAudioSource.PlayOneShot(turningSound);
+
         if (clockwise) { turnDirection = 1.0f; }
         else { turnDirection = -1.0f; }
 
@@ -181,15 +195,19 @@ public class TotemEnemy : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0.0f, 360.0f / turnPositions) * turnDirection, turnTime, RotateMode.LocalAxisAdd)
             .SetEase(Ease.InOutSine)
             .SetLoops(1)
-            .SetId(tweenName);
+            .SetId(tweenName)
+            .OnComplete(turningAudioSource.Stop);
     }
 
     private void OnDetectionStart()
     {
+        detectionAudioSource.volume = 1.0f;
+        detectionAudioSource.PlayOneShot(detectingSound);
     }
 
     private void OnDetectionEnd()
     {
+        detectionAudioSource.volume = 0.0f;
         detectionTimer = 0.0f;
     }
 
@@ -209,7 +227,7 @@ public class TotemEnemy : MonoBehaviour
 
     private void TeleportPlayer()
     {
-        playerRef.TeleportPlayer(teleportPosition);
+        playerRef.TeleportPlayer(teleportPosition, true);
     }
 
     private void OnDrawGizmos()

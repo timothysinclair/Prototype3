@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerControllerRigidbody : MonoBehaviour
 {
     [Header("Movement variables")]
@@ -81,6 +83,13 @@ public class PlayerControllerRigidbody : MonoBehaviour
     // Stores the calculated move direction of the player
     private Vector3 finalMoveDirection;
 
+    // Audio
+    private AudioSource audioSource;
+    private AudioClip jumpSound;
+    private AudioClip teleportDepartSound;
+    private AudioClip teleportArriveSound;
+    private AudioClip respawnSound;
+
     [Header("FOR TESTING")]
     public Material camouflageMaterial;
     public Material normalMaterial;
@@ -89,6 +98,15 @@ public class PlayerControllerRigidbody : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+
+        jumpSound = AudioManager.Instance.GetAudioClip("Jump");
+        teleportDepartSound = AudioManager.Instance.GetAudioClip("TeleportDepart");
+        teleportArriveSound = AudioManager.Instance.GetAudioClip("TeleportArrive");
+        respawnSound = AudioManager.Instance.GetAudioClip("TotemTeleport");
+
+        respawnMaterial = new Material(respawnMaterial);
+        teleportMaterial = new Material(teleportMaterial);
 
         groundedFrames = new List<bool>(extraJumpFrames);
 
@@ -254,6 +272,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private void Jump()
     {
+        audioSource.PlayOneShot(jumpSound);
+
         Vector3 force = Vector3.up * jumpForce;
         rigidBody.AddForce(force, ForceMode.Impulse);
         playerAnimator.SetTrigger("Jump");
@@ -279,6 +299,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     public void StartTeleportPlayer(Vector3 newPosition)
     {
+        audioSource.PlayOneShot(teleportDepartSound);
+
         teleportPos = newPosition;
         teleportTimer = teleportTime;
         teleportDir = 1.0f;
@@ -286,8 +308,17 @@ public class PlayerControllerRigidbody : MonoBehaviour
         GetComponent<Player>().SetInputsDisabled(true);
     }
 
-    public void TeleportPlayer()
+    public void TeleportPlayer(bool respawned)
     {
+        if (respawned)
+        {
+            audioSource.PlayOneShot(respawnSound);
+        }
+        else
+        {
+            audioSource.PlayOneShot(teleportArriveSound);
+        }
+
         Vector3 positionChange = teleportPos - this.transform.position;
         Vector3 relativeCamPos = cam.transform.position - this.transform.position;
 
@@ -297,10 +328,10 @@ public class PlayerControllerRigidbody : MonoBehaviour
         cam.OnTargetObjectWarped(this.transform, positionChange);
     }
 
-    public void TeleportPlayer(Vector3 pos)
+    public void TeleportPlayer(Vector3 pos, bool respawned)
     {
         teleportPos = pos;
-        TeleportPlayer();
+        TeleportPlayer(respawned);
     }
 
     private void ResetGroundedFrames()
@@ -352,7 +383,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
             if (teleportTimer <= 0.0f)
             {
-                TeleportPlayer();
+                TeleportPlayer(false);
                 teleportDir = -1.0f;
             }
             else if (teleportTimer >= teleportTime)
