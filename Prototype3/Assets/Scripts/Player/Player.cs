@@ -32,9 +32,14 @@ public class Player : MonoBehaviour
         return playerController.IsCamouflaged();
     }
 
-    public void TeleportPlayer(Vector3 newPosition)
+    public void StartTeleportPlayer(Vector3 newPosition)
     {
-        playerController.TeleportPlayer(newPosition);
+        playerController.StartTeleportPlayer(newPosition);
+    }
+
+    public void TeleportPlayer(Vector3 newPosition, bool respawned)
+    {
+        playerController.TeleportPlayer(newPosition, respawned);
     }
 
     public void ReturnCrystal()
@@ -48,6 +53,11 @@ public class Player : MonoBehaviour
         return playerCrystalHolder.held.type;
     }
 
+    public PlayerInputs GetInputs()
+    {
+        return playerInput;
+    }
+    
     public Transform GetRootTransform()
     {
         return rootTransform;

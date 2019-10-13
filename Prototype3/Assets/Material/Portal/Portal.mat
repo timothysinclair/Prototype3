@@ -21,9 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _DissolveAmount: 1
-    - _Scale: 2.5
-    - _TwirlStrength: 10
-    - _speed: 0.5
+    - _DissolveAmount: 3.84
+    - _Scale: 2.11
+    - _TwirlStrength: 7.72
+    - _speed: 0.17
     m_Colors:
-    - Color_387281EB: {r: 0.4669811, g: 0.9397538, b: 1, a: 0}
+    - Color_387281EB: {r: 5.835417, g: 1.0051355, b: 38.396187, a: 1}

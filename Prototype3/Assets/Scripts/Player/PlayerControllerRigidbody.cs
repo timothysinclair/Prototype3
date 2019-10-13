@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerControllerRigidbody : MonoBehaviour
 {
     [Header("Movement variables")]
@@ -31,6 +33,22 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [Header("References")]
     [SerializeField] private CinemachineFreeLook cam;
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Material respawnMaterial;
+    [SerializeField] private Material teleportMaterial;
+
+    [Header("Shader properties")]
+    [SerializeField] private float teleportTime = 1.0f;
+
+    // Totems 'respawn' the player
+    private bool isRespawning = false;
+
+    // Portals 'teleport' the player
+    private bool isTeleporting = false;
+
+    private float respawnTimer = 0.0f;
+    private float teleportTimer = 0.0f;
+    private float respawnDir = 1.0f;
+    private float teleportDir = 1.0f;
 
     [Header("Other settings")]
     // How many frames the player can still jump for if they fall off an edge
@@ -56,20 +74,39 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private Vector3 moveInputs;
     private bool jumpInput = false;
 
+    private Vector3 teleportPos;
+
+    public bool canCamouflage = false;
     private bool isCamouflaged = false;
     private float moveSpeedModifier = 1.0f;
 
     // Stores the calculated move direction of the player
     private Vector3 finalMoveDirection;
 
+    // Audio
+    private AudioSource audioSource;
+    private AudioClip jumpSound;
+    private AudioClip teleportDepartSound;
+    private AudioClip teleportArriveSound;
+    private AudioClip respawnSound;
+
     [Header("FOR TESTING")]
     public Material camouflageMaterial;
-    private Material normalMaterial;
+    public Material normalMaterial;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+
+        jumpSound = AudioManager.Instance.GetAudioClip("Jump");
+        teleportDepartSound = AudioManager.Instance.GetAudioClip("TeleportDepart");
+        teleportArriveSound = AudioManager.Instance.GetAudioClip("TeleportArrive");
+        respawnSound = AudioManager.Instance.GetAudioClip("TotemTeleport");
+
+        respawnMaterial = new Material(respawnMaterial);
+        teleportMaterial = new Material(teleportMaterial);
 
         groundedFrames = new List<bool>(extraJumpFrames);
 
@@ -84,6 +121,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundChecker.position, groundCheckRadius, groundLayers, QueryTriggerInteraction.Ignore);
         playerAnimator.SetBool("Grounded", isGrounded);
+
+        UpdateMaterials();
 
         // Update list of grounded frames
         if (groundedFrames.Capacity > 0)
@@ -112,7 +151,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         moveInputs = inputs;
 
-        if (doCamouflage && !isCamouflaged && isGrounded)
+        if (canCamouflage && doCamouflage && !isCamouflaged && isGrounded)
         {
             isCamouflaged = true;
             OnStartCamouflage();
@@ -122,7 +161,6 @@ public class PlayerControllerRigidbody : MonoBehaviour
             isCamouflaged = false;
             OnEndCamouflage();
         }
-
         
         if (doJump && !isCamouflaged)
         {
@@ -138,7 +176,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         else
         {
             jumpInput = false;
-        }
+        }        
     }
 
     private void UpdateMoveInputs()
@@ -148,7 +186,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
         camForward.y = 0.0f;
         camForward.Normalize();
 
-        //// Find camera right direction
+        // Find camera right direction
         Vector3 camRight = new Vector3(camForward.z, 0.0f, -camForward.x);
 
         // Update final move direction
@@ -180,6 +218,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
         {
             Jump();
         }
+
+        moveInputs = Vector3.zero;
+        jumpInput = false;
 
         // Update player run animation based on speed
         if (rigidBody.velocity.magnitude > 3.0f) { playerAnimator.SetBool("Run", true); }
@@ -231,6 +272,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
     private void Jump()
     {
+        audioSource.PlayOneShot(jumpSound);
+
         Vector3 force = Vector3.up * jumpForce;
         rigidBody.AddForce(force, ForceMode.Impulse);
         playerAnimator.SetTrigger("Jump");
@@ -238,15 +281,57 @@ public class PlayerControllerRigidbody : MonoBehaviour
         ResetGroundedFrames();
     }
 
-    public void TeleportPlayer(Vector3 newPosition)
+    public void SetRespawnTimer(float newTimer, Vector3 respawnPos)
     {
-        Vector3 positionChange = newPosition - this.transform.position;
+        if (isTeleporting) { return; }
+
+        isRespawning = true;
+        
+        if (newTimer > respawnTimer)
+        {
+            respawnTimer = newTimer;
+            teleportPos = respawnPos;
+            respawnDir = 1.0f;
+        }
+
+        respawnTimer = Mathf.Max(newTimer, respawnTimer);
+    }
+
+    public void StartTeleportPlayer(Vector3 newPosition)
+    {
+        audioSource.PlayOneShot(teleportDepartSound);
+
+        teleportPos = newPosition;
+        teleportTimer = teleportTime;
+        teleportDir = 1.0f;
+        isTeleporting = true;
+        GetComponent<Player>().SetInputsDisabled(true);
+    }
+
+    public void TeleportPlayer(bool respawned)
+    {
+        if (respawned)
+        {
+            audioSource.PlayOneShot(respawnSound);
+        }
+        else
+        {
+            audioSource.PlayOneShot(teleportArriveSound);
+        }
+
+        Vector3 positionChange = teleportPos - this.transform.position;
         Vector3 relativeCamPos = cam.transform.position - this.transform.position;
 
-        this.transform.position = newPosition;
+        this.transform.position = teleportPos;
         rigidBody.velocity = Vector3.zero;
 
         cam.OnTargetObjectWarped(this.transform, positionChange);
+    }
+
+    public void TeleportPlayer(Vector3 pos, bool respawned)
+    {
+        teleportPos = pos;
+        TeleportPlayer(respawned);
     }
 
     private void ResetGroundedFrames()
@@ -257,27 +342,94 @@ public class PlayerControllerRigidbody : MonoBehaviour
         }
     }
 
+    public void UnlockCamouflage()
+    {
+        canCamouflage = true;
+    }
+
     private void OnStartCamouflage()
     {
-        var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
-        var mats = renderer.materials;
-        normalMaterial = mats[2];
-        mats[2] = camouflageMaterial;
-        renderer.materials = mats;
+        // SetMaterial(camouflageMaterial);
         moveSpeedModifier = camouflagedSpeedModifier;
-        
     }
 
     private void OnEndCamouflage()
     {
-        var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
-        var mats = renderer.materials;
-        mats[2] = normalMaterial;
-        renderer.materials = mats;
+        // SetMaterial(normalMaterial);
         moveSpeedModifier = 1.0f;
     }
 
     public bool IsCamouflaged() { return isCamouflaged; }
+
+    private void SetMaterial(Material newMaterial)
+    {
+        var renderer = playerAnimator.GetComponentInChildren<SkinnedMeshRenderer>();
+        var mats = renderer.materials;
+
+        for (int i = 0; i < mats.Length; i++)
+        {
+            mats[i] = newMaterial;
+        }
+
+        renderer.materials = mats;
+    }
+
+
+    private void UpdateMaterials()
+    {
+        if (isTeleporting)
+        {
+            teleportTimer -= Time.deltaTime * teleportDir;
+
+            if (teleportTimer <= 0.0f)
+            {
+                TeleportPlayer(false);
+                teleportDir = -1.0f;
+            }
+            else if (teleportTimer >= teleportTime)
+            {
+                GetComponent<Player>().SetInputsDisabled(false);
+                isTeleporting = false;
+            }
+            
+            SetMaterial(teleportMaterial);
+            teleportMaterial.SetFloat("_TimeScale", 1.0f - (teleportTimer / teleportTime));
+        }
+        else if (isRespawning)
+        {
+            // If dissolving back in, update timer
+            if (respawnDir == -1.0f)
+            {
+                respawnTimer -= Time.deltaTime;
+            }
+
+            // Dissolving out
+            if (respawnTimer >= 1.0f)
+            {
+                respawnDir = -1.0f;
+            }
+            // Finished dissolving in
+            else if (respawnTimer <= 0.0f)
+            {
+                isRespawning = false;
+            }
+
+            SetMaterial(respawnMaterial);
+
+            respawnMaterial.SetFloat("_TimeScale", respawnTimer);
+        }
+        else
+        {
+            SetMaterial(normalMaterial);
+        }
+
+        
+        if (respawnDir == 1.0f)
+        {
+            isRespawning = false;
+            respawnTimer = 0.0f;
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+[RequireComponent(typeof(AudioSource))]
 public class TotemEnemy : MonoBehaviour
 {
     [Header("Turn settings")]
@@ -38,20 +39,28 @@ public class TotemEnemy : MonoBehaviour
     [SerializeField] private LayerMask wallLayers;
 
     private Player playerRef;
+    private PlayerControllerRigidbody playerRigidbody;
     private int currentTurn = 0;
     private bool isTurning = false;
     private float turnTimer = 0.0f;
     private float turnDirection = 1.0f;
-    private bool playerDetected = false;
+    public bool playerDetected = false;
 
     // Stores teleport position on startup
     private Vector3 teleportPosition;
 
-    private float detectionTimer = 0.0f;
+    public float detectionTimer = 0.0f;
     private string tweenName = "Totem";
 
     // Transform to return to after looking at the player
     private Vector3 oldForward;
+
+    // Audio
+    [Header("Audio")]
+    [SerializeField] private AudioSource detectionAudioSource;
+    [SerializeField] private AudioSource turningAudioSource;
+    private AudioClip detectingSound;
+    private AudioClip turningSound;
 
     // Temporary (for testing)
     [Header("Temporary")]
@@ -63,6 +72,10 @@ public class TotemEnemy : MonoBehaviour
     {
         playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Debug.Assert(playerRef, "Totem Enemy couldn't find player object to create a reference. Is there a player in the scene? Do they have the player tag?", this);
+        playerRigidbody = playerRef.GetComponent<PlayerControllerRigidbody>();
+
+        detectingSound = AudioManager.Instance.GetAudioClip("TotemDetect");
+        turningSound = AudioManager.Instance.GetAudioClip("TotemTurn");
 
         turnTimer = waitTime;
         teleportPosition = teleportDestination.position;
@@ -103,11 +116,12 @@ public class TotemEnemy : MonoBehaviour
             if (isTurning)
             {
                 turnTimer = waitTime;
-
-                var lookSeq = DOTween.Sequence().SetId(tweenName);
                 
-                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, 360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
-                lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, -360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
+
+                //var lookSeq = DOTween.Sequence().SetId(tweenName);
+                
+                //lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, 360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
+                //lookSeq.Append(totemFace.transform.DORotate(new Vector3(0.0f, -360.0f / turnPositions, 0.0f) * turnDirection, waitTime / 2.0f, RotateMode.LocalAxisAdd).SetEase(Ease.InOutSine).SetId(tweenName));
 
             }
             // Start turning
@@ -171,6 +185,8 @@ public class TotemEnemy : MonoBehaviour
     {
         if (!doTurn) { return; }
 
+        turningAudioSource.PlayOneShot(turningSound);
+
         if (clockwise) { turnDirection = 1.0f; }
         else { turnDirection = -1.0f; }
 
@@ -179,21 +195,27 @@ public class TotemEnemy : MonoBehaviour
         transform.DOLocalRotate(new Vector3(0.0f, 360.0f / turnPositions) * turnDirection, turnTime, RotateMode.LocalAxisAdd)
             .SetEase(Ease.InOutSine)
             .SetLoops(1)
-            .SetId(tweenName);
+            .SetId(tweenName)
+            .OnComplete(turningAudioSource.Stop);
     }
 
     private void OnDetectionStart()
     {
+        detectionAudioSource.volume = 1.0f;
+        detectionAudioSource.PlayOneShot(detectingSound);
     }
 
     private void OnDetectionEnd()
     {
+        detectionAudioSource.volume = 0.0f;
         detectionTimer = 0.0f;
     }
 
     private void OnDetectionUpdate()
     {
         detectionTimer += Time.deltaTime;
+
+        playerRigidbody.SetRespawnTimer((detectionTimer / detectionTime), teleportPosition);
 
         if (detectionTimer >= detectionTime)
         {
@@ -205,14 +227,18 @@ public class TotemEnemy : MonoBehaviour
 
     private void TeleportPlayer()
     {
-        playerRef.TeleportPlayer(teleportPosition);
+        playerRef.TeleportPlayer(teleportPosition, true);
     }
 
     private void OnDrawGizmos()
     {
         Vector3 headPos = this.transform.position + headOffset;
 
-        UnityEditor.Handles.color = Color.red;
+        if (Application.isEditor)
+        {
+            UnityEditor.Handles.color = Color.red;
+        }
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(headPos, 0.65f);
 
@@ -228,8 +254,12 @@ public class TotemEnemy : MonoBehaviour
 
         Gizmos.DrawLine(headPos, leftBound);
         Gizmos.DrawLine(headPos, rightBound);
-        
-        UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
+
+        if (Application.isEditor)
+        {
+            UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
+        }
+
         Gizmos.color = Color.magenta;
 
         Gizmos.DrawLine(headPos - new Vector3(0.0f, maxHeightDiff), headPos + new Vector3(0.0f, maxHeightDiff, 0.0f));

@@ -15,7 +15,7 @@ public class PlayerInputs : MonoBehaviour
 
     private Vector3 moveInputs = Vector3.zero;
     private bool jumpInput = false;
-    private ActionState actionState = ActionState.jump;
+    public ActionState actionState = ActionState.jump;
     private bool inputsDisabled = false;
     private bool cursorLock = false;
     private Player playerRef;
@@ -34,12 +34,13 @@ public class PlayerInputs : MonoBehaviour
         moveInputs.z = Input.GetAxisRaw("Vertical");
         jumpInput = false;
 
-        // bool camouflageInput = Input.GetButton("Camouflage");
-        bool camouflageInput = (playerRef.HeldCrystalType() == CrystalType.Purple);
+        bool camouflageInput = Input.GetButton("Camouflage");
+        // bool camouflageInput = (playerRef.HeldCrystalType() == CrystalType.Purple);
 
         switch (actionState)
         {
             default:
+                break;
             case ActionState.jump:
             {
                 jumpInput = Input.GetButtonDown("Jump");
@@ -48,12 +49,17 @@ public class PlayerInputs : MonoBehaviour
 
             case ActionState.talk:
             {
-
+                if (Input.GetButtonDown("Jump")) NPCManager.Instance.Next();
                 break;
             }
         }
 
         playerController.Move(moveInputs, jumpInput, camouflageInput);
+    }
+
+    public void SetActionState(ActionState actionState)
+    {
+        this.actionState = actionState;
     }
 
     public void ToggleCursorLock()
@@ -74,6 +80,8 @@ public class PlayerInputs : MonoBehaviour
 
     public void SetInputsDisabled(bool disabled)
     {
+        jumpInput = false;
+        moveInputs = Vector3.zero;
         inputsDisabled = disabled;
     }
 

@@ -19,7 +19,7 @@ public class TeleportTriggerVolume : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Player playerRef = other.GetComponent<Player>();
-            playerRef.TeleportPlayer(teleportPosition);
+            playerRef.TeleportPlayer(teleportPosition, false);
         }
     }
 }

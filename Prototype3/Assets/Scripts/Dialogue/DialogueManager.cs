@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -9,8 +11,11 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get { return instance; } }
 
     public GameObject dialogueBox;
+    public Image avatar;
     public TMP_Text author, sentence;
     private Queue<string> sentences;
+
+    private NPC npc;
 
     private void Start()
     {
@@ -20,21 +25,25 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void Load(Dialogue dialogue)
+    public void Load(NPC npc)
     {
-        Debug.Log("Start Conversation");
-        dialogueBox.SetActive(true);
-        author.text = dialogue.header;
+        Debug.Log("Started Conversation.");
+        sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        this.npc = npc;
+        this.avatar = npc.avatar;
+        author.text = npc.name;
+
+        foreach (string sentence in npc.GetSentences())
         {
             sentences.Enqueue(sentence);
         }
-        Next();
     }
 
     public void Next()
     {
+        if(!dialogueBox.activeSelf) dialogueBox.SetActive(true);
+
         if (sentences.Count <= 0)
         {
             Cancel();
@@ -48,9 +57,9 @@ public class DialogueManager : MonoBehaviour
 
     public void Cancel()
     {
+        npc.Refresh();
         sentences.Clear();
         Debug.Log("Finished Conversation.");
         dialogueBox.SetActive(false);
-
     }
 }

@@ -16,6 +16,9 @@ public class Portal : MonoBehaviour
     public Transform location;
     public bool debug;
 
+    public void Lock() { portalState = PortalState.LOCKED; }
+    public void Unlock() { portalState = PortalState.UNLOCKED; }
+
     private void OnDrawGizmos()
     {
         //Target Location
@@ -43,7 +46,7 @@ public class Portal : MonoBehaviour
         Player player = other.transform.GetComponent<Player>();
         if(portalState == PortalState.UNLOCKED && player != null)
         {
-            player.TeleportPlayer(location.position);
+            player.StartTeleportPlayer(location.position);
         }
     }
 }
