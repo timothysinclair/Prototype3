@@ -9,11 +9,12 @@ public class NPC : MonoBehaviour
     public Image avatar;
     public int conversationDistance = 3;
 
+    private int progressionCounter = 0;
+
     private bool conversating = false;
     private bool checkRanged = true;
 
-    [SerializeField]
-    private List<string> sentences;
+    [SerializeField] private List<DialogueSequence> dialogueSequences;
 
     private Player player;
 
@@ -81,6 +82,24 @@ public class NPC : MonoBehaviour
 
     public List<string> GetSentences()
     {
-        return sentences;
+        // return sentences;
+        return dialogueSequences[progressionCounter].sentences;
+    }
+
+    public void SequenceEnd()
+    {
+        dialogueSequences[progressionCounter].OnEnd();
+    }
+
+    public void ProgressDialogue()
+    {
+        progressionCounter++;
+
+        Debug.Assert(progressionCounter <= dialogueSequences.Count, "NPC dialogue progression was incremented higher than allowed. Check where ProgressDialogue is being called and how many dialogue sequences you have");
+    }
+
+    public void SetProgression(int newProgression)
+    {
+        progressionCounter = newProgression;
     }
 }
