@@ -46,6 +46,7 @@ public class NPCManager : MonoBehaviour
         if (sentences.Count <= 0)
         {
             Cancel();
+            npc.SequenceEnd();
         }
         else
         {
