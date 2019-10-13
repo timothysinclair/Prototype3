@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4191993667630171838}
-  - component: {fileID: 4092125298768363713}
   m_Layer: 0
   m_Name: rock_even
   m_TagString: Untagged
@@ -32,20 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4092125298768363713
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898377824985838765}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &1719210838228156914
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +42,8 @@ GameObject:
   - component: {fileID: 801776006381396346}
   - component: {fileID: 568586867587155947}
   - component: {fileID: 7799041737484177972}
-  m_Layer: 0
+  - component: {fileID: 2424693756275639093}
+  m_Layer: 8
   m_Name: a1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,3 +110,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2424693756275639093
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719210838228156914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 7996924056470759574, guid: 72a26e7cc3aea1e40af7b99c6bb8e2ae, type: 3}

@@ -18,6 +18,9 @@ public class Level : MonoBehaviour
     [SerializeField] private Transform endTransform;
     [SerializeField] private float moveTime = 3.0f;
 
+    [SerializeField] private Transform levelEndTeleport;
+    private Vector3 levelEndTeleportPos;
+
     private Vector3 endPosition;
     private Player playerRef;
     private Transform oldPlayerRootTransform;
@@ -28,6 +31,7 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelEndTeleportPos = levelEndTeleport.position;
         endPosition = endTransform.position;
         playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         DOTween.defaultUpdateType = UpdateType.Fixed;
@@ -48,6 +52,7 @@ public class Level : MonoBehaviour
 
     private void MoveEnd()
     {
+        playerRef.StartTeleportPlayer(levelEndTeleportPos);
         onMoveEnd.Invoke();
         rigidBody.transform.DOMove(this.transform.position, 2.0f).OnComplete(onTwoSecondsAfterMoveEnd.Invoke);
     }
