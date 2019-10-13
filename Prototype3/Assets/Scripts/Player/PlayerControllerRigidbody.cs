@@ -80,6 +80,8 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private bool isCamouflaged = false;
     private float moveSpeedModifier = 1.0f;
 
+    private CrystalHolder playerHolder;
+
     // Stores the calculated move direction of the player
     private Vector3 finalMoveDirection;
 
@@ -99,6 +101,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        playerHolder = GetComponent<CrystalHolder>();
 
         jumpSound = AudioManager.Instance.GetAudioClip("Jump");
         teleportDepartSound = AudioManager.Instance.GetAudioClip("TeleportDepart");
@@ -124,10 +127,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
         Vector3 moveSpeed = rigidBody.velocity;
         Vector3 hSpeed = new Vector3(moveSpeed.x, 0.0f, moveSpeed.z);
         Vector3 vSpeed = new Vector3(0.0f, moveSpeed.y, 0.0f);
-        playerAnimator.SetFloat("HSpeed", hSpeed.magnitude);
         playerAnimator.SetFloat("VSpeed", vSpeed.magnitude);
-        // playerAnimator.SetBool("Camouflaged", isCamouflaged);
-
+        playerAnimator.SetBool("Camouflaged", isCamouflaged);
+        playerAnimator.SetBool("Holding", (playerHolder.heldType != CrystalType.None));
 
         UpdateMaterials();
 
@@ -358,12 +360,14 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private void OnStartCamouflage()
     {
         // SetMaterial(camouflageMaterial);
+        playerAnimator.SetTrigger("StartCamo");
         moveSpeedModifier = camouflagedSpeedModifier;
     }
 
     private void OnEndCamouflage()
     {
         // SetMaterial(normalMaterial);
+        playerAnimator.SetTrigger("StopCamo");
         moveSpeedModifier = 1.0f;
     }
 
