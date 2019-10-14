@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2446759757004442601}
+  - component: {fileID: 486242737966980420}
   m_Layer: 0
   m_Name: TempleDoor
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5924179554573147735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1417912465182290914}
@@ -37,6 +38,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486242737966980420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924179554573147735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cb0c2c88937644ba7481d95f9c25bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowedTypes: 0000000003000000020000000400000001000000
+  isSolid: 0
+  poweredMaterial: {fileID: 0}
+  unpoweredMaterial: {fileID: 0}
 --- !u!1001 &1653094762355143636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,11 +61,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2446759757004442601}
     m_Modifications:
-    - target: {fileID: 6061473049613613182, guid: 5cf90d0b840561e46b4aee74c26eb610,
-        type: 3}
-      propertyPath: m_Name
-      value: TempleDoorLeft
-      objectReference: {fileID: 0}
     - target: {fileID: 386631385704906806, guid: 5cf90d0b840561e46b4aee74c26eb610,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -104,6 +116,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6061473049613613182, guid: 5cf90d0b840561e46b4aee74c26eb610,
+        type: 3}
+      propertyPath: m_Name
+      value: TempleDoorLeft
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cf90d0b840561e46b4aee74c26eb610, type: 3}
 --- !u!4 &1417912465182290914 stripped
@@ -119,11 +136,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2446759757004442601}
     m_Modifications:
-    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
-        type: 3}
-      propertyPath: m_Name
-      value: TempleWall (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 7045736504285837481, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,6 +191,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
+        type: 3}
+      propertyPath: m_Name
+      value: TempleWall (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd, type: 3}
 --- !u!4 &8659663565946411024 stripped
@@ -194,11 +211,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2446759757004442601}
     m_Modifications:
-    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
-        type: 3}
-      propertyPath: m_Name
-      value: TempleWall
-      objectReference: {fileID: 0}
     - target: {fileID: 7045736504285837481, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -254,6 +266,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
+        type: 3}
+      propertyPath: m_Name
+      value: TempleWall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd, type: 3}
 --- !u!4 &4790677800531340502 stripped
@@ -269,11 +286,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2446759757004442601}
     m_Modifications:
-    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
-        type: 3}
-      propertyPath: m_Name
-      value: TempleWall (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 7045736504285837481, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -328,6 +340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
+        type: 3}
+      propertyPath: m_Name
+      value: TempleWall (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd, type: 3}
@@ -419,11 +436,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2446759757004442601}
     m_Modifications:
-    - target: {fileID: 1096691400660121918, guid: 829aed84c4bc60f438d5bac2e80b91cf,
-        type: 3}
-      propertyPath: m_Name
-      value: TempleDoorRight
-      objectReference: {fileID: 0}
     - target: {fileID: 6808037089053344118, guid: 829aed84c4bc60f438d5bac2e80b91cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -479,6 +491,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1096691400660121918, guid: 829aed84c4bc60f438d5bac2e80b91cf,
+        type: 3}
+      propertyPath: m_Name
+      value: TempleDoorRight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 829aed84c4bc60f438d5bac2e80b91cf, type: 3}
 --- !u!4 &4213119857479879372 stripped
@@ -494,11 +511,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2446759757004442601}
     m_Modifications:
-    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
-        type: 3}
-      propertyPath: m_Name
-      value: TempleWall (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 7045736504285837481, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -553,6 +565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597855133396031758, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd,
+        type: 3}
+      propertyPath: m_Name
+      value: TempleWall (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36cd83ad1b410ec46a3d9ecd8da8c4cd, type: 3}
