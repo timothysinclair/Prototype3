@@ -15,7 +15,7 @@ public class PlayerInputs : MonoBehaviour
 
     private Vector3 moveInputs = Vector3.zero;
     private bool jumpInput = false;
-    private ActionState actionState = ActionState.jump;
+    public ActionState actionState = ActionState.jump;
     private bool inputsDisabled = false;
     private bool cursorLock = false;
     private Player playerRef;
