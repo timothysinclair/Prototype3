@@ -12,7 +12,7 @@ public class LogicGate : MonoBehaviour
     [SerializeField] private UnityEvent onPowerLoss;
 
     private bool isPowered = false;
-    private MeshRenderer myMesh;
+    public MeshRenderer myMesh;
 
     public Material poweredMaterial;
     public Material unpoweredMaterial;
@@ -20,7 +20,7 @@ public class LogicGate : MonoBehaviour
     private void Awake()
     {
         // powerSources = new List<CrystalHolder>();
-        myMesh = GetComponent<MeshRenderer>();
+        // myMesh = GetComponent<MeshRenderer>();
     }
 
     private void Update()
