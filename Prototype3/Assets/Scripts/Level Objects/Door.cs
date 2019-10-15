@@ -17,11 +17,14 @@ public class Door : MonoBehaviour
 
     // private Collider myCollider;
     private MeshRenderer myMesh;
+    private Animator myAnimator;
 
     private void Awake()
     {
         // myCollider = GetComponent<Collider>();
-        myMesh = GetComponent<MeshRenderer>();
+        // myMesh = GetComponent<MeshRenderer>();
+
+        myAnimator = GetComponent<Animator>();
 
         // if (!isSolid) { myCollider.isTrigger = true; }
     }
@@ -40,19 +43,21 @@ public class Door : MonoBehaviour
 
     public void OnPowered()
     {
-        if (isSolid)
-        {
-            // myCollider.isTrigger = true;
-        }
-        myMesh.material = poweredMaterial;
+        //if (isSolid)
+        //{
+        //    // myCollider.isTrigger = true;
+        //}
+        //myMesh.material = poweredMaterial;
+        myAnimator.SetTrigger("Open");
     }
 
     public void OnPowerLoss()
     {
-        if (isSolid)
-        {
-            // myCollider.isTrigger = false;
-        }
-        myMesh.material = unpoweredMaterial;
+        //if (isSolid)
+        //{
+        //    // myCollider.isTrigger = false;
+        //}
+        //myMesh.material = unpoweredMaterial;
+        myAnimator.SetTrigger("Close");
     }
 }

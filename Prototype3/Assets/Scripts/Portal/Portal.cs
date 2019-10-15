@@ -16,8 +16,18 @@ public class Portal : MonoBehaviour
     public Transform location;
     public bool debug;
 
-    public void Lock() { portalState = PortalState.LOCKED; }
-    public void Unlock() { portalState = PortalState.UNLOCKED; }
+    public GameObject visualEffect;
+
+    public void Lock()
+    {
+        portalState = PortalState.LOCKED;
+        visualEffect.SetActive(false);
+    }
+    public void Unlock()
+    {
+        portalState = PortalState.UNLOCKED;
+        visualEffect.SetActive(true);
+    }
 
     private void OnDrawGizmos()
     {

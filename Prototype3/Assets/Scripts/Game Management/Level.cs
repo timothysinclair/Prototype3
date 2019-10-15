@@ -21,6 +21,8 @@ public class Level : MonoBehaviour
     [SerializeField] private Transform levelEndTeleport;
     private Vector3 levelEndTeleportPos;
 
+    public GameObject entryIsland;
+
     private Vector3 endPosition;
     private Player playerRef;
     private Transform oldPlayerRootTransform;
@@ -47,7 +49,8 @@ public class Level : MonoBehaviour
     public void MoveToEndPosition()
     {
         playerRef.GetRootTransform().SetParent(this.transform);
-        rigidBody.transform.DOMove(endPosition, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform).OnComplete(MoveEnd);
+        entryIsland.GetComponent<Rigidbody>().DOMove(endPosition + this.transform.position, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform).OnComplete(MoveEnd);
+        // rigidBody.transform.DOMove(endPosition, moveTime).SetEase(Ease.InOutSine).OnComplete(ResetPlayerParentTransform).OnComplete(MoveEnd);
     }
 
     private void MoveEnd()
