@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Portal2
+  m_Name: Unlocked
   m_Shader: {fileID: -6465566751694194690, guid: 51fd46742e46f3e44ac60c7c2ac56e0c,
     type: 3}
   m_ShaderKeywords: 
@@ -21,9 +21,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _DissolveAmount: 1.45
-    - _Scale: 2.5
-    - _TwirlStrength: 4.73
-    - _speed: 0.24
+    - _DissolveAmount: 3.84
+    - _Scale: 2.11
+    - _TwirlStrength: 7.72
+    - _speed: 0.17
     m_Colors:
-    - Color_387281EB: {r: 0.2858305, g: 2.1851459, b: 2.8855267, a: 0.5529412}
+    - Color_387281EB: {r: 12.298039, g: 28.360785, b: 10.290196, a: 0}

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class NPC : MonoBehaviour
 {
     public new string name;
-    public Image avatar;
     public int conversationDistance = 3;
 
     private int progressionCounter = 0;
@@ -14,7 +13,7 @@ public class NPC : MonoBehaviour
     private bool conversating = false;
     private bool checkRanged = true;
 
-    [SerializeField] private List<DialogueSequence> dialogueSequences;
+    public List<DialogueSequence> dialogueSequences;
 
     private Player player;
 
@@ -80,10 +79,10 @@ public class NPC : MonoBehaviour
         checkRanged = true;
     }
 
-    public List<string> GetSentences()
+    public List<NPCDialogue> GetDialogues()
     {
         // return sentences;
-        return dialogueSequences[progressionCounter].sentences;
+        return dialogueSequences[progressionCounter].dialogues;
     }
 
     public void SequenceEnd()

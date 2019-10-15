@@ -6,7 +6,8 @@ using UnityEngine.Events;
 [System.Serializable]
 public class DialogueSequence
 {
-    public List<string> sentences;
+    [SerializeField]
+    public List<NPCDialogue> dialogues;
     public UnityEvent onDialogueEnd;
 
     public void OnEnd()

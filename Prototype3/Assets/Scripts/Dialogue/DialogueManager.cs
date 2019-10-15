@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogueBox;
     public Image avatar;
     public TMP_Text author, sentence;
-    private Queue<string> sentences;
+    private Queue<NPCDialogue> dialogues;
 
     private NPC npc;
 
@@ -22,21 +22,20 @@ public class DialogueManager : MonoBehaviour
         if (instance != null && instance != this) { Destroy(this.gameObject); }
         else { instance = this; }
 
-        sentences = new Queue<string>();
+        dialogues = new Queue<NPCDialogue>();
     }
 
     public void Load(NPC npc)
     {
         Debug.Log("Started Conversation.");
-        sentences.Clear();
+        dialogues.Clear();
 
         this.npc = npc;
-        this.avatar = npc.avatar;
         author.text = npc.name;
 
-        foreach (string sentence in npc.GetSentences())
+        foreach (NPCDialogue dialogue in npc.GetDialogues())
         {
-            sentences.Enqueue(sentence);
+            dialogues.Enqueue(dialogue);
         }
     }
 
@@ -44,13 +43,15 @@ public class DialogueManager : MonoBehaviour
     {
         if(!dialogueBox.activeSelf) dialogueBox.SetActive(true);
 
-        if (sentences.Count <= 0)
+        if (dialogues.Count <= 0)
         {
             Cancel();
         }
         else
         {
-            sentence.text = sentences.Dequeue();
+            NPCDialogue npcDialogue = dialogues.Dequeue();
+            sentence.text = npcDialogue.sentence;
+            avatar.sprite = npcDialogue.targetEmote;
             Debug.Log(sentence.text);
         }
     }
@@ -58,7 +59,7 @@ public class DialogueManager : MonoBehaviour
     public void Cancel()
     {
         npc.Refresh();
-        sentences.Clear();
+        dialogues.Clear();
         Debug.Log("Finished Conversation.");
         dialogueBox.SetActive(false);
     }

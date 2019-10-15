@@ -16,8 +16,18 @@ public class Portal : MonoBehaviour
     public Transform location;
     public bool debug;
 
-    public void Lock() { portalState = PortalState.LOCKED; }
-    public void Unlock() { portalState = PortalState.UNLOCKED; }
+    public MeshRenderer meshRenderer;
+
+    public Material locked, unlocked;
+
+    public void Lock() {
+        portalState = PortalState.LOCKED;
+        meshRenderer.material = locked;
+    }
+    public void Unlock() {
+        portalState = PortalState.UNLOCKED;
+        meshRenderer.material = unlocked;
+    }
 
     private void OnDrawGizmos()
     {
