@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   active: 1
   enabled:
     overrideState: 1
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   active: 0
   enabled:
     overrideState: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
   m_Name: Player Profile
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   settings:
   - {fileID: 1442958609798367273}
   - {fileID: 4680792632803259404}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   active: 1
   enabled:
     overrideState: 1
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
   m_Name: Bloom
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   active: 1
   enabled:
     overrideState: 1
