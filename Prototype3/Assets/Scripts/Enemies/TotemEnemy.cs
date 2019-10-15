@@ -62,6 +62,15 @@ public class TotemEnemy : MonoBehaviour
     private AudioClip detectingSound;
     private AudioClip turningSound;
 
+    public GameObject pebblePrefab;
+    public Material inactivePebbleMat;
+    public Material activePebbleMat;
+    private int numPebbles = 16;
+    private GameObject[] pebbles;
+    private MeshRenderer[] pebbleMeshes;
+    
+    private float pebbleAngleSpacing = 45.0f;
+
     // Temporary (for testing)
     [Header("Temporary")]
     public MeshRenderer totemFace;
@@ -80,6 +89,51 @@ public class TotemEnemy : MonoBehaviour
         turnTimer = waitTime;
         teleportPosition = teleportDestination.position;
         tweenName += GetInstanceID();
+
+        pebbles = new GameObject[numPebbles];
+        pebbleMeshes = new MeshRenderer[numPebbles];
+
+        CreatePebbles();
+    }
+
+    private void CreatePebbles()
+    {
+        for (int i = 0; i < numPebbles; i++)
+        {
+            Vector3 spawnPos = new Vector3(0.0f, -1.0f, visionRadius);
+            spawnPos = Quaternion.Euler(0.0f, i * pebbleAngleSpacing, 0.0f) * spawnPos;
+
+            pebbles[i] = Instantiate(pebblePrefab, this.transform.position + spawnPos, Quaternion.identity);
+            pebbleMeshes[i] = pebbles[i].GetComponentInChildren<MeshRenderer>();
+        }
+    }
+
+    private void UpdatePebbles()
+    {
+        float totemRot = this.transform.eulerAngles.y;
+        float hAngle = visionAngle / 2.0f;
+
+        for (int i = 0; i < numPebbles; i++)
+        {
+            Vector3 toPebble = pebbles[i].transform.position - this.transform.position;
+            Vector3 forwardVec = this.transform.forward;
+            forwardVec.y = 0.0f;
+            Vector3.Normalize(toPebble);
+            Vector3.Normalize(forwardVec);
+
+            float angleDiff = Vector3.Angle(forwardVec, toPebble);
+
+            // + 2.0f for edge tolerance
+            if (angleDiff <= ((visionAngle + 2.0f) / 2.0f))
+            {
+                pebbleMeshes[i].material = activePebbleMat;
+            }
+            else
+            {
+                pebbleMeshes[i].material = inactivePebbleMat;
+            }
+
+        }
     }
 
     private void Update()
@@ -102,6 +156,8 @@ public class TotemEnemy : MonoBehaviour
 
         if (playerDetected) { totemFace.material = hostileMat; }
         else { totemFace.material = peacefulMat; }
+
+        UpdatePebbles();
     }
 
     private void CheckTurnState()
