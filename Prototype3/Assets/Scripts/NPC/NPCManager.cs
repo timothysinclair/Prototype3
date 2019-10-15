@@ -11,6 +11,7 @@ public class NPCManager : MonoBehaviour
     public static NPCManager Instance { get { return instance; } }
 
     public GameObject dialogueBox;
+
     public Image playerAvatar, targetAvatar;
     public TMP_Text sentence;
     private Queue<NPCDialogue> dialogues;
@@ -36,6 +37,8 @@ public class NPCManager : MonoBehaviour
             dialogues.Enqueue(dialogue);
         }
 
+        this.npc.GetPlayer().GetInputs().SetInputsDisabled(true);
+
         playerAvatar.sprite = npc.GetDialogues()[0].playerEmote;
         targetAvatar.sprite = npc.GetDialogues()[0].targetEmote;
     }
@@ -54,8 +57,10 @@ public class NPCManager : MonoBehaviour
         {
             NPCDialogue dialogue = dialogues.Dequeue();
             sentence.text = dialogue.sentence;
+
             playerAvatar.sprite = dialogue.playerEmote;
             targetAvatar.sprite = dialogue.targetEmote;
+
             StopAllCoroutines();
             StartCoroutine(TypeSentence(dialogue.sentence));
         }
@@ -75,7 +80,10 @@ public class NPCManager : MonoBehaviour
 
     public void Cancel()
     {
+        npc.GetPlayer().SetInputsDisabled(false);
+        npc.GetPlayer().GetInputs().SetActionState(ActionState.jump);
         npc.Refresh();
+
         dialogueBox.SetActive(false);
     }
 }

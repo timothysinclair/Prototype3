@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     private bool paused = false;
+    public string mainMenuScene;
+
     [SerializeField] private Transform pausePanel;
     [SerializeField] private Transform playerPanel;
 
@@ -34,5 +37,10 @@ public class UIManager : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
+    }
+
+    public void OnMenuPress()
+    {
+        SceneManager.LoadScene(mainMenuScene);
     }
 }
