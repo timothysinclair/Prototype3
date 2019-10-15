@@ -67,6 +67,10 @@ MonoBehaviour:
   detectionTimer: 0
   detectionAudioSource: {fileID: 4280038017166942864}
   turningAudioSource: {fileID: 9044013048527454582}
+  pebblePrefab: {fileID: 3278403086676100673, guid: dbcecba40a437334f91ba5c1ee5caeb1,
+    type: 3}
+  inactivePebbleMat: {fileID: 2100000, guid: e74785449ef8f2a4c97effc73418d394, type: 2}
+  activePebbleMat: {fileID: 2100000, guid: 656d110eeb750fd41a230f96d67b6393, type: 2}
   totemFace: {fileID: 7703136249821857693}
   peacefulMat: {fileID: 2100000, guid: 26e3c595ae531724a83325527129a717, type: 2}
   hostileMat: {fileID: 2100000, guid: d0a4d05b95dad5c43a11b9eeb36ece6e, type: 2}
@@ -612,11 +616,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6082017218105839817}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
-        type: 3}
-      propertyPath: m_Name
-      value: totemMesh
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -671,6 +670,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
+        type: 3}
+      propertyPath: m_Name
+      value: totemMesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41e73f2d62eb9744ea7ce18cba0d8d63, type: 3}
