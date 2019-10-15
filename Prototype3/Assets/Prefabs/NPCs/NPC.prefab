@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8489755007651928}
   - component: {fileID: 8489755007651931}
   - component: {fileID: 8489755007651929}
+  - component: {fileID: 3730839896378346141}
   m_Layer: 0
   m_Name: NPC Object
   m_TagString: Untagged
@@ -50,7 +51,7 @@ MonoBehaviour:
   name: 
   avatar: {fileID: 0}
   conversationDistance: 3
-  sentences: []
+  dialogueSequences: []
 --- !u!114 &8489755007651928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,8 +66,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 8489755007651931}
   teleportMaterial: {fileID: 2100000, guid: bc6ce2d9e2b76f94f8f2715c678b65fe, type: 2}
+  myName: 0
   meshRenderer: {fileID: 6802722566688471021}
   teleportTime: 1
+  myAnimator: {fileID: 0}
 --- !u!195 &8489755007651931
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -103,6 +106,22 @@ CapsuleCollider:
   m_Height: 1.82
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!54 &3730839896378346141
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489755007652005}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8489755165409118
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,11 +160,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8489755007651930}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 049cf3a6428b164439706248f948fed2,
-        type: 3}
-      propertyPath: m_Name
-      value: npc2
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 049cf3a6428b164439706248f948fed2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -200,6 +214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 049cf3a6428b164439706248f948fed2,
+        type: 3}
+      propertyPath: m_Name
+      value: npc2
       objectReference: {fileID: 0}
     - target: {fileID: -2416733968201007103, guid: 049cf3a6428b164439706248f948fed2,
         type: 3}

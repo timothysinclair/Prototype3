@@ -79,6 +79,7 @@ public class NPCController : MonoBehaviour
     {
         // agent.Warp(teleportDestination);
         agent.enabled = false;
+        // this.transform.parent.position = teleportDestination;
         this.transform.position = teleportDestination;
         // agent.enabled = false;
         agent.enabled = true;
