@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Collider))]
+// [RequireComponent(typeof(Collider))]
 public class Door : MonoBehaviour
 {
     [Tooltip("The types of crystals that the player can take through this doorway")]
@@ -15,15 +15,18 @@ public class Door : MonoBehaviour
     [SerializeField] private Material poweredMaterial;
     [SerializeField] private Material unpoweredMaterial;
 
-    private Collider myCollider;
+    // private Collider myCollider;
     private MeshRenderer myMesh;
+    private Animator myAnimator;
 
     private void Awake()
     {
-        myCollider = GetComponent<Collider>();
-        myMesh = GetComponent<MeshRenderer>();
+        // myCollider = GetComponent<Collider>();
+        // myMesh = GetComponent<MeshRenderer>();
 
-        if (!isSolid) { myCollider.isTrigger = true; }
+        myAnimator = GetComponent<Animator>();
+
+        // if (!isSolid) { myCollider.isTrigger = true; }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,19 +43,21 @@ public class Door : MonoBehaviour
 
     public void OnPowered()
     {
-        if (isSolid)
-        {
-            myCollider.isTrigger = true;
-        }
-        myMesh.material = poweredMaterial;
+        //if (isSolid)
+        //{
+        //    // myCollider.isTrigger = true;
+        //}
+        //myMesh.material = poweredMaterial;
+        myAnimator.SetTrigger("Open");
     }
 
     public void OnPowerLoss()
     {
-        if (isSolid)
-        {
-            myCollider.isTrigger = false;
-        }
-        myMesh.material = unpoweredMaterial;
+        //if (isSolid)
+        //{
+        //    // myCollider.isTrigger = false;
+        //}
+        //myMesh.material = unpoweredMaterial;
+        myAnimator.SetTrigger("Close");
     }
 }

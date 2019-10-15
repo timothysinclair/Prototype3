@@ -16,14 +16,19 @@ public class NPCController : MonoBehaviour
 
     [SerializeField] private Material teleportMaterial;
 
+    public NPCName myName;
+
     // Teleporting timing & materials
-    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private SkinnedMeshRenderer meshRenderer;
     private Material normalMaterial;
     private Vector3 teleportDestination;
     private bool isTeleporting = false;
     private float teleportDir = 1.0f;
     private float teleportTimer = 0.0f;
     [SerializeField] private float teleportTime = 1.0f;
+
+    public Animator myAnimator;
+    private bool isHappy = false;
 
     private void Start()
     {
@@ -35,7 +40,14 @@ public class NPCController : MonoBehaviour
 
     private void Update()
     {
+        if (myName == NPCName.Rangi) { return; }
+
+        if (agent.velocity.magnitude > 1.0f) { myAnimator.SetBool("Run", true); }
+        else { myAnimator.SetBool("Run", false); }
+
         UpdateMaterials();
+
+        if (myName == NPCName.Manu) { myAnimator.SetBool("Happy", isHappy); }
     }
 
     public void SendTo(Transform destination)
@@ -97,4 +109,10 @@ public class NPCController : MonoBehaviour
             meshRenderer.material = normalMaterial;
         }
     }
+
+    public void SetHappy(bool happy)
+    {
+        isHappy = happy;
+    }
+
 }

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6951619511477713367}
   - component: {fileID: 376925692971160225}
   - component: {fileID: 9150482019105992483}
-  m_Layer: 0
+  - component: {fileID: 5763201425613971838}
+  m_Layer: 8
   m_Name: larg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,6 +79,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5763201425613971838
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578616317534332780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 6971528644352888031, guid: 6e905501334461b4caeb1f99bb521084, type: 3}
 --- !u!1 &8607429833986211280
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +102,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4695251155323588547}
-  - component: {fileID: 974949416069872738}
   m_Layer: 0
   m_Name: rock_LARGE
   m_TagString: Untagged
@@ -110,17 +124,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &974949416069872738
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8607429833986211280}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
