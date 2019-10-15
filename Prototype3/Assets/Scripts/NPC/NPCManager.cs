@@ -11,9 +11,10 @@ public class NPCManager : MonoBehaviour
     public static NPCManager Instance { get { return instance; } }
 
     public GameObject dialogueBox;
-    public Image avatar;
-    public TMP_Text author, sentence;
-    private Queue<string> sentences;
+    public Image playerAvatar, targetAvatar;
+    public TMP_Text sentence;
+    private Queue<NPCDialogue> dialogues;
+    private bool talking = false;
 
     private NPC npc;
 
@@ -22,37 +23,54 @@ public class NPCManager : MonoBehaviour
         if (instance != null && instance != this) { Destroy(this.gameObject); }
         else { instance = this; }
 
-        sentences = new Queue<string>();
+        dialogues = new Queue<NPCDialogue>();
     }
 
     public void Load(NPC npc)
     {
-        sentences.Clear();
+        dialogues.Clear();
 
         this.npc = npc;
-        this.avatar = npc.avatar;
-        author.text = npc.name;
-
-        foreach (string sentence in npc.GetSentences())
+        foreach (NPCDialogue dialogue in npc.GetDialogues())
         {
-            sentences.Enqueue(sentence);
+            dialogues.Enqueue(dialogue);
         }
+
+        playerAvatar.sprite = npc.GetDialogues()[0].playerEmote;
+        targetAvatar.sprite = npc.GetDialogues()[0].targetEmote;
     }
 
     public void Next()
     {
+        if (talking) return;
         if (!dialogueBox.activeSelf) dialogueBox.SetActive(true);
 
-        if (sentences.Count <= 0)
+        if (dialogues.Count <= 0)
         {
             Cancel();
             npc.SequenceEnd();
         }
         else
         {
-            sentence.text = sentences.Dequeue();
-            Debug.Log(sentence.text);
+            NPCDialogue dialogue = dialogues.Dequeue();
+            sentence.text = dialogue.sentence;
+            playerAvatar.sprite = dialogue.playerEmote;
+            targetAvatar.sprite = dialogue.targetEmote;
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(dialogue.sentence));
         }
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        this.sentence.text = "";
+        talking = true;
+        foreach (char letter in sentence.ToCharArray())
+        {
+            this.sentence.text += letter;
+            yield return null;
+        }
+        talking = false;
     }
 
     public void Cancel()
