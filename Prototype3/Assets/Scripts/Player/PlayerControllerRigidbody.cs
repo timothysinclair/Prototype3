@@ -35,6 +35,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Material respawnMaterial;
     [SerializeField] private Material teleportMaterial;
+    [SerializeField] private Material camoMaterial;
 
     [Header("Shader properties")]
     [SerializeField] private float teleportTime = 1.0f;
@@ -49,6 +50,11 @@ public class PlayerControllerRigidbody : MonoBehaviour
     private float teleportTimer = 0.0f;
     private float respawnDir = 1.0f;
     private float teleportDir = 1.0f;
+
+    private bool camoEffect = false;
+    private float camoTimer = 0.0f;
+    private float camoTime = 0.5f;
+    private float camoDir = 1.0f;
 
     [Header("Other settings")]
     // How many frames the player can still jump for if they fall off an edge
@@ -110,6 +116,7 @@ public class PlayerControllerRigidbody : MonoBehaviour
 
         respawnMaterial = new Material(respawnMaterial);
         teleportMaterial = new Material(teleportMaterial);
+        camoMaterial = new Material(camoMaterial);
 
         groundedFrames = new List<bool>(extraJumpFrames);
 
@@ -362,6 +369,9 @@ public class PlayerControllerRigidbody : MonoBehaviour
         // SetMaterial(camouflageMaterial);
         playerAnimator.SetTrigger("StartCamo");
         moveSpeedModifier = camouflagedSpeedModifier;
+        camoEffect = true;
+        camoTimer = camoTime;
+        camoDir = 1.0f;
     }
 
     private void OnEndCamouflage()
@@ -406,6 +416,25 @@ public class PlayerControllerRigidbody : MonoBehaviour
             
             SetMaterial(teleportMaterial);
             teleportMaterial.SetFloat("_TimeScale", 1.0f - (teleportTimer / teleportTime));
+        }
+        else if (camoEffect)
+        {
+            camoTimer -= Time.deltaTime * camoDir;
+
+            if ((camoTimer <= 0.0f) && !isCamouflaged)
+            {
+                camoDir = -1.0f;
+                camoTimer = 0.0f;
+            }
+            else if (camoTimer >= camoTime)
+            {
+                camoEffect = false;
+            }
+
+            if (camoTimer < 0.0f) { camoTimer = 0.0f; }
+
+            SetMaterial(camoMaterial);
+            camoMaterial.SetFloat("_TimeScale", 1.0f - (camoTimer / camoTime));
         }
         else if (isRespawning)
         {

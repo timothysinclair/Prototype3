@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6150610699505164761, guid: 465d08a1ea14de741bfe3030bd74e29c,
         type: 3}
       propertyPath: m_Name
-      value: TempleDoorSymmetric
+      value: TempleDoorLeft
       objectReference: {fileID: 0}
     - target: {fileID: 295092934047373713, guid: 465d08a1ea14de741bfe3030bd74e29c,
         type: 3}
@@ -67,5 +67,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3405818615960970873, guid: 465d08a1ea14de741bfe3030bd74e29c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac3901d799f3c61448bbd2feda782847, type: 2}
+    - target: {fileID: 4024290745958396338, guid: 465d08a1ea14de741bfe3030bd74e29c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac3901d799f3c61448bbd2feda782847, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 465d08a1ea14de741bfe3030bd74e29c, type: 3}
