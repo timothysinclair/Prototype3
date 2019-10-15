@@ -154,8 +154,8 @@ public class TotemEnemy : MonoBehaviour
             OnDetectionUpdate();
         }
 
-        if (playerDetected) { totemFace.material = hostileMat; }
-        else { totemFace.material = peacefulMat; }
+        //if (playerDetected) { totemFace.material = hostileMat; }
+        //else { totemFace.material = peacefulMat; }
 
         UpdatePebbles();
     }
@@ -290,10 +290,10 @@ public class TotemEnemy : MonoBehaviour
     {
         Vector3 headPos = this.transform.position + headOffset;
 
-        if (Application.isEditor)
-        {
-            UnityEditor.Handles.color = Color.red;
-        }
+        //if (Application.isEditor)
+        //{
+        //    UnityEditor.Handles.color = Color.red;
+        //}
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(headPos, 0.65f);
@@ -311,10 +311,10 @@ public class TotemEnemy : MonoBehaviour
         Gizmos.DrawLine(headPos, leftBound);
         Gizmos.DrawLine(headPos, rightBound);
 
-        if (Application.isEditor)
-        {
-            UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
-        }
+        //if (Application.isEditor)
+        //{
+        //    UnityEditor.Handles.DrawWireArc(headPos, Vector3.up, leftBound - headPos, visionAngle, visionRadius);
+        //}
 
         Gizmos.color = Color.magenta;
 
