@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2808477222670532975}
   - component: {fileID: 3418927443811726114}
   m_Layer: 0
-  m_Name: TempleWallExtension
+  m_Name: TempleWallTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,6 +112,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2416733968201007103, guid: d2854563c23b4ba49a7e0434f9e41d7a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f087b032fe9b1b46880fb8cd634b2f1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2854563c23b4ba49a7e0434f9e41d7a, type: 3}
 --- !u!4 &2809960163097456164 stripped

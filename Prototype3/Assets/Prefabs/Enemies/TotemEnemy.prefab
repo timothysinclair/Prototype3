@@ -616,6 +616,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6082017218105839817}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
+        type: 3}
+      propertyPath: m_Name
+      value: totemMesh
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -671,11 +676,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
+    - target: {fileID: 6306971017694268109, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
         type: 3}
-      propertyPath: m_Name
-      value: totemMesh
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8dd6cb0b4def33a468c974ac61024be5, type: 2}
+    - target: {fileID: -6283877591383234665, guid: 41e73f2d62eb9744ea7ce18cba0d8d63,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8dd6cb0b4def33a468c974ac61024be5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41e73f2d62eb9744ea7ce18cba0d8d63, type: 3}
 --- !u!4 &8654618776183072330 stripped
