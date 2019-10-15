@@ -1,5 +1,111 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1551328609694479487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2389136350337329477}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_Name
+      value: ariki_BaseIdle
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b693fe69bc17418479865912262a51a0, type: 2}
+    - target: {fileID: -6431603836662741086, guid: 3e56040e3e43f98438cb29db96a7c746,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 398c3a1e88d99a1469c0df33175b1c99, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e56040e3e43f98438cb29db96a7c746, type: 3}
+--- !u!95 &4501306224778703391 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 3e56040e3e43f98438cb29db96a7c746,
+    type: 3}
+  m_PrefabInstance: {fileID: 1551328609694479487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3691042136097092573 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6431603836662741086, guid: 3e56040e3e43f98438cb29db96a7c746,
+    type: 3}
+  m_PrefabInstance: {fileID: 1551328609694479487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2394159876908677407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,7 +164,11 @@ PrefabInstance:
     - target: {fileID: 8489755007651928, guid: 7acd14ab4a75ff3479afcccfb66195f1, type: 3}
       propertyPath: meshRenderer
       value: 
-      objectReference: {fileID: 996429594685450319}
+      objectReference: {fileID: 3691042136097092573}
+    - target: {fileID: 8489755007651928, guid: 7acd14ab4a75ff3479afcccfb66195f1, type: 3}
+      propertyPath: myAnimator
+      value: 
+      objectReference: {fileID: 4501306224778703391}
     - target: {fileID: 266804405289098861, guid: 7acd14ab4a75ff3479afcccfb66195f1,
         type: 3}
       propertyPath: name
@@ -88,6 +198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: arikiUpdated
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5421a4e595d377146ae764067235bc89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5421a4e595d377146ae764067235bc89,
         type: 3}
@@ -151,9 +266,3 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 398c3a1e88d99a1469c0df33175b1c99, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5421a4e595d377146ae764067235bc89, type: 3}
---- !u!23 &996429594685450319 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -2416733968201007103, guid: 5421a4e595d377146ae764067235bc89,
-    type: 3}
-  m_PrefabInstance: {fileID: 6026394838988744782}
-  m_PrefabAsset: {fileID: 0}
