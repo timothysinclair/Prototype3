@@ -37,7 +37,7 @@ public class CrystalPickup : MonoBehaviour
         var seq = DOTween.Sequence();
         seq.Append(transform.DOLocalMove(Vector3.zero, grabTime));
         seq.Insert(0, transform.DOLocalRotate(Vector3.zero, grabTime));
-        seq.Append(transform.DORotate(new Vector3(0.0f, 90.0f, 0.0f), 0.5f));
+        // seq.Append(transform.DORotate(new Vector3(0.0f, 90.0f, 0.0f), 0.5f));
     }
 
     public void ReturnToOriginalHolder()
