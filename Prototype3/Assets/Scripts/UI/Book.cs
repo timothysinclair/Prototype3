@@ -23,20 +23,18 @@ public class Book : MonoBehaviour
 
     private void Awake()
     {
-        Activate(pages[index].gameObject);
         Refresh(pages[index]);
     }
     public void Next()
     {
-        Debug.Log("works");
         Deactivate(pages[index].gameObject);
-        if (index < pages.Count) index++;
+        if (index < (pages.Count - 1)) index++;
+
         Refresh(pages[index]);
     }
 
     public void Previous()
     {
-        Debug.Log("works");
         Deactivate(pages[index].gameObject);
         if (index > 0) index--;
         Refresh(pages[index]);
@@ -45,7 +43,7 @@ public class Book : MonoBehaviour
     public void Refresh(Page page)
     {
         Activate(page.gameObject);
-        if (index >= pages.Count)
+        if (index >= (pages.Count - 1))
         {
             Deactivate(page.next.gameObject);
             Activate(page.previous.gameObject);
