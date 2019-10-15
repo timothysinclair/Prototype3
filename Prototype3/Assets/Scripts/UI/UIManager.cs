@@ -5,7 +5,8 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     private bool paused = false;
-    [SerializeField] private Transform panel;
+    [SerializeField] private Transform pausePanel;
+    [SerializeField] private Transform playerPanel;
 
     private void Update()
     {
@@ -14,17 +15,19 @@ public class UIManager : MonoBehaviour
             if(paused)
             {
                 paused = false;
-                panel.gameObject.SetActive(false);
+                pausePanel.gameObject.SetActive(false);
+                playerPanel.gameObject.SetActive(true);
                 Time.timeScale = 1;
 
 
-                Cursor.visible = true;
+                Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 paused = true;
-                panel.gameObject.SetActive(true);
+                pausePanel.gameObject.SetActive(true);
+                playerPanel.gameObject.SetActive(false);
                 Time.timeScale = 0;
 
                 Cursor.visible = true;
