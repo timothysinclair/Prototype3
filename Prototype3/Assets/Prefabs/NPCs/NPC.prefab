@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
-  avatar: {fileID: 0}
   conversationDistance: 3
   dialogueSequences: []
 --- !u!114 &8489755007651928
@@ -80,10 +79,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -160,6 +159,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8489755007651930}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 049cf3a6428b164439706248f948fed2,
+        type: 3}
+      propertyPath: m_Name
+      value: npc2
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 049cf3a6428b164439706248f948fed2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -214,11 +218,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 049cf3a6428b164439706248f948fed2,
-        type: 3}
-      propertyPath: m_Name
-      value: npc2
       objectReference: {fileID: 0}
     - target: {fileID: -2416733968201007103, guid: 049cf3a6428b164439706248f948fed2,
         type: 3}
