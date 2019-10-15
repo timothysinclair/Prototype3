@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Collider))]
+// [RequireComponent(typeof(Collider))]
 public class Door : MonoBehaviour
 {
     [Tooltip("The types of crystals that the player can take through this doorway")]
@@ -15,15 +15,15 @@ public class Door : MonoBehaviour
     [SerializeField] private Material poweredMaterial;
     [SerializeField] private Material unpoweredMaterial;
 
-    private Collider myCollider;
+    // private Collider myCollider;
     private MeshRenderer myMesh;
 
     private void Awake()
     {
-        myCollider = GetComponent<Collider>();
+        // myCollider = GetComponent<Collider>();
         myMesh = GetComponent<MeshRenderer>();
 
-        if (!isSolid) { myCollider.isTrigger = true; }
+        // if (!isSolid) { myCollider.isTrigger = true; }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,7 +42,7 @@ public class Door : MonoBehaviour
     {
         if (isSolid)
         {
-            myCollider.isTrigger = true;
+            // myCollider.isTrigger = true;
         }
         myMesh.material = poweredMaterial;
     }
@@ -51,7 +51,7 @@ public class Door : MonoBehaviour
     {
         if (isSolid)
         {
-            myCollider.isTrigger = false;
+            // myCollider.isTrigger = false;
         }
         myMesh.material = unpoweredMaterial;
     }
