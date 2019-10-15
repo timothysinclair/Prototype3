@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
 public class DialogueSequence
 {
-    public List<string> sentences;
+    [SerializeField]
+    public List<NPCDialogue> dialogues;
     public UnityEvent onDialogueEnd;
 
     public void OnEnd()
@@ -14,3 +14,4 @@ public class DialogueSequence
         onDialogueEnd.Invoke();
     }
 }
+
