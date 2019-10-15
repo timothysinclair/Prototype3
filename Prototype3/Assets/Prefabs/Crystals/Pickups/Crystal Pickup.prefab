@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHolder: {fileID: 0}
   type: 0
-  grabTime: 0.1
+  grabTime: 1
 --- !u!1 &4394727845701888230
 GameObject:
   m_ObjectHideFlags: 0
