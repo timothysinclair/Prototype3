@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Determines the action that is used when the player presses the action button
 public enum ActionState
@@ -19,6 +20,10 @@ public class PlayerInputs : MonoBehaviour
     private bool inputsDisabled = false;
     private bool cursorLock = false;
     private Player playerRef;
+
+    public Image actionImage;
+    public Sprite jumpImage;
+    public Sprite talkImage;
 
     private void Awake()
     {
@@ -44,12 +49,17 @@ public class PlayerInputs : MonoBehaviour
             case ActionState.jump:
             {
                 jumpInput = Input.GetButtonDown("Jump");
+                actionImage.sprite = jumpImage;
+
                 break;
             }
 
             case ActionState.talk:
             {
                 if (Input.GetButtonDown("Jump")) NPCManager.Instance.Next();
+
+                actionImage.sprite = talkImage;
+
                 break;
             }
         }
