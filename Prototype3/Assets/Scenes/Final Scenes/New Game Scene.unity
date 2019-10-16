@@ -60007,7 +60007,7 @@ PrefabInstance:
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.04950929
+      value: 0.049509287
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -60022,7 +60022,7 @@ PrefabInstance:
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2804279
+      value: 0.28042787
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -63165,7 +63165,7 @@ MeshCollider:
   m_GameObject: {fileID: 1472632904}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -65154,7 +65154,7 @@ PrefabInstance:
     - target: {fileID: 5517200610467994681, guid: 8dfe25a2bb5773e418370f0a572a3547,
         type: 3}
       propertyPath: dialogueSequences.Array.data[4].onDialogueEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5517200610467994681, guid: 8dfe25a2bb5773e418370f0a572a3547,
         type: 3}
@@ -65834,16 +65834,16 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueSequences.Array.data[4].onDialogueEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2078246851}
+      objectReference: {fileID: 7015696440390065087}
     - target: {fileID: 5517200610467994681, guid: 8dfe25a2bb5773e418370f0a572a3547,
         type: 3}
       propertyPath: dialogueSequences.Array.data[4].onDialogueEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HardActivateFor
+      value: Unlock
       objectReference: {fileID: 0}
     - target: {fileID: 5517200610467994681, guid: 8dfe25a2bb5773e418370f0a572a3547,
         type: 3}
       propertyPath: dialogueSequences.Array.data[4].onDialogueEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5517200610467994681, guid: 8dfe25a2bb5773e418370f0a572a3547,
         type: 3}
@@ -65853,7 +65853,7 @@ PrefabInstance:
     - target: {fileID: 5517200610467994681, guid: 8dfe25a2bb5773e418370f0a572a3547,
         type: 3}
       propertyPath: dialogueSequences.Array.data[4].onDialogueEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5517200610467994681, guid: 8dfe25a2bb5773e418370f0a572a3547,
         type: 3}
@@ -68227,7 +68227,7 @@ MeshCollider:
   m_GameObject: {fileID: 1924696110}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
