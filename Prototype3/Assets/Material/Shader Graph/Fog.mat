@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Fog_PBR
+  m_Name: Fog
   m_Shader: {fileID: -6465566751694194690, guid: c939f1f9dce7a6043aa8fce54821d4a2,
     type: 3}
   m_ShaderKeywords: 
