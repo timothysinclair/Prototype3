@@ -16,6 +16,7 @@ public class Hangi : MonoBehaviour
 
     private void ReturnToMenu()
     {
-        SceneManager.LoadSceneAsync("New Main Menu");
+        GameObject.FindObjectOfType<PlayerInputs>().ToggleCursorLock();
+        SceneManager.LoadScene("New Main Menu");
     }
 }
