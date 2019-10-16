@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: dd7af5291816efa4e99feb61c1b935e8,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9180,7 +9180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cd3a81337acf04c8f276b762bd83fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: New Menu Scene
+  mainMenuScene: New Main Menu
   pausePanel: {fileID: 188505786}
   playerPanel: {fileID: 841656449}
 --- !u!1001 &292485976
@@ -59469,6 +59469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 352555255}
+  playerPanel: {fileID: 841656448}
   playerAvatar: {fileID: 1777684486}
   targetAvatar: {fileID: 555644130}
   sentence: {fileID: 1482942938}
@@ -60006,7 +60007,7 @@ PrefabInstance:
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.049509287
+      value: 0.04950929
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -60021,7 +60022,7 @@ PrefabInstance:
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.28042787
+      value: 0.2804279
       objectReference: {fileID: 0}
     - target: {fileID: 3503856150608851711, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -60056,7 +60057,7 @@ PrefabInstance:
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.054602563
+      value: 0.054602556
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -60066,7 +60067,7 @@ PrefabInstance:
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.1838077
+      value: 0.18380766
       objectReference: {fileID: 0}
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -60086,7 +60087,7 @@ PrefabInstance:
     - target: {fileID: 3503856149431228471, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.27948102
+      value: 0.27948108
       objectReference: {fileID: 0}
     - target: {fileID: 7166804220096760500, guid: d9f394c5f3110a245a2325d6789213f3,
         type: 3}
@@ -71939,16 +71940,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 7982469568457210326, guid: f3914d33c5f12a44581d53b38648194e,
-        type: 3}
-      propertyPath: onPowered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnPowered
-      objectReference: {fileID: 0}
-    - target: {fileID: 7982469568457210326, guid: f3914d33c5f12a44581d53b38648194e,
-        type: 3}
-      propertyPath: onPowerLoss.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPowerLoss
-      objectReference: {fileID: 0}
     - target: {fileID: 6544921872752558285, guid: f3914d33c5f12a44581d53b38648194e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -72038,6 +72029,16 @@ PrefabInstance:
         type: 3}
       propertyPath: droppedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982469568457210326, guid: f3914d33c5f12a44581d53b38648194e,
+        type: 3}
+      propertyPath: onPowered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnPowered
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982469568457210326, guid: f3914d33c5f12a44581d53b38648194e,
+        type: 3}
+      propertyPath: onPowerLoss.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPowerLoss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3914d33c5f12a44581d53b38648194e, type: 3}
