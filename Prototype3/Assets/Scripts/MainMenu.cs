@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnPressPlay()
     {
-        SceneManager.LoadSceneAsync(playButtonScene);
+        SceneManager.LoadScene(playButtonScene);
     }
 
     public void OnPressQuit()

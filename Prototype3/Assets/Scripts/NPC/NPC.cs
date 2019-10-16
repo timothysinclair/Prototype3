@@ -101,4 +101,9 @@ public class NPC : MonoBehaviour
     {
         progressionCounter = newProgression;
     }
+
+    public Player GetPlayer()
+    {
+        return player;
+    }
 }
