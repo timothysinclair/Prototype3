@@ -37,7 +37,7 @@ public class NPCManager : MonoBehaviour
             dialogues.Enqueue(dialogue);
         }
 
-        this.npc.GetPlayer().GetInputs().SetInputsDisabled(true);
+        // this.npc.GetPlayer().GetInputs().SetInputsDisabled(true);
 
         playerAvatar.sprite = npc.GetDialogues()[0].playerEmote;
         targetAvatar.sprite = npc.GetDialogues()[0].targetEmote;
@@ -45,6 +45,8 @@ public class NPCManager : MonoBehaviour
 
     public void Next()
     {
+        this.npc.GetPlayer().GetInputs().SetInputsDisabled(true);
+
         if (talking) return;
         if (playerPanel.activeSelf) playerPanel.SetActive(false);
         if (!dialogueBox.activeSelf) dialogueBox.SetActive(true);
