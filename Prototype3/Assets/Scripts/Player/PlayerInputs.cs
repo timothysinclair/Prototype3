@@ -33,38 +33,34 @@ public class PlayerInputs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputsDisabled) { return; }
+        if (!inputsDisabled) {
+            moveInputs.x = Input.GetAxisRaw("Horizontal");
+            moveInputs.z = Input.GetAxisRaw("Vertical");
 
-        moveInputs.x = Input.GetAxisRaw("Horizontal");
-        moveInputs.z = Input.GetAxisRaw("Vertical");
-        jumpInput = false;
+            bool camouflageInput = Input.GetButton("Camouflage");
+            // bool camouflageInput = (playerRef.HeldCrystalType() == CrystalType.Purple);
 
-        bool camouflageInput = Input.GetButton("Camouflage");
-        // bool camouflageInput = (playerRef.HeldCrystalType() == CrystalType.Purple);
+            playerController.Move(moveInputs, jumpInput, camouflageInput);
+        }
 
         switch (actionState)
         {
             default:
                 break;
             case ActionState.jump:
-            {
-                jumpInput = Input.GetButtonDown("Jump");
-                actionImage.sprite = jumpImage;
-
-                break;
-            }
+                {
+                    jumpInput = Input.GetButtonDown("Jump");
+                    actionImage.sprite = jumpImage;
+                    break;
+                }
 
             case ActionState.talk:
-            {
-                if (Input.GetButtonDown("Jump")) NPCManager.Instance.Next();
-
-                actionImage.sprite = talkImage;
-
-                break;
-            }
+                {
+                    if (Input.GetButtonDown("Jump")) NPCManager.Instance.Next();
+                    actionImage.sprite = talkImage;
+                    break;
+                }
         }
-
-        playerController.Move(moveInputs, jumpInput, camouflageInput);
     }
 
     public void SetActionState(ActionState actionState)
