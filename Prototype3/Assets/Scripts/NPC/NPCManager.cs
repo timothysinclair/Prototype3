@@ -10,7 +10,7 @@ public class NPCManager : MonoBehaviour
 
     public static NPCManager Instance { get { return instance; } }
 
-    public GameObject dialogueBox;
+    public GameObject dialogueBox, playerPanel;
 
     public Image playerAvatar, targetAvatar;
     public TMP_Text sentence;
@@ -46,6 +46,7 @@ public class NPCManager : MonoBehaviour
     public void Next()
     {
         if (talking) return;
+        if (playerPanel.activeSelf) playerPanel.SetActive(false);
         if (!dialogueBox.activeSelf) dialogueBox.SetActive(true);
 
         if (dialogues.Count <= 0)
@@ -84,6 +85,7 @@ public class NPCManager : MonoBehaviour
         npc.GetPlayer().GetInputs().SetActionState(ActionState.jump);
         npc.Refresh();
 
+        playerPanel.SetActive(true);
         dialogueBox.SetActive(false);
     }
 }
