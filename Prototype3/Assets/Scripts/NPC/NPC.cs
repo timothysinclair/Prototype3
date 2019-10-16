@@ -11,6 +11,8 @@ public class NPC : MonoBehaviour
 
     private int progressionCounter = 0;
 
+    static int globalProgression = 0;
+
     private bool conversating = false;
     private bool checkRanged = true;
 
@@ -82,12 +84,12 @@ public class NPC : MonoBehaviour
 
     public List<NPCDialogue> GetDialogues()
     {
-        return dialogueSequences[progressionCounter].dialogues;
+        return dialogueSequences[globalProgression].dialogues;
     }
 
     public void SequenceEnd()
     {
-        dialogueSequences[progressionCounter].OnEnd();
+        dialogueSequences[globalProgression].OnEnd();
     }
 
     public void ProgressDialogue()
@@ -105,5 +107,26 @@ public class NPC : MonoBehaviour
     public Player GetPlayer()
     {
         return player;
+    }
+
+    public void NextGlobal()
+    {
+        NPC.IncrementGlobalProgression();
+    }
+
+    public void SetGlobal(int newGlobal)
+    {
+        NPC.SetGlobalProgression(newGlobal);
+    }
+
+    static void IncrementGlobalProgression()
+    {
+        globalProgression++;
+        if (globalProgression > 9) { globalProgression = 9; }
+    }
+
+    static void SetGlobalProgression(int newProg)
+    {
+        globalProgression = newProg;
     }
 }

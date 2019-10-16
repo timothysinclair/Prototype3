@@ -46,7 +46,11 @@ public class NPCManager : MonoBehaviour
     public void Next()
     {
         if (talking) return;
-        if (!dialogueBox.activeSelf) dialogueBox.SetActive(true);
+        if (!dialogueBox.activeSelf)
+        {
+            dialogueBox.SetActive(true);
+            dialogueBox.transform.SetAsLastSibling();
+        }
 
         if (dialogues.Count <= 0)
         {
